@@ -5,12 +5,13 @@ import java.util.Objects;
 
 /**
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 19.02.2019
  */
 public class Periodical extends Publication {
 
     public enum Audience {
-        CHILDREN, TEENAGERS, ADULTS
+        CHILDREN, TEENAGERS, ADULTS, ANY
     }
 
     protected Audience audience;

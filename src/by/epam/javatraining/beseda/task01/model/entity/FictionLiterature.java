@@ -5,51 +5,52 @@ import java.util.Objects;
 
 /**
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 19.02.2019
  */
 public class FictionLiterature extends NonPeriodical {
 
-    private String kind;
+    private String genre;
 
     public FictionLiterature() {
     }
 
-    public FictionLiterature(String kind, String author, String name,
+    public FictionLiterature(String genre, String author, String name,
             int year, int numberOfPages) {
         super(author, name, year, numberOfPages);
-        if (kind != null) {
-            this.kind = kind;
+        if (genre != null) {
+            this.genre = genre;
         } else {
-            this.kind = "Unknown";
+            this.genre = "Unknown";
         }
     }
 
-    public FictionLiterature(String kind, String author, String name,
-            int numberOfVolumes, int volumeNumber, int date, int numberOfPages) {
-        super(author, name, numberOfVolumes, volumeNumber, date, numberOfPages);
-        if (kind != null) {
-            this.kind = kind;
+    public FictionLiterature(String genre, String author, String name,
+            int numberOfVolumes, int volumeNumber, int year, int numberOfPages) {
+        super(author, name, numberOfVolumes, volumeNumber, year, numberOfPages);
+        if (genre != null) {
+            this.genre = genre;
         } else {
-            this.kind = "Unknown";
+            this.genre = "Unknown";
         }
     }
 
-    public void setKind(String kind) throws IllegalFictionKindException {
-        if (kind != null) {
-            this.kind = kind;
+    public void setGenre(String genre) throws IllegalFictionKindException {
+        if (genre != null) {
+            this.genre = genre;
         } else {
            throw new IllegalFictionKindException();
         }
     }
 
-    public String getKind() {
-        return kind;
+    public String getGenre() {
+        return genre;
     }
 
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 11 * hash + Objects.hashCode(this.kind);
+        hash = 11 * hash + Objects.hashCode(this.genre);
         hash = 11 * hash + super.hashCode() / 2;
         return hash;
     }
@@ -69,7 +70,7 @@ public class FictionLiterature extends NonPeriodical {
         if (!super.equals(new NonPeriodical(other))) {
             return false;
         }
-        if (!Objects.equals(this.kind, other.kind)) {
+        if (!Objects.equals(this.genre, other.genre)) {
             return false;
         }
         return true;
@@ -77,7 +78,7 @@ public class FictionLiterature extends NonPeriodical {
 
     @Override
     public String toString() {
-        return super.toString() + " " + kind;
+        return super.toString() + " " + genre;
     }
 
 }

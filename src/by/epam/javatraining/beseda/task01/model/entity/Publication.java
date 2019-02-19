@@ -9,7 +9,8 @@ import java.util.Objects;
 
 /**
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 19.02.2019
  */
 public class Publication {
 

@@ -4,75 +4,69 @@ import java.util.Objects;
 
 /**
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 19.02.2019
  */
 public class Dictionary extends NonPeriodical {
 
-    private String type;
-    private String language;
+    public enum Type {
+        BILINGUAL, MONOLINGUAL, ENCYCLOPEDIA,
+        THESAURUS, GLOSSARY, ILLUSTRATED, POCKET
+    }
+
+    private Type type;
+    private String publishers;
 
     public Dictionary() {
     }
 
-    public Dictionary(String type, String language, String author, String name,
+    public Dictionary(Type type, String publishers, String author, String name,
             int year, int numberOfPages) {
         super(author, name, year, numberOfPages);
-        if (type != null) {
-            this.type = type;
+        this.type = type;
+        if (publishers != null) {
+            this.publishers = publishers;
         } else {
-            this.type = "Unknown";
-        }
-        if (language != null) {
-            this.language = language;
-        } else {
-            this.language = "Unknown";
+            this.publishers = "Unknown";
         }
     }
 
-    public Dictionary(String type, String language, String author, String name,
+    public Dictionary(Type type, String publishers, String author, String name,
             int numberOfVolumes, int volumeNumber, int date, int numberOfPages) {
         super(author, name, numberOfVolumes, volumeNumber, date, numberOfPages);
-        if (type != null) {
-            this.type = type;
+        this.type = type;
+        if (publishers != null) {
+            this.publishers = publishers;
         } else {
-            this.type = "Unknown";
-        }
-        if (language != null) {
-            this.language = language;
-        } else {
-            this.language = "Unknown";
+            this.publishers = "Unknown";
         }
     }
 
-    public void setType(String type) {
-        if (type != null) {
-            this.type = type;
-        } else {
-            this.type = "Unknown";
-        }
+    public void setType(Type type) {
+        this.type = type;
     }
 
-    public void setLanguage(String language) {
+    public void setPublishers(String language) {
         if (language != null) {
-            this.language = language;
+            this.publishers = language;
         } else {
-            this.language = "Unknown";
+            this.publishers = "Unknown";
         }
     }
 
     public String getType() {
-        return type;
+        return type.name();
     }
 
-    public String getLanguage() {
-        return language;
+    public String getPublishers() {
+        return publishers;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 19 * hash + Objects.hashCode(this.type);
-        hash = 19 * hash + Objects.hashCode(this.language);
+        hash = 19 * hash + Objects.hashCode(this.publishers);
         hash = 19 * hash + super.hashCode() / 2;
         return hash;
     }
@@ -95,7 +89,7 @@ public class Dictionary extends NonPeriodical {
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (!Objects.equals(this.language, other.language)) {
+        if (!Objects.equals(this.publishers, other.publishers)) {
             return false;
         }
         return true;
@@ -103,7 +97,12 @@ public class Dictionary extends NonPeriodical {
 
     @Override
     public String toString() {
-        return super.toString();
+        if (this.multivolume == false) {
+            return publishers + ". " + name + ". " + year + "yr.";
+        } else {
+            return publishers + ". " + name + ". Volume " + volumeNumber
+                    + " of " + numberOfVolumes + ". " + year + "yr.";
+        }
     }
 
 }
