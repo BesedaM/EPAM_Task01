@@ -30,6 +30,8 @@ public class PublicationByExtremeValueFinder {
 
     public final Supplier NUMBER_OF_PAGES = (books, i) -> (books.get(i).getNumberOfPages());
 
+    public final Supplier ORDER_OF_APPEARENCE = (books, i) -> (books.get(i).getID());
+
     /**
      * Method for finding the Publication with minimum value of parameter
      *

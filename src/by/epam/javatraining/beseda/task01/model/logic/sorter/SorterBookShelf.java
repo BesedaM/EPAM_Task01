@@ -37,6 +37,9 @@ public class SorterBookShelf {
     public final Sorter NAME_SORTER = (books, j)
             -> (books.get(j - 1).getName().compareTo(books.get(j).getName()) > 0);
 
+    public final Sorter BY_ORDER_OF_APPEARENCE_SORTER = (books, j) 
+            -> (books.get(j - 1).getID() < books.get(j).getID());
+
     /**
      * Main Algorithm of sorting, using Sorter implementation
      *

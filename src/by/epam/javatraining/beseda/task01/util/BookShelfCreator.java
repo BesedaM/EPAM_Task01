@@ -8,6 +8,8 @@ import by.epam.javatraining.beseda.task01.model.entity.Manuale;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 
 /**
+ * Utility class for creating and filling the BookShelf object with some
+ * Publications
  *
  * @author Beseda
  * @version 1.0 20/02/2019
@@ -45,7 +47,8 @@ public class BookShelfCreator {
             books.add(new Magazine("Psychologies", 2019, 3, 132,
                     Periodical.Audience.ADULTS, Magazine.Periodicity.MONTHLY));
             books.add(new Manuale("Paulina Christensen, Wendy Foster, Anne Fox",
-                    "German for dummies", 2000, 384, "linguistics", Manuale.Category.BEGINNER));
+                    "German for dummies", 2000, 384, "linguistics",
+                    Manuale.Category.BEGINNER));
             books.add(new Manuale("Mark Frary, Stephen Pincock",
                     "The Origins of the Universe for Dummies", 2012, 350,
                     "astronomy", Manuale.Category.ANY));

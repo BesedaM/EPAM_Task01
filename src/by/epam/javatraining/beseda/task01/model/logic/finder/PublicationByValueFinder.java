@@ -32,8 +32,11 @@ public class PublicationByValueFinder {
     public final Condition NUMBER_OF_PAGES = (books, index, numberOfPages)
             -> (books.get(index).getNumberOfPages() == (Integer) numberOfPages);
 
+    public final Condition CLASS_NAME = (books, index, className)
+            -> (books.get(index).getClass().getSimpleName().equals(className));
+
     public final Condition NAME = (books, index, name)
-            -> (books.get(index).getClass().getSimpleName().equals(name));
+            -> (books.get(index).getName().equals(name));
 
     /**
      * Method for finding the certain value by the certain condition
@@ -43,7 +46,7 @@ public class PublicationByValueFinder {
      * @param obj - object encapsulating the certain value
      * @return list of Publications satisfying the given condition
      */
-    public static ArrayList<Publication> findByValue(BookShelf books,
+    public static ArrayList<Publication> find(BookShelf books,
             Condition condition, Object obj) {
         ArrayList<Publication> list = new ArrayList<>();
         if (books != null && condition != null && obj != null) {
