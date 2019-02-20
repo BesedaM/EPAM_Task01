@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  *
  * @author Beseda
- * @version 1.0 19.02.2019
+ * @version 1.0 19/02/2019
  */
 public class Publication {
 
@@ -53,7 +53,7 @@ public class Publication {
         }
     }
 
-    public void setDate(int year) throws IllegalYearException {
+    public void setYear(int year) throws IllegalYearException {
         if (year > 1900 || year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         } else {
@@ -77,7 +77,7 @@ public class Publication {
         return name;
     }
 
-    public int getDate() {
+    public int getYear() {
         return year;
     }
 

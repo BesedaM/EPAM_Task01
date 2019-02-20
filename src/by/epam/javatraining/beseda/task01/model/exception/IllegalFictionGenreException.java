@@ -5,12 +5,12 @@ package by.epam.javatraining.beseda.task01.model.exception;
  * @author Beseda
  * @version 1.0 19/02/2019
  */
-public class IllegalNumberException  extends LibraryLogicException{
+public class IllegalFictionGenreException  extends LibraryLogicException{
 
-    public IllegalNumberException() {
+    public IllegalFictionGenreException() {
     }
 
-    public IllegalNumberException(String message) {
+    public IllegalFictionGenreException(String message) {
         super(message);
     }
     

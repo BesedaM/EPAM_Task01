@@ -1,12 +1,12 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
-import by.epam.javatraining.beseda.task01.model.exception.IllegalFictionKindException;
+import by.epam.javatraining.beseda.task01.model.exception.IllegalFictionGenreException;
 import java.util.Objects;
 
 /**
  *
  * @author Beseda
- * @version 1.0 19.02.2019
+ * @version 1.0 19/02/2019
  */
 public class FictionLiterature extends NonPeriodical {
 
@@ -35,11 +35,11 @@ public class FictionLiterature extends NonPeriodical {
         }
     }
 
-    public void setGenre(String genre) throws IllegalFictionKindException {
+    public void setGenre(String genre) throws IllegalFictionGenreException {
         if (genre != null) {
             this.genre = genre;
         } else {
-           throw new IllegalFictionKindException();
+           throw new IllegalFictionGenreException();
         }
     }
 

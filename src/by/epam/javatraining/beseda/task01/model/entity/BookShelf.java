@@ -3,9 +3,10 @@ package by.epam.javatraining.beseda.task01.model.entity;
 import java.util.Arrays;
 
 /**
+ * Container class having an array of specified size as a storage base
  *
  * @author Beseda
- * @version 1.0 19.02.2019
+ * @version 1.0 19/02/2019
  */
 public class BookShelf {
 
@@ -37,6 +38,12 @@ public class BookShelf {
             }
         } else {
             return false;
+        }
+    }
+
+    public void set(int index, Publication publication) {
+        if (index >= 0 && index < this.size) {
+            shelf[index] = publication;
         }
     }
 
@@ -102,7 +109,7 @@ public class BookShelf {
 
     @Override
     public String toString() {
-        return "Bookshelf for " + MAX_SIZE 
+        return "Bookshelf for " + MAX_SIZE
                 + " publications, current number of publications - " + size;
     }
 

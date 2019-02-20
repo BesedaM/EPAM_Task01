@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  *
  * @author Beseda
- * @version 1.0 19.02.2019
+ * @version 1.0 19/02/2019
  */
 public class Magazine extends Periodical {
 
