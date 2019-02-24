@@ -5,26 +5,25 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import java.util.ArrayList;
 
 /**
- * Class for finding the Publication by it's name or part of name
+ * Class for finding the Publications by the specific class name
  *
  * @author Beseda
- * @version 1.0 20/02/2019
+ * @version 1.1 23/02/2019
  */
-public class PublicationByNameFinder {
+public class PublicationByClassNameFinder {
 
     /**
-     * Finds all the Publications with the specified name
+     * Method returns the list of publications of the specific class
      *
      * @param books - Input BookShelf object
-     * @param name - name or part of name of the publication
-     * @return list object containing Publications with such a name or part a of
-     * name
+     * @param className - short string representation of class name
+     * @return list, containing all the found publications
      */
-    public static ArrayList<Publication> find(BookShelf books, String name) {
+    public static ArrayList<Publication> find(BookShelf books, String className) {
         ArrayList<Publication> list = new ArrayList();
-        if (books != null && name != null) {
+        if (books != null && className != null) {
             for (int i = 0; i < books.getSize(); i++) {
-                if (books.get(i).getName().toLowerCase().contains(name.toLowerCase())) {
+                if (books.get(i).getClass().getSimpleName().equals(className)) {
                     list.add(books.get(i));
                 }
             }

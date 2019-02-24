@@ -10,8 +10,19 @@ import java.util.Objects;
 public class Magazine extends Periodical {
 
     public enum Periodicity {
-        ANNUAL, SEVERAL_TEMES_A_YEAR,
-        MONTHLY, SEVERAL_TIMES_A_MONTH, WEEKLY
+        ANNUAL(360), TWICE_A_YEAR(180), ONCE_A_QUATER(90),
+        MONTHLY(30), TWICE_A_MONTH(15), WEEKLY(7);
+        
+        private double numberOfDays;
+
+        private Periodicity(double numberOfDays ) {
+            this.numberOfDays = numberOfDays;
+        }
+
+        public double getNumberOfDays() {
+            return numberOfDays;
+        }
+
     }
 
     private Periodicity periodicity;

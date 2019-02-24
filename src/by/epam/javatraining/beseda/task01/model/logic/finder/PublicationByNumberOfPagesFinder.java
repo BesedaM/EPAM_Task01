@@ -11,35 +11,35 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
 public class PublicationByNumberOfPagesFinder {
 
     public static Publication findMin(BookShelf books) {
+        Publication foundPublication = null;
         if (books != null && books.getSize() != 0) {
             int min;
-            int index = 0;
-            min = books.get(index).getNumberOfPages();
+            min = books.get(0).getNumberOfPages();
+            foundPublication = books.get(0);
             for (int i = 1; i < books.getSize(); i++) {
                 if (books.get(i).getNumberOfPages() < min) {
                     min = books.get(i).getNumberOfPages();
-                    index = i;
+                    foundPublication = books.get(i);
                 }
             }
-            return books.get(index);
         }
-        return null;
+        return foundPublication;
     }
 
     public static Publication findMax(BookShelf books) {
+        Publication foundPublication = null;
         if (books != null && books.getSize() != 0) {
             int max;
-            int index = 0;
-            max = books.get(index).getNumberOfPages();
+            max = books.get(0).getNumberOfPages();
+            foundPublication = books.get(0);
             for (int i = 1; i < books.getSize(); i++) {
                 if (books.get(i).getNumberOfPages() > max) {
                     max = books.get(i).getNumberOfPages();
-                    index = i;
+                    foundPublication = books.get(i);
                 }
             }
-            return books.get(index);
         }
-        return null;
+        return foundPublication;
     }
 
 }

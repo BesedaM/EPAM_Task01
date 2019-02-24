@@ -91,7 +91,6 @@ public class Periodical extends Publication {
 
     @Override
     public String toString() {
-        return name + ". " + year + "yr. " + number + ". ";
+        return name + ". " + year + ", " + number + ", " + numberOfPages + " pages";
     }
-
 }

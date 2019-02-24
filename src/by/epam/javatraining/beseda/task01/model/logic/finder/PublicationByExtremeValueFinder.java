@@ -4,9 +4,8 @@ import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 
 /**
- * This class is an attempt to unify several finders for finding the Publication
- * object in BookShelf with certain field of extreme value. The value type is
- * specified with Supplier interface
+ * This class represents a finder for Publication object in BookShelf with
+ * specific field of extreme value.
  *
  * @author Beseda
  * @version 1.0 20/02/2019
@@ -15,38 +14,46 @@ public class PublicationByExtremeValueFinder {
 
     /**
      * Inner functional interface containing method get
-     *
-     * @param books - input BookShelf object
-     * @param index - index of element in BookShelf container class
      */
-    interface Supplier {
+    public interface Supplier {
 
-        double get(BookShelf books, int index);
+        int get(BookShelf books, int index);
 
     }
 
     //some predefined values
-    public final Supplier YEAR = (books, i) -> (books.get(i).getYear());
+    public static final Supplier NUMBER_OF_PAGES = (books, i)
+            -> (books.get(i).getNumberOfPages());
 
-    public final Supplier NUMBER_OF_PAGES = (books, i) -> (books.get(i).getNumberOfPages());
+    public static final Supplier ORDER_OF_APPEARENCE = (books, i)
+            -> (books.get(i).getID());
 
-    public final Supplier ORDER_OF_APPEARENCE = (books, i) -> (books.get(i).getID());
+    public static final Supplier YEAR = (books, i) -> (books.get(i).getYear());
 
     /**
      * Method for finding the Publication with minimum value of parameter
      *
+     * The value of parameter must be in
+     * <ul>
+     * <li><code>YEAR</code></li>
+     * <li><code>NUMBER_OF_PAGES</code></li>
+     * <li><code>ORDER_OF_APPEARENCE</code></li>
+     * </ul>
+     *
      * @param books - input BookShelf object
-     * @param parameter - type of value, defined with inner Supplier interface
-     * @return Publication object, satisfying the certain condition
+     * @param parameter - type of value, defined with inner Supplier interface.
+     *
+     * @return Publication object, satisfying the specific condition
      */
     public static Publication findMin(BookShelf books, Supplier parameter) {
         Publication foundPublication = null;
         if (books != null && books.getSize() != 0 && parameter != null) {
-            int tempYear;
-            tempYear = (int) parameter.get(books, 0);
+            int temp;
+            temp = parameter.get(books, 0);
+            foundPublication = books.get(0);
             for (int i = 1; i < books.getSize(); i++) {
-                if ((int) parameter.get(books, i) < tempYear) {
-                    tempYear = (int) parameter.get(books, i);
+                if (parameter.get(books, i) < temp) {
+                    temp = parameter.get(books, i);
                     foundPublication = books.get(i);
                 }
             }
@@ -57,18 +64,26 @@ public class PublicationByExtremeValueFinder {
     /**
      * Method for finding the Publication with maximum value of parameter
      *
+     * The value of parameter must be in
+     * <ul>
+     * <li><code>YEAR</code></li>
+     * <li><code>NUMBER_OF_PAGES</code></li>
+     * <li><code>ORDER_OF_APPEARENCE</code></li>
+     * </ul>
+     *
      * @param books - input BookShelf object
      * @param parameter - type of value, defined with inner Supplier interface
-     * @return Publication object, satisfying the certain condition
+     * @return Publication object, satisfying the specific condition
      */
     public static Publication findMax(BookShelf books, Supplier parameter) {
         Publication foundPublication = null;
         if (books != null && books.getSize() != 0 && parameter != null) {
-            int tempYear;
-            tempYear = (int) parameter.get(books, 0);
+            int temp;
+            temp = parameter.get(books, 0);
+            foundPublication = books.get(0);
             for (int i = 1; i < books.getSize(); i++) {
-                if ((int) parameter.get(books, i) > tempYear) {
-                    tempYear = (int) parameter.get(books, i);
+                if (parameter.get(books, i) > temp) {
+                    temp = parameter.get(books, i);
                     foundPublication = books.get(i);
                 }
             }

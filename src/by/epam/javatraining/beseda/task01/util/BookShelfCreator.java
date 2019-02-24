@@ -16,6 +16,12 @@ import by.epam.javatraining.beseda.task01.model.entity.Periodical;
  */
 public class BookShelfCreator {
 
+    /**
+     * Method for creating a new BookShelf object of specific size
+     *
+     * @param size - maximum number of Publications you can put in BookShelf
+     * @return BookShelf object of specific size
+     */
     public static BookShelf createBookShelf(int size) {
         if (size > 0) {
             return new BookShelf(size);
@@ -24,6 +30,11 @@ public class BookShelfCreator {
         }
     }
 
+    /**
+     * Method for filling the container BookShelf object with some Publications
+     *
+     * @param books - Input BookShelf object
+     */
     public static void fillBookShelf(BookShelf books) {
         if (books != null) {
             books.add(new FictionLiterature("historical novel", "Victor Hugo",

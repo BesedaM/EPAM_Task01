@@ -142,10 +142,12 @@ public class NonPeriodical extends Publication {
     @Override
     public String toString() {
         if (this.multivolume == false) {
-            return author + ". " + name + ". " + year + "yr.";
+            return author + ". " + name + ". " + year + ", " 
+                    + numberOfPages + " pages";
         } else {
             return author + ". " + name + ". Volume " + volumeNumber
-                    + " of " + numberOfVolumes + ". " + year + "yr.";
+                    + " of " + numberOfVolumes + ". " + year + ", " 
+                    + numberOfPages + " pages";
         }
     }
 

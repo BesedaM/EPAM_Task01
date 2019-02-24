@@ -78,7 +78,7 @@ public class FictionLiterature extends NonPeriodical {
 
     @Override
     public String toString() {
-        return super.toString() + " " + genre;
+        return super.toString();
     }
 
 }

@@ -98,10 +98,10 @@ public class Dictionary extends NonPeriodical {
     @Override
     public String toString() {
         if (this.multivolume == false) {
-            return publishers + ". " + name + ". " + year + "yr.";
+            return publishers + ". " + name + ". " + year;
         } else {
             return publishers + ". " + name + ". Volume " + volumeNumber
-                    + " of " + numberOfVolumes + ". " + year + "yr.";
+                    + " of " + numberOfVolumes + ". " + year;
         }
     }
 

@@ -5,8 +5,10 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import java.util.ArrayList;
 
 /**
- * This class is an attempt to unify several finders for finding the Publication
- * object in BookShelf container with field of certain value
+ * This class represents a finder for Publication object in BookShelf container
+ * by the specific field of specific value
+ *
+ * But I'm still not sure whether I should do it
  *
  *
  * @author Beseda
@@ -16,11 +18,8 @@ public class PublicationByValueFinder {
 
     /**
      * Inner functional interface containing method satisfy
-     *
-     * @param books - input BookShelf object
-     * @param index - index of element in BookShelf container class
      */
-    interface Condition {
+    public interface Condition {
 
         boolean satisfy(BookShelf books, int index, Object obj);
 
@@ -29,21 +28,22 @@ public class PublicationByValueFinder {
     public final Condition YEAR = (books, index, year)
             -> (books.get(index).getYear() == (Integer) year);
 
-    public final Condition NUMBER_OF_PAGES = (books, index, numberOfPages)
+    public static final Condition NUMBER_OF_PAGES = (books, index, numberOfPages)
             -> (books.get(index).getNumberOfPages() == (Integer) numberOfPages);
 
-    public final Condition CLASS_NAME = (books, index, className)
-            -> (books.get(index).getClass().getSimpleName().equals(className));
+    public static final Condition CLASS_NAME = (books, index, className)
+            -> (books.get(index).getClass().getSimpleName().toLowerCase()
+                    .contains(((String) className).toLowerCase()));
 
-    public final Condition NAME = (books, index, name)
+    public static final Condition NAME = (books, index, name)
             -> (books.get(index).getName().equals(name));
 
     /**
-     * Method for finding the certain value by the certain condition
+     * Method for finding the specific value by the specific condition
      *
      * @param books - input BookShelf object
      * @param condition - implementation of functional interface Condition
-     * @param obj - object encapsulating the certain value
+     * @param obj - object encapsulating the specific value
      * @return list of Publications satisfying the given condition
      */
     public static ArrayList<Publication> find(BookShelf books,

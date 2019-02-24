@@ -11,12 +11,26 @@ import java.util.Arrays;
 public class BookShelf {
 
     private final int MAX_SIZE;
-    private Publication[] shelf;
+    private Publication[] books;
     private int size = 0;
+
+    private int numberOfPeriodical = 0;
+    private int numberOfNonPeriodical = 0;
 
     public BookShelf(int size) {
         this.MAX_SIZE = size;
-        this.shelf = new Publication[MAX_SIZE];
+        this.books = new Publication[MAX_SIZE];
+    }
+
+    public BookShelf(BookShelf books) {
+        this.MAX_SIZE = books.getMaximumSize();
+        this.books = new Publication[MAX_SIZE];
+        this.size = books.getSize();
+        this.numberOfNonPeriodical = books.numberOfNonPeriodical;
+        this.numberOfPeriodical = books.numberOfPeriodical;
+        for (int i = 0; i < size; i++) {
+            this.add(books.get(i));
+        }
     }
 
     public int getMaximumSize() {
@@ -28,14 +42,11 @@ public class BookShelf {
     }
 
     public boolean add(Publication publication) {
-        if (publication != null) {
-            if (!(this.size == this.shelf.length)) {
-                this.shelf[this.size] = publication;
-                this.size++;
-                return true;
-            } else {
-                return false;
-            }
+        if (publication != null && !(this.size == this.books.length)) {
+            this.addPeriodicalOrNonPeriodical(publication);
+            this.books[this.size] = publication;
+            this.size++;
+            return true;
         } else {
             return false;
         }
@@ -43,13 +54,15 @@ public class BookShelf {
 
     public void set(int index, Publication publication) {
         if (index >= 0 && index < this.size) {
-            shelf[index] = publication;
+            this.deletePeriodicalOrNonPeriodical(books[index]);
+            this.addPeriodicalOrNonPeriodical(publication);
+            books[index] = publication;
         }
     }
 
     public Publication get(int index) {
         if (index >= 0 && index < this.size) {
-            return shelf[index];
+            return books[index];
         } else {
             return null;
         }
@@ -57,8 +70,9 @@ public class BookShelf {
 
     public boolean delete(int index) {
         if (index >= 0 && index < this.size) {
-            shelf[index] = shelf[this.size - 1];
-            shelf[this.size - 1] = null;
+            this.deletePeriodicalOrNonPeriodical(books[index]);
+            books[index] = books[this.size - 1];
+            books[this.size - 1] = null;
             size--;
             return true;
         } else {
@@ -66,10 +80,34 @@ public class BookShelf {
         }
     }
 
+    private void addPeriodicalOrNonPeriodical(Publication publication) {
+        if (publication instanceof Periodical) {
+            this.numberOfPeriodical++;
+        } else if (publication instanceof NonPeriodical) {
+            this.numberOfNonPeriodical++;
+        }
+    }
+
+    private void deletePeriodicalOrNonPeriodical(Publication publication) {
+        if (publication instanceof Periodical) {
+            this.numberOfPeriodical--;
+        } else if (publication instanceof NonPeriodical) {
+            this.numberOfNonPeriodical--;
+        }
+    }
+
+    public int getNumberOfPeriodical() {
+        return this.numberOfPeriodical;
+    }
+
+    public int getNumberOfNonPeriodical() {
+        return this.numberOfNonPeriodical;
+    }
+
     public String getAllPublications() {
         StringBuilder string = new StringBuilder();
         for (int i = 0; i < this.size; i++) {
-            string.append(shelf[i]).append("\n");
+            string.append(books[i]).append("\n");
         }
         return string.toString();
     }
@@ -78,7 +116,7 @@ public class BookShelf {
     public int hashCode() {
         int hash = 5;
         hash = 17 * hash + this.MAX_SIZE;
-        hash = 17 * hash + Arrays.deepHashCode(this.shelf);
+        hash = 17 * hash + Arrays.deepHashCode(this.books);
         hash = 17 * hash + this.size;
         return hash;
     }
@@ -101,7 +139,7 @@ public class BookShelf {
         if (this.size != other.size) {
             return false;
         }
-        if (!Arrays.deepEquals(this.shelf, other.shelf)) {
+        if (!Arrays.deepEquals(this.books, other.books)) {
             return false;
         }
         return true;

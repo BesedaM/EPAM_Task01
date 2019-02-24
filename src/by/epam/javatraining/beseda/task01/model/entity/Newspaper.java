@@ -10,8 +10,18 @@ import java.util.Objects;
 public class Newspaper extends Periodical {
 
     public enum Periodicity {
-        MONTHLY, SEVERAL_TIMES_A_MONTH, WEEKLY,
-        SEVERAL_TIMES_A_WEEK, DAYLY
+        MONTHLY(30), TWICE_A_MONTH(15), WEEKLY(7),
+        TWICE_A_WEEK(7.0/2), THREE_TIMES_A_WEEK(7.0/3), DAYLY(1);
+        
+        private double numberOfDays;
+
+        private Periodicity(double numberOfDays ) {
+            this.numberOfDays = numberOfDays;
+        }
+
+        public double getNumberOfDays() {
+            return numberOfDays;
+        }    
     }
 
     private Periodicity periodicity;
