@@ -32,10 +32,12 @@ public class Publication {
         } else {
             this.name = "Unknown";
         }
-        if (year > 1900 || year <= (new GregorianCalendar().get(Calendar.YEAR))) {
+        if (year > 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         }
-        this.numberOfPages = numberOfPages;
+        if (numberOfPages > 0) {
+            this.numberOfPages = numberOfPages;
+        }
     }
 
     protected Publication(Publication otherPublication) {   //used in subclass's equals method
@@ -54,7 +56,7 @@ public class Publication {
     }
 
     public void setYear(int year) throws IllegalYearException {
-        if (year > 1900 || year <= (new GregorianCalendar().get(Calendar.YEAR))) {
+        if (year > 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         } else {
             throw new IllegalYearException();

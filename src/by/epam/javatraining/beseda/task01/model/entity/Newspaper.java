@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
+import by.epam.javatraining.beseda.task01.model.exception.IllegalPeriodicityException;
 import java.util.Objects;
 
 /**
@@ -11,17 +12,17 @@ public class Newspaper extends Periodical {
 
     public enum Periodicity {
         MONTHLY(30), TWICE_A_MONTH(15), WEEKLY(7),
-        TWICE_A_WEEK(7.0/2), THREE_TIMES_A_WEEK(7.0/3), DAYLY(1);
-        
+        TWICE_A_WEEK(7.0 / 2), THREE_TIMES_A_WEEK(7.0 / 3), DAYLY(1);
+
         private double numberOfDays;
 
-        private Periodicity(double numberOfDays ) {
+        private Periodicity(double numberOfDays) {
             this.numberOfDays = numberOfDays;
         }
 
         public double getNumberOfDays() {
             return numberOfDays;
-        }    
+        }
     }
 
     private Periodicity periodicity;
@@ -32,11 +33,19 @@ public class Newspaper extends Periodical {
     public Newspaper(String name, int year, int number, int numberOfPages,
             Audience audience, Periodicity periodicity) {
         super(name, year, number, numberOfPages, audience);
-        this.periodicity = periodicity;
+        if (periodicity != null) {
+            this.periodicity = periodicity;
+        } else {
+            this.periodicity = Periodicity.WEEKLY;
+        }
     }
 
-    public void setPeriodicity(Periodicity periodicity) {
-        this.periodicity = periodicity;
+    public void setPeriodicity(Periodicity periodicity) throws IllegalPeriodicityException {
+        if (periodicity != null) {
+            this.periodicity = periodicity;
+        } else {
+            throw new IllegalPeriodicityException();
+        }
     }
 
     public Periodicity getPeriodicity() {
@@ -66,7 +75,7 @@ public class Newspaper extends Periodical {
         if (!super.equals(new Periodical(other))) { //!!!
             return false;
         }
-        
+
         if (this.periodicity != other.periodicity) {
             return false;
         }

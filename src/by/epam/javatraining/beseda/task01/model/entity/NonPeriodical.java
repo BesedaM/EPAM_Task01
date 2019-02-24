@@ -1,8 +1,8 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNumberOfVolumesException;
-import by.epam.javatraining.beseda.task01.model.exception.IllegalVolumeException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalAuthorException;
+import by.epam.javatraining.beseda.task01.model.exception.IllegalVolumeNumberException;
 import java.util.Objects;
 
 /**
@@ -66,11 +66,11 @@ public class NonPeriodical extends Publication {
         this.multivolume = multivolume;
     }
 
-    public void setVolumeNumber(int volumeNumber) throws IllegalVolumeException {
+    public void setVolumeNumber(int volumeNumber) throws IllegalVolumeNumberException {
         if (volumeNumber > 0) {
             this.volumeNumber = volumeNumber;
         } else {
-            throw new IllegalVolumeException();
+            throw new IllegalVolumeNumberException();
         }
     }
 

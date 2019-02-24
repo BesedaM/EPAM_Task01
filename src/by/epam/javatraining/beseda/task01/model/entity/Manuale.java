@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
+import by.epam.javatraining.beseda.task01.model.exception.IllegalAudienceException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalScienceFieldException;
 import java.util.Objects;
 
@@ -10,13 +11,13 @@ import java.util.Objects;
  */
 public class Manuale extends NonPeriodical {
 
-    public enum Category {
+    public enum Audience {
         BEGINNER("beginners"), AMATEUR("amauters"),
         PROFESSIONAL("professionals"), ANY("any");
 
         private String name;
 
-        Category(String name) {
+        Audience(String name) {
             this.name = name;
         }
 
@@ -26,32 +27,40 @@ public class Manuale extends NonPeriodical {
     }
 
     private String field;
-    private Category audience;
+    private Audience audience;
 
     public Manuale() {
     }
 
     public Manuale(String author, String name, int year, int numberOfPages,
-            String field, Category audience) {
+            String field, Audience audience) {
         super(author, name, year, numberOfPages);
         if (field != null) {
             this.field = field;
         } else {
             this.field = "Unknown";
         }
-        this.audience = audience;
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            this.audience = Audience.ANY;
+        }
     }
 
     public Manuale(String author, String name, int numberOfVolumes,
             int volumeNumber, int date, int numberOfPages,
-            String field, Category audience) {
+            String field, Audience audience) {
         super(author, name, numberOfVolumes, volumeNumber, date, numberOfPages);
         if (field != null) {
             this.field = field;
         } else {
             this.field = "Unknown";
         }
-        this.audience = audience;
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            this.audience = Audience.ANY;
+        }
     }
 
     public void setField(String field) throws IllegalScienceFieldException {
@@ -62,15 +71,19 @@ public class Manuale extends NonPeriodical {
         }
     }
 
-    public void setAudience(Category audience) {
-        this.audience = audience;
+    public void setAudience(Audience audience) throws IllegalAudienceException {
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            throw new IllegalAudienceException();
+        }
     }
 
     public String getField() {
         return field;
     }
 
-    public Category getAudience() {
+    public Audience getAudience() {
         return audience;
     }
 

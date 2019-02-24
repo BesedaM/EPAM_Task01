@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
+import by.epam.javatraining.beseda.task01.model.exception.IllegalTypeException;
 import java.util.Objects;
 
 /**
@@ -23,7 +24,11 @@ public class Dictionary extends NonPeriodical {
     public Dictionary(Type type, String publishers, String author, String name,
             int year, int numberOfPages) {
         super(author, name, year, numberOfPages);
-        this.type = type;
+        if (type != null) {
+            this.type = type;
+        } else {
+            this.type = Type.BILINGUAL;
+        }
         if (publishers != null) {
             this.publishers = publishers;
         } else {
@@ -34,7 +39,11 @@ public class Dictionary extends NonPeriodical {
     public Dictionary(Type type, String publishers, String author, String name,
             int numberOfVolumes, int volumeNumber, int date, int numberOfPages) {
         super(author, name, numberOfVolumes, volumeNumber, date, numberOfPages);
-        this.type = type;
+        if (type != null) {
+            this.type = type;
+        } else {
+            this.type = Type.BILINGUAL;
+        }
         if (publishers != null) {
             this.publishers = publishers;
         } else {
@@ -42,8 +51,12 @@ public class Dictionary extends NonPeriodical {
         }
     }
 
-    public void setType(Type type) {
-        this.type = type;
+    public void setType(Type type) throws IllegalTypeException {
+        if (type != null) {
+            this.type = type;
+        } else {
+            throw new IllegalTypeException();
+        }
     }
 
     public void setPublishers(String language) {
@@ -54,8 +67,8 @@ public class Dictionary extends NonPeriodical {
         }
     }
 
-    public String getType() {
-        return type.name();
+    public Type getType() {
+        return type;
     }
 
     public String getPublishers() {

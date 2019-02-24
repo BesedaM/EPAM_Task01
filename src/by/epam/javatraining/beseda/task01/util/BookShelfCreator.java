@@ -59,12 +59,12 @@ public class BookShelfCreator {
                     Periodical.Audience.ADULTS, Magazine.Periodicity.MONTHLY));
             books.add(new Manuale("Paulina Christensen, Wendy Foster, Anne Fox",
                     "German for dummies", 2000, 384, "linguistics",
-                    Manuale.Category.BEGINNER));
+                    Manuale.Audience.BEGINNER));
             books.add(new Manuale("Mark Frary, Stephen Pincock",
                     "The Origins of the Universe for Dummies", 2012, 350,
-                    "astronomy", Manuale.Category.ANY));
+                    "astronomy", Manuale.Audience.ANY));
             books.add(new Manuale("Ron White", "How Computers Work", 2007, 464,
-                    "information technology", Manuale.Category.BEGINNER));
+                    "information technology", Manuale.Audience.BEGINNER));
             books.add(new Magazine("National Geographic", 2019, 3, 170,
                     Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
             books.add(new Magazine("Digital Photography", 2019, 1, 153,

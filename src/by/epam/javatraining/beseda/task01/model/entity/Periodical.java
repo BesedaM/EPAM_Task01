@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
+import by.epam.javatraining.beseda.task01.model.exception.IllegalAudienceException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNumberException;
 import java.util.Objects;
 
@@ -24,7 +25,11 @@ public class Periodical extends Publication {
     protected Periodical(String name, int year, int number, int numberOfPages,
             Audience audience) {
         super(name, year, numberOfPages);
-        this.audience = audience;
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            this.audience = Audience.ANY;
+        }
         if (number > 0) {
             this.number = number;
         }
@@ -36,8 +41,13 @@ public class Periodical extends Publication {
         this.number = otherPeriodical.number;
     }
 
-    public void setAudience(Audience audience) {
-        this.audience = audience;
+    public void setAudience(Audience audience) throws IllegalAudienceException {
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            throw new IllegalAudienceException();
+        }
+
     }
 
     public void setNumber(int number) throws IllegalNumberException {
