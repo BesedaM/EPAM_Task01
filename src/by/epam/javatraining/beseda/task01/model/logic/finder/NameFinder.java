@@ -10,13 +10,13 @@ import java.util.ArrayList;
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class PublicationByNameFinder {
+public class NameFinder {
 
     /**
      * Finds all the Publications with the specified name
      *
-     * @param books - Input BookShelf object
-     * @param name - name or part of name of the publication
+     * @param books Input BookShelf object
+     * @param name Name or part of name of the publication
      * @return list object containing Publications with such a name or part a of
      * name
      */

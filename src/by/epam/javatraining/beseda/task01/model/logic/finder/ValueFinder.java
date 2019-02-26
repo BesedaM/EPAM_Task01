@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class PublicationByValueFinder {
+public class ValueFinder {
 
     /**
      * Inner functional interface containing method satisfy
@@ -32,9 +32,6 @@ public class PublicationByValueFinder {
     public static final Condition NAME = (books, index, name)
             -> (books.get(index).getName().equals(name));
 
-    public static final Condition THE_SAME_PUBLICATION = (books, index, book)
-            -> (books.get(index).equals(book) == true);
-
     public final Condition YEAR = (books, index, year)
             -> (books.get(index).getYear() == (Integer) year);
 
@@ -50,7 +47,6 @@ public class PublicationByValueFinder {
      * <ul>
      * <li><code>CLASS_NAME</code></li>
      * <li><code>NAME</code></li>
-     * <li><code>THE_SAME_PUBLICATION</code></li>
      * <li><code>YEAR</code></li>
      * <li><code>NUMBER_OF_PAGES</code></li>
      * </ul>

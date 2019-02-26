@@ -10,7 +10,7 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class PublicationByExtremeValueFinder {
+public class ExtremeValueFinder {
 
     /**
      * Inner functional interface containing method get
@@ -36,8 +36,8 @@ public class PublicationByExtremeValueFinder {
      * <li><code>NUMBER_OF_PAGES</code></li>
      * </ul>
      *
-     * @param books - input BookShelf object
-     * @param parameter - type of value, defined with inner Supplier interface.
+     * @param books Input BookShelf object
+     * @param parameter Type of value, defined with inner Supplier interface
      *
      * @return Publication object, satisfying the specific condition
      */
@@ -66,8 +66,8 @@ public class PublicationByExtremeValueFinder {
      * <li><code>NUMBER_OF_PAGES</code></li>
      * </ul>
      *
-     * @param books - input BookShelf object
-     * @param parameter - type of value, defined with inner Supplier interface
+     * @param books Input BookShelf object
+     * @param parameter Type of value, defined with inner Supplier interface
      * @return Publication object, satisfying the specific condition
      */
     public static Publication findMax(BookShelf books, Supplier parameter) {

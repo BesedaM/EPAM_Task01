@@ -60,6 +60,16 @@ public class BookShelfNGTest {
     }
 
     @Test(groups = {"correct data"}, priority = 1)
+    public void testContains01() {
+        Assert.assertEquals(goodBooks.contains(new Magazine()), true);
+    }
+
+    @Test(groups = {"correct data"}, priority = 1)
+    public void testContains02() {
+        Assert.assertEquals(goodBooks.contains(new Magazine("", 0, 0, 0, null, null)), false);
+    }
+
+    @Test(groups = {"correct data"}, priority = 1)
     public void testGetNumberOfPeriodical02() {
         Assert.assertEquals(goodBooks.getNumberOfPeriodical(), 1);
     }

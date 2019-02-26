@@ -10,13 +10,13 @@ import java.util.ArrayList;
  * @author Beseda
  * @version 1.1 23/02/2019
  */
-public class PublicationByClassNameFinder {
+public class ClassNameFinder {
 
     /**
      * Method returns the list of publications of the specific class
      *
-     * @param books - Input BookShelf object
-     * @param className - short string representation of class name
+     * @param books Input BookShelf object
+     * @param className String representation of class name
      * @return list, containing all the found publications
      */
     public static ArrayList<Publication> find(BookShelf books, String className) {

@@ -20,10 +20,6 @@ public class SorterNGTest {
     public SorterNGTest() {
     }
 
-    @Test
-    public void testSort() {
-    }
-
     @DataProvider(name = "BookShelf with data")
     public static Object[][] provideData01() {
         BookShelf books = new BookShelf(10);

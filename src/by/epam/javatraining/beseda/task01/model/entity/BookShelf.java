@@ -64,6 +64,15 @@ public class BookShelf {
         }
     }
 
+    public boolean contains(Publication publication) {
+        for (int i = 0; i < this.size; i++) {
+            if (books[i].equals(publication)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public Publication get(int index) {
         if (index >= 0 && index < this.size) {
             return books[index];

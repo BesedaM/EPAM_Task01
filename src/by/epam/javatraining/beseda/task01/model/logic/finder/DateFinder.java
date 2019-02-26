@@ -11,12 +11,12 @@ import java.util.ArrayList;
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class PublicationByDateFinder {
+public class DateFinder {
 
     /**
      * Method for finding the oldest Publication object
      *
-     * @param books - Input BookShelf object
+     * @param books Input BookShelf object
      * @return Publication with the minimum value year
      */
     public static Publication findOldest(BookShelf books) {
@@ -51,7 +51,7 @@ public class PublicationByDateFinder {
     /**
      * Method for finding the newest Publication object
      *
-     * @param books - Input BookShelf object
+     * @param books Input BookShelf object
      * @return Publication with the maximum value of year
      */
     public static Publication findNewest(BookShelf books) {
@@ -84,8 +84,8 @@ public class PublicationByDateFinder {
      * Method for finding the Publication objects by the year field of specific
      * value
      *
-     * @param books - Input BookShelf object
-     * @param year - the value of year field
+     * @param books Input BookShelf object
+     * @param year The value of year field
      * @return ArrayList of Publication objects, corresponding the specific
      * value
      */

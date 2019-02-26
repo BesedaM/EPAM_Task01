@@ -8,7 +8,7 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class PublicationByNumberOfPagesFinder {
+public class NumberOfPagesFinder {
 
     public static Publication findMin(BookShelf books) {
         Publication foundPublication = null;
