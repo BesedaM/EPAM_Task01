@@ -30,15 +30,14 @@ public class ExtremeValueFinder {
     /**
      * Method for finding the Publication with minimum value of parameter
      *
+     *
+     * @param books Input BookShelf object
+     * @param parameter Type of value, defined with inner Supplier interface.
      * The value of parameter must be in
      * <ul>
      * <li><code>YEAR</code></li>
      * <li><code>NUMBER_OF_PAGES</code></li>
      * </ul>
-     *
-     * @param books Input BookShelf object
-     * @param parameter Type of value, defined with inner Supplier interface
-     *
      * @return Publication object, satisfying the specific condition
      */
     public static Publication findMin(BookShelf books, Supplier parameter) {
@@ -60,14 +59,13 @@ public class ExtremeValueFinder {
     /**
      * Method for finding the Publication with maximum value of parameter
      *
+     * @param books Input BookShelf object
+     * @param parameter Type of value, defined with inner Supplier interface.
      * The value of parameter must be in
      * <ul>
      * <li><code>YEAR</code></li>
      * <li><code>NUMBER_OF_PAGES</code></li>
      * </ul>
-     *
-     * @param books Input BookShelf object
-     * @param parameter Type of value, defined with inner Supplier interface
      * @return Publication object, satisfying the specific condition
      */
     public static Publication findMax(BookShelf books, Supplier parameter) {

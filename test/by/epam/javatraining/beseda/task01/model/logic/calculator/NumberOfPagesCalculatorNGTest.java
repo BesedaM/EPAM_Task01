@@ -11,7 +11,8 @@ import org.testng.annotations.Test;
 
 /**
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 27/02/2019
  */
 public class NumberOfPagesCalculatorNGTest {
 
