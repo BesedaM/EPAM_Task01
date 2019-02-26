@@ -12,6 +12,7 @@ public class FictionLiterature extends NonPeriodical {
     private String genre;
 
     public FictionLiterature() {
+        super();
     }
 
     public FictionLiterature(String genre, String author, String name,
@@ -66,7 +67,7 @@ public class FictionLiterature extends NonPeriodical {
             return false;
         }
         final FictionLiterature other = (FictionLiterature) obj;
-        if (!super.equals(new NonPeriodical(other))) {
+        if (!super.equals(obj)) {
             return false;
         }
         if (!Objects.equals(this.genre, other.genre)) {

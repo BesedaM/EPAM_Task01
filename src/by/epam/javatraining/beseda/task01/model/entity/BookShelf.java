@@ -18,7 +18,11 @@ public class BookShelf {
     private int numberOfNonPeriodical = 0;
 
     public BookShelf(int size) {
-        this.MAX_SIZE = size;
+        if (size > 0) {
+            this.MAX_SIZE = size;
+        } else {
+            this.MAX_SIZE = 0;
+        }
         this.books = new Publication[MAX_SIZE];
     }
 
@@ -29,7 +33,7 @@ public class BookShelf {
         this.numberOfNonPeriodical = books.numberOfNonPeriodical;
         this.numberOfPeriodical = books.numberOfPeriodical;
         for (int i = 0; i < size; i++) {
-            this.add(books.get(i));
+            this.books[i] = books.get(i);
         }
     }
 
@@ -53,7 +57,7 @@ public class BookShelf {
     }
 
     public void set(int index, Publication publication) {
-        if (index >= 0 && index < this.size) {
+        if (index >= 0 && index < this.size && publication != null) {
             this.deletePeriodicalOrNonPeriodical(books[index]);
             this.addPeriodicalOrNonPeriodical(publication);
             books[index] = publication;

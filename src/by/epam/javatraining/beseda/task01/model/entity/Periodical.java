@@ -20,6 +20,7 @@ public class Periodical extends Publication {
 
     protected Periodical() {
         super();
+        this.audience = Audience.ANY;
     }
 
     protected Periodical(String name, int year, int number, int numberOfPages,
@@ -33,12 +34,6 @@ public class Periodical extends Publication {
         if (number > 0) {
             this.number = number;
         }
-    }
-
-    public Periodical(Periodical otherPeriodical) {
-        super(otherPeriodical);
-        this.audience = otherPeriodical.audience;
-        this.number = otherPeriodical.number;
     }
 
     public void setAudience(Audience audience) throws IllegalAudienceException {
@@ -67,6 +62,11 @@ public class Periodical extends Publication {
     }
 
     @Override
+    public double getDays() {
+        return 0;
+    }
+
+    @Override
     public int hashCode() {
         int hash = 5;
         hash = 17 * hash + Objects.hash(this.audience);
@@ -86,11 +86,11 @@ public class Periodical extends Publication {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Periodical other = (Periodical) obj;
-        if (!super.equals(new Publication(other))) {    //checking of parent's fields
+        if (!super.equals(obj)) {    //checking of parent's fields
             return false;
         }
-        if (this.audience.equals(other.audience)) {
+        final Periodical other = (Periodical) obj;
+        if (!this.audience.equals(other.audience)) {
             return false;
         }
         if (this.number != other.number) {

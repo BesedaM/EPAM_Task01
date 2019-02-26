@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
+import by.epam.javatraining.beseda.task01.model.exception.IllegalIDException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNameException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNumberOfPagesException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalYearException;
@@ -14,19 +15,16 @@ import java.util.Objects;
  */
 public class Publication {
 
-    public static int ID_COUNT = 1;
-
     protected int ID;
     protected String name;
     protected int year;
     protected int numberOfPages;
 
     protected Publication() {
-        this.ID = ID_COUNT++;
+        this.name = "Unknown";
     }
 
     protected Publication(String name, int year, int numberOfPages) {
-        this.ID = ID_COUNT++;
         if (name != null) {
             this.name = name;
         } else {
@@ -40,11 +38,12 @@ public class Publication {
         }
     }
 
-    protected Publication(Publication otherPublication) {   //used in subclass's equals method
-        this.ID = otherPublication.ID;
-        this.name = otherPublication.name;
-        this.year = otherPublication.year;
-        this.numberOfPages = otherPublication.numberOfPages;
+    public void setID(int ID) throws IllegalIDException {
+        if (ID > 0) {
+            this.ID = ID;
+        } else {
+            throw new IllegalIDException();
+        }
     }
 
     public void setName(String name) throws IllegalNameException {
@@ -87,10 +86,14 @@ public class Publication {
         return numberOfPages;
     }
 
+        
+    public double getDays() {
+        return 0;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + this.ID;
         hash = 19 * hash + Objects.hashCode(this.name);
         hash = 19 * hash + this.year;
         hash = 19 * hash + this.numberOfPages;
@@ -109,9 +112,6 @@ public class Publication {
             return false;
         }
         final Publication other = (Publication) obj;
-        if (this.ID != other.ID) {
-            return false;
-        }
         if (this.year != other.year) {
             return false;
         }

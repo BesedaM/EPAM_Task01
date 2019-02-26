@@ -30,6 +30,7 @@ public class Manuale extends NonPeriodical {
     private Audience audience;
 
     public Manuale() {
+        super();
     }
 
     public Manuale(String author, String name, int year, int numberOfPages,
@@ -108,7 +109,7 @@ public class Manuale extends NonPeriodical {
             return false;
         }
         final Manuale other = (Manuale) obj;
-        if (!super.equals(new NonPeriodical(other))) {      //!!!!
+        if (!super.equals(obj)) {      //!!!!
             return false;
         }
         if (!Objects.equals(this.field, other.field)) {

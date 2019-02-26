@@ -18,6 +18,8 @@ public class NonPeriodical extends Publication {
     protected int numberOfVolumes;
 
     protected NonPeriodical() {
+        super();
+        this.author = "Unknown";
     }
 
     protected NonPeriodical(String author, String name, int year, int numberOfPages) {
@@ -44,14 +46,6 @@ public class NonPeriodical extends Publication {
         if (numberOfVolumes > 1) {
             this.numberOfVolumes = numberOfVolumes;
         }
-    }
-
-    public NonPeriodical(NonPeriodical otherNonPeriodical) {
-        super(otherNonPeriodical);
-        this.author = otherNonPeriodical.author;
-        this.multivolume = otherNonPeriodical.multivolume;
-        this.volumeNumber = otherNonPeriodical.volumeNumber;
-        this.numberOfVolumes = otherNonPeriodical.numberOfVolumes;
     }
 
     public void setAuthor(String author) throws IllegalAuthorException {
@@ -120,10 +114,10 @@ public class NonPeriodical extends Publication {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final NonPeriodical other = (NonPeriodical) obj;
-        if (!super.equals(new Publication(other))) {       //added myself, there is a bug in NetBeans 
-            return false;                                  //(it doesn't check the correctness of parent's fields)
+        if (!super.equals(obj)) {       
+            return false;                        
         }
+        final NonPeriodical other = (NonPeriodical) obj;
         if (this.multivolume != other.multivolume) {
             return false;
         }

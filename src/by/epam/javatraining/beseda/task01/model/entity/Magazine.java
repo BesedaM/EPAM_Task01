@@ -29,6 +29,7 @@ public class Magazine extends Periodical {
     private Periodicity periodicity;
 
     public Magazine() {
+        super();
     }
 
     public Magazine(String name, int year, int number, int numberOfPages,
@@ -54,6 +55,11 @@ public class Magazine extends Periodical {
     }
 
     @Override
+    public double getDays() {
+        return this.number * this.periodicity.getNumberOfDays();
+    }
+
+    @Override
     public int hashCode() {
         int hash = 5;
         hash = 29 * hash + Objects.hashCode(this.periodicity);
@@ -73,7 +79,7 @@ public class Magazine extends Periodical {
             return false;
         }
         final Magazine other = (Magazine) obj;
-        if (!super.equals(new Periodical(other))) {     //!!!!!
+        if (!super.equals(obj)) {     //!!!!!
             return false;
         }
 

@@ -25,12 +25,6 @@ public class PublicationByValueFinder {
 
     }
 
-    public final Condition YEAR = (books, index, year)
-            -> (books.get(index).getYear() == (Integer) year);
-
-    public static final Condition NUMBER_OF_PAGES = (books, index, numberOfPages)
-            -> (books.get(index).getNumberOfPages() == (Integer) numberOfPages);
-
     public static final Condition CLASS_NAME = (books, index, className)
             -> (books.get(index).getClass().getSimpleName().toLowerCase()
                     .contains(((String) className).toLowerCase()));
@@ -38,12 +32,29 @@ public class PublicationByValueFinder {
     public static final Condition NAME = (books, index, name)
             -> (books.get(index).getName().equals(name));
 
+    public static final Condition THE_SAME_PUBLICATION = (books, index, book)
+            -> (books.get(index).equals(book) == true);
+
+    public final Condition YEAR = (books, index, year)
+            -> (books.get(index).getYear() == (Integer) year);
+
+    public static final Condition NUMBER_OF_PAGES = (books, index, numberOfPages)
+            -> (books.get(index).getNumberOfPages() == (Integer) numberOfPages);
+
     /**
      * Method for finding the specific value by the specific condition
      *
-     * @param books - input BookShelf object
-     * @param condition - implementation of functional interface Condition
-     * @param obj - object encapsulating the specific value
+     * @param books Input BookShelf object
+     * @param condition Parameter of searching, must be in the next predefined
+     * values:
+     * <ul>
+     * <li><code>CLASS_NAME</code></li>
+     * <li><code>NAME</code></li>
+     * <li><code>THE_SAME_PUBLICATION</code></li>
+     * <li><code>YEAR</code></li>
+     * <li><code>NUMBER_OF_PAGES</code></li>
+     * </ul>
+     * @param obj Object encapsulating the specific value
      * @return list of Publications satisfying the given condition
      */
     public static ArrayList<Publication> find(BookShelf books,

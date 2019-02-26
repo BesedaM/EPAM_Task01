@@ -38,27 +38,25 @@ public class Sorter {
     public static final Sortable NUMBER_OF_PAGES_SORTER = (books, j)
             -> (books.get(j - 1).getNumberOfPages() > books.get(j).getNumberOfPages());
 
-    public static final Sortable YEAR_SORTER = (books, j) -> (books.get(j - 1).getYear()
-            > books.get(j).getYear());
+    public static final Sortable DATE_SORTER = (books, j)
+            -> (books.get(j - 1).getYear() > books.get(j).getYear()
+            || books.get(j - 1).getYear() == books.get(j).getYear()
+            && books.get(j - 1).getDays() > books.get(j).getDays());
 
     public static final Sortable NAME_SORTER = (books, j)
             -> (books.get(j - 1).getName().compareTo(books.get(j).getName()) > 0);
 
-    public static final Sortable ORDER_OF_APPEARENCE_SORTER = (books, j)
-            -> (books.get(j - 1).getID() < books.get(j).getID());
-
     /**
      * Algorithm of sorting, using <code>Sorter</code> interface implementation
      *
-     * @param books - input BookShelf object;
-     * @param sorter - functional interface Sortable implementation, must be in
-     * the next predefined values:
+     * @param books Input BookShelf object;
+     * @param sorter Parameter for sorting, must be in the next predefined
+     * values:
      * <ul>
      * <li><code>CLASS_NAME_SORTER</code></li>
      * <li><code>NUMBER_OF_PAGES_SORTER</code></li>
-     * <li><code>YEAR_SORTER</code></li>
+     * <li><code>DATE_SORTER</code></li>
      * <li><code>NAME_SORTER</code></li>
-     * <li><code>ORDER_OF_APPEARENCE_SORTER</code></li>
      * </ul>
      */
     public static void sort(BookShelf books, Sortable sorter) {
@@ -70,20 +68,19 @@ public class Sorter {
     }
 
     /**
-     * Method for sorting apart Periodical and NonPeriodical publications using
+     * Method for sorting apart Periodical and NonPeriodical publications
      *
-     * @param books - Input BookShelf object;
-     * @param sorter - functional interface Sortable implementation, must be in
-     * the next predefined values:
+     * @param books Input BookShelf object;
+     * @param sorter Parameter for sorting, must be in the next predefined
+     * values:
      * <ul>
      * <li><code>CLASS_NAME_SORTER</code></li>
      * <li><code>NUMBER_OF_PAGES_SORTER</code></li>
-     * <li><code>YEAR_SORTER</code></li>
+     * <li><code>DATE_SORTER</code></li>
      * <li><code>NAME_SORTER</code></li>
-     * <li><code>ORDER_OF_APPEARENCE_SORTER</code></li>
      * </ul>
      * When <code>sorter</code> is null the container will be divided into two
-     * parts, remaining the random data
+     * parts without any sorting
      */
     public static void sortApartPeriodicalAndNonPeriodical(BookShelf books,
             Sortable sorter) {
@@ -102,7 +99,7 @@ public class Sorter {
      * Private method for dividing in BookShelf Periodical publications from
      * NonPeriodical
      *
-     * @param books - Input BookShelf object
+     * @param books Input BookShelf object
      */
     private static void dividePeriodicalFromNonPeriodical(BookShelf books) {
         int length = books.getSize();
@@ -124,18 +121,17 @@ public class Sorter {
     /**
      * Method for sorting part of the BookShelf Publications
      *
-     * @param books - Input BookShelf object
-     * @param sorter - functional interface Sortable implementation, must be in
-     * the next predefined values:
+     * @param books Input BookShelf object
+     * @param sorter Parameter for sorting, must be in the next predefined
+     * values:
      * <ul>
      * <li><code>CLASS_NAME_SORTER</code></li>
      * <li><code>NUMBER_OF_PAGES_SORTER</code></li>
-     * <li><code>YEAR_SORTER</code></li>
+     * <li><code>DATE_SORTER</code></li>
      * <li><code>NAME_SORTER</code></li>
-     * <li><code>ORDER_OF_APPEARENCE_SORTER</code></li>
      * </ul>
-     * @param start - index of first element to start sort with
-     * @param end - index of the last element to sort
+     * @param start Index of first element to start sort with
+     * @param end Index of the last element to sort
      */
     private static void sortPart(BookShelf books, Sortable sorter,
             int start, int end) {

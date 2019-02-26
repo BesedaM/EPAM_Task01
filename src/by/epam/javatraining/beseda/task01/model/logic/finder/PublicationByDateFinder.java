@@ -1,8 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.logic.finder;
 
 import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
-import by.epam.javatraining.beseda.task01.model.entity.Magazine;
-import by.epam.javatraining.beseda.task01.model.entity.Newspaper;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import java.util.ArrayList;
@@ -29,16 +27,16 @@ public class PublicationByDateFinder {
             double tempDays;
             foundPublication = books.get(0);
             tempYear = books.get(0).getYear();
-            days = countDays(foundPublication);
+            days = foundPublication.getDays();
 
             for (int i = 1; i < books.getSize(); i++) {
                 if (books.get(i).getYear() < tempYear) {
                     tempYear = books.get(i).getYear();
                     foundPublication = books.get(i);
-                    days = countDays(foundPublication);
+                    days = foundPublication.getDays();
                 } else if (books.get(i).getYear() == tempYear
                         && books.get(i) instanceof Periodical) {
-                    tempDays = countDays(foundPublication);
+                    tempDays = foundPublication.getDays();
                     if (tempDays < days) {
                         tempYear = books.get(i).getYear();
                         foundPublication = books.get(i);
@@ -64,15 +62,15 @@ public class PublicationByDateFinder {
             double tempDays;
             year = books.get(0).getYear();
             foundPublication = books.get(0);
-            days = countDays(foundPublication);
+            days = foundPublication.getDays();
             for (int i = 1; i < books.getSize(); i++) {
                 if (books.get(i).getYear() > year) {
                     year = books.get(i).getYear();
                     foundPublication = books.get(i);
-                    days = countDays(foundPublication);
+                    days = foundPublication.getDays();
                 } else if (books.get(i).getYear() == year
                         && books.get(i) instanceof Periodical
-                        && (tempDays = countDays(foundPublication)) > days) {
+                        && (tempDays = foundPublication.getDays()) > days) {
                     year = books.get(i).getYear();
                     foundPublication = books.get(i);
                     days = tempDays;
@@ -88,7 +86,8 @@ public class PublicationByDateFinder {
      *
      * @param books - Input BookShelf object
      * @param year - the value of year field
-     * @return ArrayList of Publication objects, corresponding the specific value
+     * @return ArrayList of Publication objects, corresponding the specific
+     * value
      */
     public static ArrayList<Publication> findByYear(BookShelf books, int year) {
         ArrayList<Publication> list = new ArrayList<>();
@@ -100,26 +99,5 @@ public class PublicationByDateFinder {
             }
         }
         return list;
-    }
-
-    /**
-     * Private method for counting number of days passed in the year till the
-     * publication was published
-     *
-     * @param publication - Input Publication object
-     * @return number of days in the year passed from the 1st January till the
-     * Publication was published
-     */
-    private static double countDays(Publication publication) {
-        double days = 0;
-        if (publication instanceof Magazine) {
-            days = ((Magazine) publication).getNumber()
-                    * ((Magazine) publication).getPeriodicity().getNumberOfDays();
-
-        } else if (publication instanceof Newspaper) {
-            days = ((Newspaper) publication).getNumber()
-                    * ((Newspaper) publication).getPeriodicity().getNumberOfDays();
-        }
-        return days;
     }
 }

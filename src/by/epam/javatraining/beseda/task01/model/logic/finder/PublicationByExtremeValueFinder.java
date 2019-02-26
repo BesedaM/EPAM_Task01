@@ -25,9 +25,6 @@ public class PublicationByExtremeValueFinder {
     public static final Supplier NUMBER_OF_PAGES = (books, i)
             -> (books.get(i).getNumberOfPages());
 
-    public static final Supplier ORDER_OF_APPEARENCE = (books, i)
-            -> (books.get(i).getID());
-
     public static final Supplier YEAR = (books, i) -> (books.get(i).getYear());
 
     /**
@@ -37,7 +34,6 @@ public class PublicationByExtremeValueFinder {
      * <ul>
      * <li><code>YEAR</code></li>
      * <li><code>NUMBER_OF_PAGES</code></li>
-     * <li><code>ORDER_OF_APPEARENCE</code></li>
      * </ul>
      *
      * @param books - input BookShelf object
@@ -68,7 +64,6 @@ public class PublicationByExtremeValueFinder {
      * <ul>
      * <li><code>YEAR</code></li>
      * <li><code>NUMBER_OF_PAGES</code></li>
-     * <li><code>ORDER_OF_APPEARENCE</code></li>
      * </ul>
      *
      * @param books - input BookShelf object

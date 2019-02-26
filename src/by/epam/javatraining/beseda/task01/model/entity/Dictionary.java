@@ -19,6 +19,7 @@ public class Dictionary extends NonPeriodical {
     private String publishers;
 
     public Dictionary() {
+        super();
     }
 
     public Dictionary(Type type, String publishers, String author, String name,
@@ -96,7 +97,7 @@ public class Dictionary extends NonPeriodical {
             return false;
         }
         final Dictionary other = (Dictionary) obj;
-        if (!super.equals(new NonPeriodical(other))) {
+        if (!super.equals(obj)) {
             return false;
         }
         if (!Objects.equals(this.type, other.type)) {

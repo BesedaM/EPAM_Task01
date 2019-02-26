@@ -4,19 +4,17 @@ import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
 import by.epam.javatraining.beseda.task01.model.logic.calculator.MultivolumeTotalNumberOfPagesCalculator;
 import by.epam.javatraining.beseda.task01.model.logic.finder.PublicationByClassNameFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.PublicationByDateFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.PublicationByExtremeValueFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.PublicationByNameFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.PublicationByNumberOfPagesFinder;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.Sorter;
 import by.epam.javatraining.beseda.task01.util.BookShelfCreator;
-import by.epam.javatraining.beseda.task01.util.UserInput;
 import by.epam.javatraining.beseda.task01.view.Printer;
 import by.epam.javatraining.beseda.task01.view.PrinterCreator;
 
 /**
  *
  * @author Beseda
- * @version 1.0 22/02/2019
+ * @version 1.0 26/02/2019
  */
 public class Controller {
 
@@ -44,13 +42,6 @@ public class Controller {
                 + PublicationByNumberOfPagesFinder.findMax(books));
         printer.print("The publication with minimum number of pages: "
                 + PublicationByNumberOfPagesFinder.findMin(books));
-
-        printer.print("Let's find the first publication we put on the shelf: "
-                + PublicationByExtremeValueFinder.findMin(books,
-                        PublicationByExtremeValueFinder.ORDER_OF_APPEARENCE));
-        printer.print("The last publication we put on the shelf: "
-                + PublicationByExtremeValueFinder.findMax(books,
-                        PublicationByExtremeValueFinder.ORDER_OF_APPEARENCE));
 
         printer.print("Now we'll find all the publication by part of name"
                 + "(The Tower) :" + PublicationByNameFinder.find(books, "Dark Tower"));

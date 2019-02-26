@@ -28,6 +28,8 @@ public class Newspaper extends Periodical {
     private Periodicity periodicity;
 
     public Newspaper() {
+        super();
+        this.periodicity = Periodicity.WEEKLY;
     }
 
     public Newspaper(String name, int year, int number, int numberOfPages,
@@ -53,6 +55,11 @@ public class Newspaper extends Periodical {
     }
 
     @Override
+    public double getDays() {
+        return this.number * this.periodicity.getNumberOfDays();
+    }
+
+    @Override
     public int hashCode() {
         int hash = 5;
         hash = 29 * hash + Objects.hashCode(this.periodicity);
@@ -72,7 +79,7 @@ public class Newspaper extends Periodical {
             return false;
         }
         final Newspaper other = (Newspaper) obj;
-        if (!super.equals(new Periodical(other))) { //!!!
+        if (!super.equals(obj)) { //!!!
             return false;
         }
 
