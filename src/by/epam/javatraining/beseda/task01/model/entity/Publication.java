@@ -30,7 +30,7 @@ public class Publication {
         } else {
             this.name = "Unknown";
         }
-        if (year > 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
+        if (year >= 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         }
         if (numberOfPages > 0) {
@@ -55,7 +55,7 @@ public class Publication {
     }
 
     public void setYear(int year) throws IllegalYearException {
-        if (year > 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
+        if (year >= 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         } else {
             throw new IllegalYearException();

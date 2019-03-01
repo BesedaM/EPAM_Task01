@@ -7,7 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.Test;
 
-
 /**
  *
  * @author Beseda
@@ -16,6 +15,7 @@ import org.testng.annotations.Test;
 public class PublicationNGTest {
 
     Publication publication;
+    Publication correctData;
 
     @BeforeGroups(groups = {"test setters"})
     public void createPublicationDefault() {
@@ -32,12 +32,13 @@ public class PublicationNGTest {
     public void testSetName02()
             throws IllegalNameException {
         this.publication.setName("any name");
+        Assert.assertEquals(publication.getName(), "any name");
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalYearException.class})
     public void testSetYear01()
             throws IllegalYearException {
-        this.publication.setYear(1900);
+        this.publication.setYear(1898);
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalYearException.class})
@@ -55,21 +56,35 @@ public class PublicationNGTest {
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalYearException.class})
     public void testSetYear04()
             throws IllegalYearException {
-        this.publication.setYear(2021);
+        this.publication.setYear(2031);
     }
 
-    @Test(groups = {"test setters"}, 
+    @Test(groups = {"test setters"},
             expectedExceptions = {IllegalNumberOfPagesException.class})
     public void testSetNumberOfPages01()
             throws IllegalNumberOfPagesException {
         this.publication.setNumberOfPages(0);
     }
 
-    @Test(groups = {"test setters"}, 
+    @Test(groups = {"test setters"},
             expectedExceptions = {IllegalNumberOfPagesException.class})
     public void testSetNumberOfPages02()
             throws IllegalNumberOfPagesException {
         this.publication.setNumberOfPages(-1);
+    }
+
+    @Test(groups = {"test setters"})
+    public void testSetNumberOfPages03()
+            throws IllegalNumberOfPagesException {
+        this.publication.setNumberOfPages(1);
+        Assert.assertEquals(publication.getNumberOfPages(), 1);
+    }
+
+    @Test(groups = {"test setters"})
+    public void testSetNumberOfPages04()
+            throws IllegalNumberOfPagesException {
+        this.publication.setNumberOfPages(10);
+        Assert.assertEquals(publication.getNumberOfPages(), 10);
     }
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})
@@ -91,4 +106,25 @@ public class PublicationNGTest {
     public void testGetNumberOfPages01() {
         Assert.assertEquals(this.publication.getNumberOfPages(), 0);
     }
+
+    @BeforeGroups(groups = {"correct data in Constructor"})
+    public void createPublicationCorrect() {
+        this.correctData = new Publication("New publication", 1990, 20);
+    }
+
+    @Test(groups = {"correct data in Constructor"})
+    public void testGetName02() {
+        Assert.assertEquals(this.correctData.getName(), "New publication");
+    }
+
+    @Test(groups = {"correct data in Constructor"})
+    public void testGetYear02() {
+        Assert.assertEquals(this.correctData.getYear(), 1990);
+    }
+
+    @Test(groups = {"correct data in Constructor"})
+    public void testGetNumberOfPages02() {
+        Assert.assertEquals(this.correctData.getNumberOfPages(), 20);
+    }
+
 }

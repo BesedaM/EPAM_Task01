@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 public class NonPeriodicalNGTest {
 
     NonPeriodical book;
+    NonPeriodical bookIncorrect;
 
     @BeforeGroups(groups = {"test setters"})
     public void createPeriodical() {
@@ -34,10 +35,22 @@ public class NonPeriodicalNGTest {
         this.book.setAuthor(null);
     }
 
+    @Test(groups = {"test setters"})
+    public void testSetAuthor02() throws IllegalAuthorException {
+        this.book.setAuthor("ABC");
+        Assert.assertEquals(this.book.getAuthor(), "ABC");
+    }
+
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalVolumeNumberException.class})
     public void testSetVolumeNumber01()
             throws IllegalVolumeNumberException {
         this.book.setVolumeNumber(0);
+    }
+    
+        @Test(groups = {"test setters"})
+    public void testSetVolumeNumber02() throws IllegalVolumeNumberException {
+        this.book.setVolumeNumber(1);
+        Assert.assertEquals(this.book.getVolumeNumber(),1);
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalNumberOfVolumesException.class})
@@ -48,21 +61,21 @@ public class NonPeriodicalNGTest {
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})
     public void createPeriodicalIncorrect() {
-        this.book = new NonPeriodical(null, null, -1, -1, -1, -1);
+        this.bookIncorrect = new NonPeriodical(null, null, -1, -1, -1, -1);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetAuthor01() {
-        Assert.assertEquals(this.book.getAuthor(), "Unknown");
+        Assert.assertEquals(this.bookIncorrect.getAuthor(), "Unknown");
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetVolumeNumber01() {
-        Assert.assertEquals(this.book.getVolumeNumber(), 0);
+        Assert.assertEquals(this.bookIncorrect.getVolumeNumber(), 0);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetNumberOfVolumes01() {
-        Assert.assertEquals(this.book.getNumberOfVolumes(), 0);
+        Assert.assertEquals(this.bookIncorrect.getNumberOfVolumes(), 0);
     }
 }

@@ -17,6 +17,14 @@ public class BookShelf {
     private int numberOfPeriodical = 0;
     private int numberOfNonPeriodical = 0;
 
+    /**
+     * Creates a BookShelf object for maximum 24 publications
+     */
+    public BookShelf() {
+        this.MAX_SIZE=24;
+        this.books = new Publication[MAX_SIZE];
+    }
+
     public BookShelf(int size) {
         if (size > 0) {
             this.MAX_SIZE = size;

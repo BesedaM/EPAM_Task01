@@ -21,15 +21,25 @@ public class PeriodicalNGTest {
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalNumberException.class})
-    public void testSetNumber01()
-            throws IllegalNumberException {
+    public void testSetNumber01()  throws IllegalNumberException {
         this.periodical.setNumber(-1);
     }
 
+    @Test(groups = {"test setters"})
+    public void testSetNumber02()  throws IllegalNumberException {
+        this.periodical.setNumber(1);
+        Assert.assertEquals(this.periodical.getNumber(), 1);
+    }
+
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalAudienceException.class})
-    public void testSetAudience01()
-            throws IllegalAudienceException {
+    public void testSetAudience01() throws IllegalAudienceException {
         this.periodical.setAudience(null);
+    }
+
+    @Test(groups = {"test setters"})
+    public void testSetAudience02() throws IllegalAudienceException {
+        this.periodical.setAudience(Periodical.Audience.CHILDREN);
+        Assert.assertEquals(this.periodical.getAudience(), Periodical.Audience.CHILDREN);
     }
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})

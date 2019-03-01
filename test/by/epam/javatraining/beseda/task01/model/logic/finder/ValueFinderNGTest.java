@@ -22,17 +22,15 @@ public class ValueFinderNGTest {
     public ValueFinderNGTest() {
     }
 
-    static BookShelf books;
-
     @DataProvider(name = "Empty BookShelf")
     public static Object[][] provideData01() {
-        books = new BookShelf(5);
+        BookShelf books = new BookShelf(5);
         return new Object[][]{{books}};
     }
 
     @DataProvider(name = "BookShelf with data")
     public static Object[][] provideData02() {
-        books = new BookShelf(10);
+        BookShelf books = new BookShelf(10);
         books.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));
         books.add(new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz",

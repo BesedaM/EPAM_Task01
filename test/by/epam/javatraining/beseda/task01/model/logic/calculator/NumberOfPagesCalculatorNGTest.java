@@ -19,11 +19,11 @@ public class NumberOfPagesCalculatorNGTest {
     public NumberOfPagesCalculatorNGTest() {
     }
 
-    static BookShelf books;
+    BookShelf books;
 
     @DataProvider(name = "BookShelf with data")
     public static Object[][] provideData01() {
-        books = new BookShelf(10);
+        BookShelf books = new BookShelf(10);
         books.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));
         books.add(new FictionLiterature("dark fantasy", "Stephen King",
