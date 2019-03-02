@@ -62,11 +62,6 @@ public class Periodical extends Publication {
     }
 
     @Override
-    public double getDays() {
-        return 0;
-    }
-
-    @Override
     public int hashCode() {
         int hash = 5;
         hash = 17 * hash + Objects.hash(this.audience);

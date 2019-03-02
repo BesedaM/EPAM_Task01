@@ -23,14 +23,17 @@ public class FictionLiteratureNGTest {
         this.book.setGenre(null);
         Assert.assertEquals(this.book.getGenre(), "Unknown");
     }
-
-    @BeforeGroups(groups = {"incorrect data in constructor"})
-    public void createFictionLiteratureIncorrect() {
-        this.book = new FictionLiterature(null, null, null, -1, -1);
+    
+    @Test(groups = {"test setters"})
+    public void testSetGenre02() {
+        this.book.setGenre("detective");
+        Assert.assertEquals(this.book.getGenre(), "detective");
     }
 
-    @Test(groups = {"incorrect data in constructor"})
+
+    @Test
     public void testGetGenre01() {
+        this.book = new FictionLiterature(null, null, null, -1, -1);
         Assert.assertEquals(this.book.getGenre(), "Unknown");
     }
 }

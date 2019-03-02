@@ -10,6 +10,8 @@ import java.util.Arrays;
  */
 public class BookShelf {
 
+    public static final int DEFAULT_SIZE = 24;
+
     private final int MAX_SIZE;
     private Publication[] books;
     private int size = 0;
@@ -18,10 +20,10 @@ public class BookShelf {
     private int numberOfNonPeriodical = 0;
 
     /**
-     * Creates a BookShelf object for maximum 24 publications
+     * Creates a BookShelf object for maximum 24 publications be default
      */
     public BookShelf() {
-        this.MAX_SIZE=24;
+        this.MAX_SIZE = DEFAULT_SIZE;
         this.books = new Publication[MAX_SIZE];
     }
 

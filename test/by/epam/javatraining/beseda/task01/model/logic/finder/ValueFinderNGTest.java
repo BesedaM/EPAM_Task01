@@ -52,24 +52,21 @@ public class ValueFinderNGTest {
     @Test(dataProvider = "Empty BookShelf")
     public void testFinder01(BookShelf books) {
         ArrayList<Publication> list
-                = ValueFinder.find(books,
-                        ValueFinder.CLASS_NAME, "Dictionary");
+                = ValueFinder.find(books, ValueFinder.CLASS_NAME, "Dictionary");
         assertEquals(list.toString(), "[]");
     }
 
     @Test(dataProvider = "Empty BookShelf")
     public void testFinder02(BookShelf books) {
         ArrayList<Publication> list
-                = ValueFinder.find(books,
-                        ValueFinder.NAME, "How to");
+                = ValueFinder.find(books, ValueFinder.NAME, "How to");
         assertEquals(list.toString(), "[]");
     }
 
     @Test(dataProvider = "BookShelf with data")
     public void testFinder03(BookShelf books) {
         ArrayList<Publication> list
-                = ValueFinder.find(books,
-                        ValueFinder.CLASS_NAME, "FictionLiterature");
+                = ValueFinder.find(books, ValueFinder.CLASS_NAME, "FictionLiterature");
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));
@@ -81,8 +78,7 @@ public class ValueFinderNGTest {
     @Test(dataProvider = "BookShelf with data")
     public void testFinder04(BookShelf books) {
         ArrayList<Publication> list
-                = ValueFinder.find(books,
-                        ValueFinder.NUMBER_OF_PAGES, 1221);
+                = ValueFinder.find(books, ValueFinder.NUMBER_OF_PAGES, 1221);
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));

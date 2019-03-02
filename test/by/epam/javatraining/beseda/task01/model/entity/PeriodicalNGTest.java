@@ -13,62 +13,63 @@ import org.testng.annotations.Test;
  */
 public class PeriodicalNGTest {
 
-    Periodical periodical;
+    private Periodical periodicalDefault;
+    private Periodical incorrectData;
 
     @BeforeGroups(groups = {"test setters"})
     public void createPeriodical() {
-        this.periodical = new Periodical();
+        this.periodicalDefault = new Periodical();
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalNumberException.class})
     public void testSetNumber01()  throws IllegalNumberException {
-        this.periodical.setNumber(-1);
+        this.periodicalDefault.setNumber(-1);
     }
 
     @Test(groups = {"test setters"})
     public void testSetNumber02()  throws IllegalNumberException {
-        this.periodical.setNumber(1);
-        Assert.assertEquals(this.periodical.getNumber(), 1);
+        this.periodicalDefault.setNumber(1);
+        Assert.assertEquals(this.periodicalDefault.getNumber(), 1);
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalAudienceException.class})
     public void testSetAudience01() throws IllegalAudienceException {
-        this.periodical.setAudience(null);
+        this.periodicalDefault.setAudience(null);
     }
 
     @Test(groups = {"test setters"})
     public void testSetAudience02() throws IllegalAudienceException {
-        this.periodical.setAudience(Periodical.Audience.CHILDREN);
-        Assert.assertEquals(this.periodical.getAudience(), Periodical.Audience.CHILDREN);
+        this.periodicalDefault.setAudience(Periodical.Audience.CHILDREN);
+        Assert.assertEquals(this.periodicalDefault.getAudience(), Periodical.Audience.CHILDREN);
     }
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})
     public void createPeriodicalIncorrect() {
-        this.periodical = new Periodical(null, -10, -1, -1, null);
+        this.incorrectData = new Periodical(null, -10, -1, -1, null);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetName01() {
-        Assert.assertEquals(this.periodical.getName(), "Unknown");
+        Assert.assertEquals(this.incorrectData.getName(), "Unknown");
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetYear01() {
-        Assert.assertEquals(this.periodical.getYear(), 0);
+        Assert.assertEquals(this.incorrectData.getYear(), 0);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetNumberOfPages01() {
-        Assert.assertEquals(this.periodical.getNumberOfPages(), 0);
+        Assert.assertEquals(this.incorrectData.getNumberOfPages(), 0);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetNumber01() {
-        Assert.assertEquals(this.periodical.getNumber(), 0);
+        Assert.assertEquals(this.incorrectData.getNumber(), 0);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetAudience01() {
-        Assert.assertEquals(this.periodical.getAudience(), Periodical.Audience.ANY);
+        Assert.assertEquals(this.incorrectData.getAudience(), Periodical.Audience.ANY);
     }
 }

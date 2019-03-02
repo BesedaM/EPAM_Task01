@@ -4,8 +4,8 @@ import by.epam.javatraining.beseda.task01.model.exception.IllegalAudienceExcepti
 import by.epam.javatraining.beseda.task01.model.exception.IllegalScienceFieldException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 
 /**
  *
@@ -33,18 +33,19 @@ public class ManualeNGTest {
         this.book.setAudience(null);
     }
 
-    @BeforeGroups(groups = {"incorrect data in constructor"})
-    public void createManualeIncorrect() {
-        this.book = new Manuale(null, null, -1, -1, null, null);
+    @DataProvider(name = "incorrect data in constructor")
+    public Object[][] createManualeIncorrect() {
+        return new Object[][]{{new Manuale(null, null, -1, -1, null, null)}};
+
     }
 
-    @Test(groups = {"incorrect data in constructor"})
-    public void testGetField01() {
-        Assert.assertEquals(this.book.getField(), "Unknown");
+    @Test(dataProvider = "incorrect data in constructor")
+    public void testGetField01(Manuale manuale) {
+        Assert.assertEquals(manuale.getField(), "Unknown");
     }
 
-    @Test(groups = {"incorrect data in constructor"})
-    public void testGetAudience01() {
-        Assert.assertEquals(this.book.getAudience(), Manuale.Audience.ANY);
+    @Test(dataProvider = "incorrect data in constructor")
+    public void testGetAudience01(Manuale manuale) {
+        Assert.assertEquals(manuale.getAudience(), Manuale.Audience.ANY);
     }
 }

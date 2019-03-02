@@ -12,6 +12,9 @@ import java.util.Objects;
  */
 public class NonPeriodical extends Publication {
 
+    public static final int MINIMUM_NUMBER_OF_VOLUMES = 2;
+    public static final String DEFAULT_AUTHOR = "Unknown";
+
     protected String author;
     protected boolean multivolume;
     protected int volumeNumber;
@@ -19,7 +22,7 @@ public class NonPeriodical extends Publication {
 
     protected NonPeriodical() {
         super();
-        this.author = "Unknown";
+        this.author = DEFAULT_AUTHOR;
     }
 
     protected NonPeriodical(String author, String name, int year, int numberOfPages) {
@@ -27,7 +30,7 @@ public class NonPeriodical extends Publication {
         if (author != null) {
             this.author = author;
         } else {
-            this.author = "Unknown";
+            this.author = DEFAULT_AUTHOR;
         }
     }
 
@@ -37,13 +40,13 @@ public class NonPeriodical extends Publication {
         if (author != null) {
             this.author = author;
         } else {
-            this.author = "Unknown";
+            this.author = DEFAULT_AUTHOR;
         }
         this.multivolume = true;
         if (volumeNumber > 0) {
             this.volumeNumber = volumeNumber;
         }
-        if (numberOfVolumes > 1) {
+        if (numberOfVolumes >= MINIMUM_NUMBER_OF_VOLUMES) {
             this.numberOfVolumes = numberOfVolumes;
         }
     }
@@ -69,7 +72,7 @@ public class NonPeriodical extends Publication {
     }
 
     public void setNumberOfVolumes(int numberOfVolumes) throws IllegalNumberOfVolumesException {
-        if (numberOfVolumes > 1) {
+        if (numberOfVolumes >= MINIMUM_NUMBER_OF_VOLUMES) {
             this.numberOfVolumes = numberOfVolumes;
         } else {
             throw new IllegalNumberOfVolumesException();
@@ -114,8 +117,8 @@ public class NonPeriodical extends Publication {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        if (!super.equals(obj)) {       
-            return false;                        
+        if (!super.equals(obj)) {
+            return false;
         }
         final NonPeriodical other = (NonPeriodical) obj;
         if (this.multivolume != other.multivolume) {
@@ -136,11 +139,11 @@ public class NonPeriodical extends Publication {
     @Override
     public String toString() {
         if (this.multivolume == false) {
-            return author + ". " + name + ". " + year + ", " 
+            return author + ". " + name + ". " + year + ", "
                     + numberOfPages + " pages";
         } else {
             return author + ". " + name + ". Volume " + volumeNumber
-                    + " of " + numberOfVolumes + ". " + year + ", " 
+                    + " of " + numberOfVolumes + ". " + year + ", "
                     + numberOfPages + " pages";
         }
     }

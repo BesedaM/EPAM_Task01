@@ -26,11 +26,15 @@ public class Manuale extends NonPeriodical {
         }
     }
 
+    public static final String DEFAULT_FIELD = "Unknown";
+
     private String field;
     private Audience audience;
 
     public Manuale() {
         super();
+        this.field = DEFAULT_FIELD;
+        this.audience = Audience.ANY;
     }
 
     public Manuale(String author, String name, int year, int numberOfPages,
@@ -39,7 +43,7 @@ public class Manuale extends NonPeriodical {
         if (field != null) {
             this.field = field;
         } else {
-            this.field = "Unknown";
+            this.field = DEFAULT_FIELD;
         }
         if (audience != null) {
             this.audience = audience;
@@ -55,7 +59,7 @@ public class Manuale extends NonPeriodical {
         if (field != null) {
             this.field = field;
         } else {
-            this.field = "Unknown";
+            this.field = DEFAULT_FIELD;
         }
         if (audience != null) {
             this.audience = audience;

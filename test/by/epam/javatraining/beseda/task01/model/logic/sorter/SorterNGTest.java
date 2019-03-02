@@ -5,6 +5,7 @@ import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;
 import by.epam.javatraining.beseda.task01.model.entity.Manuale;
+import by.epam.javatraining.beseda.task01.model.entity.NonPeriodical;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import static org.testng.Assert.*;
 import org.testng.annotations.DataProvider;
@@ -110,6 +111,7 @@ public class SorterNGTest {
                 Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
         booksLocal.add(new Magazine("National Geographic", 2019, 2, 152,
                 Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+        
         Sorter.sort(booksLocal, Sorter.DATE_SORTER);
 
         assertEquals(booksLocal.get(0).getName(), "How Computers Work");
@@ -132,11 +134,14 @@ public class SorterNGTest {
     @Test(dataProvider = "BookShelf with data")
     public void testSortApartPerAndNonPer03(BookShelf books) {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, Sorter.CLASS_NAME_SORTER);
+        assertTrue(books.get(0) instanceof NonPeriodical);
         assertEquals(books.get(0).getClass(), Dictionary.class);
         assertEquals(books.get(1).getClass(), FictionLiterature.class);
         assertEquals(books.get(2).getClass(), FictionLiterature.class);
         assertEquals(books.get(3).getClass(), Manuale.class);
         assertEquals(books.get(4).getClass(), Manuale.class);
+        
+        assertTrue(books.get(5) instanceof Periodical);
         assertEquals(books.get(5).getClass(), Magazine.class);
         assertEquals(books.get(6).getClass(), Magazine.class);
     }
@@ -144,11 +149,14 @@ public class SorterNGTest {
     @Test(dataProvider = "BookShelf with data")
     public void testSortApartPerAndNonPer04(BookShelf books) {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, Sorter.NAME_SORTER);
+        assertTrue(books.get(0) instanceof NonPeriodical);
         assertEquals(books.get(0).getName(), "Fahrenheit 451");
         assertEquals(books.get(1).getName(), "How Computers Work");
         assertEquals(books.get(2).getName(), "Les Miserables");
         assertEquals(books.get(3).getName(), "Mandarin Chinese");
         assertEquals(books.get(4).getName(), "The Origins of the Universe for Dummies");
+        
+        assertTrue(books.get(5) instanceof Periodical);
         assertEquals(books.get(5).getName(), "National Geographic");
         assertEquals(books.get(6).getName(), "National Geographic");
     }
@@ -156,13 +164,15 @@ public class SorterNGTest {
     @Test(dataProvider = "BookShelf with data")
     public void testSortApartPerAndNonPer05(BookShelf books) {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, Sorter.NUMBER_OF_PAGES_SORTER);
-        assertEquals(books.get(0).getName(), "Fahrenheit 451");
-        assertEquals(books.get(1).getName(), "The Origins of the Universe for Dummies");
-        assertEquals(books.get(2).getName(), "How Computers Work");
-        assertEquals(books.get(3).getName(), "Mandarin Chinese");
-        assertEquals(books.get(4).getName(), "Les Miserables");
-        assertEquals(books.get(5).getName(), "National Geographic");
-        assertEquals(books.get(6).getName(), "National Geographic");
+        
+        assertTrue(books.get(0) instanceof NonPeriodical);
+        assertTrue(books.get(0).getNumberOfPages() < books.get(1).getNumberOfPages());
+        assertTrue(books.get(1).getNumberOfPages() < books.get(2).getNumberOfPages());
+        assertTrue(books.get(2).getNumberOfPages() < books.get(3).getNumberOfPages());
+        assertTrue(books.get(3).getNumberOfPages() < books.get(4).getNumberOfPages());
+        
+        assertTrue(books.get(5) instanceof Periodical);
+        assertTrue(books.get(5).getNumberOfPages() < books.get(6).getNumberOfPages());
     }
 
 }

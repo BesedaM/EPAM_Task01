@@ -15,22 +15,27 @@ import java.util.Objects;
  */
 public class Publication {
 
+    public static final int MINIMUM_YEAR_OF_PUBLICATION = 1900;
+    public static final int DAYS_IN_YEAR_PASSED_FROM_PUBLICATION = 0;
+    public static final String DEFAULT_NAME = "Unknown";
+
     protected int ID;
     protected String name;
     protected int year;
     protected int numberOfPages;
 
     protected Publication() {
-        this.name = "Unknown";
+        this.name = DEFAULT_NAME;
     }
 
     protected Publication(String name, int year, int numberOfPages) {
         if (name != null) {
             this.name = name;
         } else {
-            this.name = "Unknown";
+            this.name = DEFAULT_NAME;
         }
-        if (year >= 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
+        if (year >= MINIMUM_YEAR_OF_PUBLICATION
+                && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         }
         if (numberOfPages > 0) {
@@ -55,7 +60,8 @@ public class Publication {
     }
 
     public void setYear(int year) throws IllegalYearException {
-        if (year >= 1900 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
+        if (year >= MINIMUM_YEAR_OF_PUBLICATION
+                && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         } else {
             throw new IllegalYearException();
@@ -86,11 +92,10 @@ public class Publication {
         return numberOfPages;
     }
 
-        
     public double getDays() {
-        return 0;
+        return DAYS_IN_YEAR_PASSED_FROM_PUBLICATION;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;

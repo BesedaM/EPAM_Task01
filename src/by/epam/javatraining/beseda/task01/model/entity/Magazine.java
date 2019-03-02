@@ -30,6 +30,7 @@ public class Magazine extends Periodical {
 
     public Magazine() {
         super();
+        this.periodicity = Periodicity.WEEKLY;
     }
 
     public Magazine(String name, int year, int number, int numberOfPages,

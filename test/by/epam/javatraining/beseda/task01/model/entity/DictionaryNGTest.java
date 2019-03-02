@@ -3,8 +3,8 @@ package by.epam.javatraining.beseda.task01.model.entity;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalTypeException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
 
 /**
  *
@@ -32,18 +32,18 @@ public class DictionaryNGTest {
         Assert.assertEquals(this.book.getPublishers(), "Unknown");
     }
 
-    @BeforeGroups(groups = {"incorrect data in constructor"})
-    public void createDictionaryIncorrect() {
-        this.book = new Dictionary(null, null, null, null, -1, -1);
+    @DataProvider(name = "incorrect data in constructor")
+    public Object[][] createDictionaryIncorrect() {
+        return new Object[][]{{new Dictionary(null, null, null, null, -1, -1)}};
     }
 
-    @Test(groups = {"incorrect data in constructor"})
-    public void testGetType01() {
-        Assert.assertEquals(this.book.getType(), Dictionary.Type.BILINGUAL);
+    @Test(dataProvider = "incorrect data in constructor")
+    public void testGetType01(Dictionary dictionary) {
+        Assert.assertEquals(dictionary.getType(), Dictionary.Type.BILINGUAL);
     }
 
-    @Test(groups = {"incorrect data in constructor"})
-    public void testGetPublishers01() {
-        Assert.assertEquals(this.book.getPublishers(), "Unknown");
+    @Test(dataProvider = "incorrect data in constructor")
+    public void testGetPublishers01(Dictionary dictionary) {
+        Assert.assertEquals(dictionary.getPublishers(), "Unknown");
     }
 }

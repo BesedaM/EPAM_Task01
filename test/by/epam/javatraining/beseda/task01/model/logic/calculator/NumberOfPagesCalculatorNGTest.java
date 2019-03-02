@@ -19,8 +19,6 @@ public class NumberOfPagesCalculatorNGTest {
     public NumberOfPagesCalculatorNGTest() {
     }
 
-    BookShelf books;
-
     @DataProvider(name = "BookShelf with data")
     public static Object[][] provideData01() {
         BookShelf books = new BookShelf(10);
@@ -43,14 +41,14 @@ public class NumberOfPagesCalculatorNGTest {
         return new Object[][]{{books}};
     }
 
-    @Test
-    public void testCalculateMultivolume01() {
+    @Test(dataProvider = "BookShelf with data")
+    public void testCalculateMultivolume01(BookShelf books) {
         books = new BookShelf(10);
         assertEquals(NumberOfPagesCalculator.calculateMultivolume(books, null), 0);
     }
 
-    @Test
-    public void testCalculateMultivolume02() {
+    @Test(dataProvider = "BookShelf with data")
+    public void testCalculateMultivolume02(BookShelf books) {
         books = new BookShelf(10);
         assertEquals(NumberOfPagesCalculator.calculateMultivolume(null,
                 "The Dark Tower"), 0);
@@ -67,4 +65,21 @@ public class NumberOfPagesCalculatorNGTest {
         assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
                 "The Dark Tower"), 1502);
     }
+
+    @Test
+    public void testCalculateMultivolume05() {
+        BookShelf books = new BookShelf(10);
+        books.add(new FictionLiterature("historical novel", "Victor Hugo",
+                "Les Miserables", 2013, 1221));
+        books.add(new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz",
+                "", "Mandarin Chinese", 2, 1, 2007, 671));
+        books.add(new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz",
+                "", "Mandarin Chinese", 2, 2, 2007, 671));
+        
+        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
+                "The Dark Tower"), 0);
+        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
+                "Mandarin Chinese"), 671+671);
+    }
+
 }

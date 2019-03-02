@@ -15,48 +15,48 @@ import org.testng.annotations.Test;
  */
 public class NonPeriodicalNGTest {
 
-    NonPeriodical book;
+    NonPeriodical bookDefault;
     NonPeriodical bookIncorrect;
 
     @BeforeGroups(groups = {"test setters"})
     public void createPeriodical() {
-        this.book = new NonPeriodical();
+        this.bookDefault = new NonPeriodical();
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalNameException.class})
     public void testSetName01()
             throws IllegalNameException {
-        this.book.setName(null);
+        this.bookDefault.setName(null);
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalAuthorException.class})
     public void testSetAuthor01()
             throws IllegalAuthorException {
-        this.book.setAuthor(null);
+        this.bookDefault.setAuthor(null);
     }
 
     @Test(groups = {"test setters"})
     public void testSetAuthor02() throws IllegalAuthorException {
-        this.book.setAuthor("ABC");
-        Assert.assertEquals(this.book.getAuthor(), "ABC");
+        this.bookDefault.setAuthor("ABC");
+        Assert.assertEquals(this.bookDefault.getAuthor(), "ABC");
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalVolumeNumberException.class})
     public void testSetVolumeNumber01()
             throws IllegalVolumeNumberException {
-        this.book.setVolumeNumber(0);
+        this.bookDefault.setVolumeNumber(0);
     }
     
         @Test(groups = {"test setters"})
     public void testSetVolumeNumber02() throws IllegalVolumeNumberException {
-        this.book.setVolumeNumber(1);
-        Assert.assertEquals(this.book.getVolumeNumber(),1);
+        this.bookDefault.setVolumeNumber(1);
+        Assert.assertEquals(this.bookDefault.getVolumeNumber(),1);
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalNumberOfVolumesException.class})
     public void testSetNumberOfVolumes01()
             throws IllegalNumberOfVolumesException {
-        this.book.setNumberOfVolumes(0);
+        this.bookDefault.setNumberOfVolumes(0);
     }
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})

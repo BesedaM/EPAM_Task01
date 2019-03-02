@@ -15,8 +15,7 @@ public class NewspaperNGTest {
     Newspaper news;
 
     @Test(expectedExceptions = {IllegalPeriodicityException.class})
-    public void testSetPeriodicity01()
-            throws IllegalPeriodicityException {
+    public void testSetPeriodicity01() throws IllegalPeriodicityException {
         this.news = new Newspaper();
         this.news.setPeriodicity(null);
     }
@@ -31,5 +30,12 @@ public class NewspaperNGTest {
     public void testGetPeriodicity02() {
         this.news = new Newspaper(null, -10, -10, -10, null, null);
         Assert.assertNotEquals(this.news.getPeriodicity(), Magazine.Periodicity.WEEKLY);
+    }
+    
+    @Test
+    public void testSetPeriodicity03() throws IllegalPeriodicityException {
+        this.news = new Newspaper();
+        this.news.setPeriodicity(Newspaper.Periodicity.MONTHLY);
+        Assert.assertEquals(this.news.getPeriodicity(), Newspaper.Periodicity.MONTHLY);
     }
 }

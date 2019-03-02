@@ -11,8 +11,11 @@ public class FictionLiterature extends NonPeriodical {
 
     private String genre;
 
+    public static final String DEFAULT_GENRE = "Unknown";
+    
     public FictionLiterature() {
         super();
+        this.genre = DEFAULT_GENRE;
     }
 
     public FictionLiterature(String genre, String author, String name,
@@ -21,7 +24,7 @@ public class FictionLiterature extends NonPeriodical {
         if (genre != null) {
             this.genre = genre;
         } else {
-            this.genre = "Unknown";
+            this.genre = DEFAULT_GENRE;
         }
     }
 
@@ -31,7 +34,7 @@ public class FictionLiterature extends NonPeriodical {
         if (genre != null) {
             this.genre = genre;
         } else {
-            this.genre = "Unknown";
+            this.genre = DEFAULT_GENRE;
         }
     }
 
@@ -39,7 +42,7 @@ public class FictionLiterature extends NonPeriodical {
         if (genre != null) {
             this.genre = genre;
         } else {
-           this.genre = "Unknown";
+           this.genre = DEFAULT_GENRE;
         }
     }
 

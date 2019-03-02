@@ -15,11 +15,15 @@ public class Dictionary extends NonPeriodical {
         THESAURUS, GLOSSARY, ILLUSTRATED, POCKET
     }
 
+    public static final String DEFAULT_PUBLISHERS = "Unknown";
+
     private Type type;
     private String publishers;
 
     public Dictionary() {
         super();
+        this.type = Type.BILINGUAL;
+        this.publishers = DEFAULT_PUBLISHERS;
     }
 
     public Dictionary(Type type, String publishers, String author, String name,
@@ -33,7 +37,7 @@ public class Dictionary extends NonPeriodical {
         if (publishers != null) {
             this.publishers = publishers;
         } else {
-            this.publishers = "Unknown";
+            this.publishers = DEFAULT_PUBLISHERS;
         }
     }
 
@@ -48,7 +52,7 @@ public class Dictionary extends NonPeriodical {
         if (publishers != null) {
             this.publishers = publishers;
         } else {
-            this.publishers = "Unknown";
+            this.publishers = DEFAULT_PUBLISHERS;
         }
     }
 
@@ -64,7 +68,7 @@ public class Dictionary extends NonPeriodical {
         if (language != null) {
             this.publishers = language;
         } else {
-            this.publishers = "Unknown";
+            this.publishers = DEFAULT_PUBLISHERS;
         }
     }
 

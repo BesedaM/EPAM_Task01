@@ -117,4 +117,54 @@ public class ExtremeValueFinderNGTest {
                         "Les Miserables", 2013, 1221));
     }
 
+    @DataProvider(name = "BookShelf with data02")
+    public static Object[][] provideData03() {
+        BookShelf books = new BookShelf(10);
+        books.add(new FictionLiterature("", "Pushkin", "Best poems", 2013, 254));
+        books.add(new Dictionary(Dictionary.Type.BILINGUAL, "Harvest",
+                "", "Russian-English", 2013, 356));
+        books.add(new FictionLiterature("", "J.K.Rowling",
+                "Harry Potter and the Philosopher's stone", 2001, 310));
+        books.add(new Magazine("National Geographic", 2018, 2, 158,
+                Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+        books.add(new FictionLiterature("", "J.R.R.Tolkien",
+                "Lord of the Rings", 3, 1, 2007, 358));
+        books.add(new Magazine("National Geographic", 2017, 8, 152,
+                Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+        books.add(new FictionLiterature("", "J.R.R.Tolkien",
+                "Lord of the Rings", 3, 2, 2008, 321));
+        books.add(new Manuale("Ron White", "How Computers Work", 2007, 464,
+                "information technology", Manuale.Audience.BEGINNER));
+        books.add(new Magazine("National Geographic", 2019, 1, 170,
+                Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+        return new Object[][]{{books}};
+    }
+
+    @Test(dataProvider = "BookShelf with data02")
+    public void testFindMin07(BookShelf books) {
+        assertEquals(ExtremeValueFinder.findMin(books, ExtremeValueFinder.YEAR),
+                new FictionLiterature("", "J.K.Rowling",
+                "Harry Potter and the Philosopher's stone", 2001, 310));
+    }
+
+    @Test(dataProvider = "BookShelf with data02")
+    public void testFindMin08(BookShelf books) {
+        assertEquals(ExtremeValueFinder.findMin(books, ExtremeValueFinder.NUMBER_OF_PAGES),
+                new Magazine("National Geographic", 2017, 8, 152,
+                Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+    }
+
+    @Test(dataProvider = "BookShelf with data02")
+    public void testFindMax07(BookShelf books) {
+        assertEquals(ExtremeValueFinder.findMax(books, ExtremeValueFinder.YEAR),
+                new Magazine("National Geographic", 2019, 1, 170,
+                Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+    }
+
+    @Test(dataProvider = "BookShelf with data02")
+    public void testFindMax08(BookShelf books) {
+        assertEquals(ExtremeValueFinder.findMax(books, ExtremeValueFinder.NUMBER_OF_PAGES),
+                new Manuale("Ron White", "How Computers Work", 2007, 464,
+                "information technology", Manuale.Audience.BEGINNER));
+    }
 }

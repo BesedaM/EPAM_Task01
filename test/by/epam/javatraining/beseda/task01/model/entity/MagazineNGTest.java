@@ -32,4 +32,12 @@ public class MagazineNGTest {
         this.news = new Magazine(null, -10, -10, -10, null, null);
         Assert.assertNotEquals(this.news.getPeriodicity(), Newspaper.Periodicity.WEEKLY);
     }
+        
+    @Test
+    public void testGetPeriodicity03() throws IllegalPeriodicityException {
+        this.news = new Magazine(null, -10, -10, -10, null, null);
+        this.news.setPeriodicity(Magazine.Periodicity.MONTHLY);
+        Assert.assertEquals(this.news.getPeriodicity(), Magazine.Periodicity.MONTHLY);
+    }
+    
 }

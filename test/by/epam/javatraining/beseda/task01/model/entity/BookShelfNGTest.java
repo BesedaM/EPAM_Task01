@@ -2,6 +2,7 @@ package by.epam.javatraining.beseda.task01.model.entity;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 /**
@@ -15,8 +16,7 @@ public class BookShelfNGTest {
     }
 
     BookShelf badBooks;
-    BookShelf goodBooks;
-
+   
     @BeforeGroups(groups = {"incorrect data"})
     public void createBookShelfIncorrect() {
         badBooks = new BookShelf(-10);
@@ -52,73 +52,74 @@ public class BookShelfNGTest {
         Assert.assertEquals(badBooks.getNumberOfNonPeriodical(), 0);
     }
 
-    @BeforeGroups(groups = {"correct data"})
-    public void createBookShelfCorrect() {
-        goodBooks = new BookShelf(3);
+    @DataProvider(name = "correct data")
+    public Object[][] createBookShelfCorrect() {
+        BookShelf goodBooks = new BookShelf(3);
         goodBooks.add(new Dictionary());
         goodBooks.add(new Magazine());
+        return new Object[][]{{goodBooks}};
     }
 
-    @Test(groups = {"correct data"}, priority = 1)
-    public void testContains01() {
+    @Test(dataProvider = "correct data")
+    public void testContains01(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.contains(new Magazine()), true);
     }
 
-    @Test(groups = {"correct data"}, priority = 1)
-    public void testContains02() {
+    @Test(dataProvider = "correct data")
+    public void testContains02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.contains(new Magazine("", 0, 0, 0, null, null)), false);
     }
 
-    @Test(groups = {"correct data"}, priority = 1)
-    public void testGetNumberOfPeriodical02() {
+    @Test(dataProvider = "correct data")
+    public void testGetNumberOfPeriodical02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.getNumberOfPeriodical(), 1);
     }
 
-    @Test(groups = {"correct data"}, priority = 1)
-    public void testGetNumberOfNonPeriodical02() {
+    @Test(dataProvider = "correct data")
+    public void testGetNumberOfNonPeriodical02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.getNumberOfNonPeriodical(), 1);
     }
 
-    @Test(groups = {"correct data"}, priority = 2)
-    public void testGetMaximumSize02() {
+    @Test(dataProvider = "correct data")
+    public void testGetMaximumSize02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.getMaximumSize(), 3);
     }
 
-    @Test(groups = {"correct data"}, priority = 2)
-    public void testGetSize02() {
+    @Test(dataProvider = "correct data")
+    public void testGetSize02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.getSize(), 2);
     }
 
-    @Test(groups = {"correct data"}, priority = 3)
-    public void testSetGet02() {
+    @Test(dataProvider = "correct data")
+    public void testSetGet02(BookShelf goodBooks) {
         goodBooks.set(0, new Newspaper());
         Assert.assertEquals(goodBooks.get(0), new Newspaper());
     }
 
-    @Test(groups = {"correct data"}, priority = 3)
-    public void testSetGet03() {
+    @Test(dataProvider = "correct data")
+    public void testSetGet03(BookShelf goodBooks) {
         goodBooks.set(3, new Newspaper());
         Assert.assertEquals(goodBooks.get(3), null);
     }
 
-    @Test(groups = {"correct data"}, priority = 4)
-    public void testAdd02() {
+    @Test(dataProvider = "correct data")
+    public void testAdd02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.add(new Magazine()), true);
         Assert.assertEquals(goodBooks.add(new Magazine()), false);
     }
 
-    @Test(groups = {"correct data"}, priority = 5)
-    public void testGetSize03() {
-        Assert.assertEquals(goodBooks.getSize(), 3);
+    @Test(dataProvider = "correct data")
+    public void testGetSize03(BookShelf goodBooks) {
+        Assert.assertEquals(goodBooks.getSize(), 2);
     }
 
-    @Test(groups = {"correct data"}, priority = 6)
-    public void testDelete02() {
-        Assert.assertEquals(goodBooks.delete(2), true);
+    @Test(dataProvider = "correct data")
+    public void testDelete02(BookShelf goodBooks) {
+        Assert.assertEquals(goodBooks.delete(0), true);
     }
 
-    @Test(groups = {"correct data"}, priority = 6)
-    public void testGet02() {
+    @Test(dataProvider = "correct data")
+    public void testGet02(BookShelf goodBooks) {
         Assert.assertEquals(goodBooks.get(3), null);
     }
 
