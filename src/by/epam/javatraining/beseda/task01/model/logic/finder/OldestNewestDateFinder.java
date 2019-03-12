@@ -1,27 +1,31 @@
 package by.epam.javatraining.beseda.task01.model.logic.finder;
 
-import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
-import java.util.ArrayList;
+import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
+import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
 
 /**
- * Class contains methods for finding Publication objects by year field
+ * Class contains methods for finding Publication objects by date. For
+ * NonPeriodical Publications is accepted that they were published at the
+ * beginning of the year
  *
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class DateFinder {
+public class OldestNewestDateFinder {
 
     /**
      * Method for finding the oldest Publication object
      *
-     * @param books Input BookShelf object
+     * @param books Input PublicationContainer object
      * @return Publication with the minimum value year
+     * @throws WrongIndexException
      */
-    public static Publication findOldest(BookShelf books) {
+    public static Publication findOldest(PublicationContainer books)
+            throws WrongIndexException {
         Publication foundPublication = null;
-        if (books != null && books.getSize() != 0) {
+        if (books != null && books.publicationsNumber() != 0) {
             int tempYear;
             double days;
             double tempDays;
@@ -29,7 +33,7 @@ public class DateFinder {
             tempYear = books.get(0).getYear();
             days = foundPublication.getDays();
 
-            for (int i = 1; i < books.getSize(); i++) {
+            for (int i = 1; i < books.publicationsNumber(); i++) {
                 if (books.get(i).getYear() < tempYear) {
                     tempYear = books.get(i).getYear();
                     foundPublication = books.get(i);
@@ -51,19 +55,21 @@ public class DateFinder {
     /**
      * Method for finding the newest Publication object
      *
-     * @param books Input BookShelf object
+     * @param books Input PublicationContainer object
      * @return Publication with the maximum value of year
+     * @throws WrongIndexException
      */
-    public static Publication findNewest(BookShelf books) {
+    public static Publication findNewest(PublicationContainer books)
+            throws WrongIndexException {
         Publication foundPublication = null;
-        if (books != null && books.getSize() != 0) {
+        if (books != null && books.publicationsNumber() != 0) {
             int year;
             double days;
             double tempDays;
             year = books.get(0).getYear();
             foundPublication = books.get(0);
             days = foundPublication.getDays();
-            for (int i = 1; i < books.getSize(); i++) {
+            for (int i = 1; i < books.publicationsNumber(); i++) {
                 if (books.get(i).getYear() > year) {
                     year = books.get(i).getYear();
                     foundPublication = books.get(i);
@@ -78,26 +84,5 @@ public class DateFinder {
             }
         }
         return foundPublication;
-    }
-
-    /**
-     * Method for finding the Publication objects by the year field of specific
-     * value
-     *
-     * @param books Input BookShelf object
-     * @param year The value of year field
-     * @return ArrayList of Publication objects, corresponding the specific
-     * value
-     */
-    public static ArrayList<Publication> findByYear(BookShelf books, int year) {
-        ArrayList<Publication> list = new ArrayList<>();
-        if (books != null) {
-            for (int i = 0; i < books.getSize(); i++) {
-                if (books.get(i).getYear() == year) {
-                    list.add(books.get(i));
-                }
-            }
-        }
-        return list;
     }
 }

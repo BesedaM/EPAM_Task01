@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
+import by.epam.javatraining.beseda.task01.model.exception.IllegalPublishersException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalTypeException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
@@ -21,15 +22,19 @@ public class DictionaryNGTest {
     }
 
     @Test(groups = {"test setters"}, expectedExceptions = {IllegalTypeException.class})
-    public void testSetType01()
-            throws IllegalTypeException {
+    public void testSetType01() throws IllegalTypeException {
         this.book.setType(null);
     }
 
-    @Test(groups = {"test setters"})
-    public void testSetPublishers01() {
+    @Test(groups = {"test setters"}, expectedExceptions = IllegalPublishersException.class)
+    public void testSetPublishers01() throws IllegalPublishersException {
         this.book.setPublishers(null);
-        Assert.assertEquals(this.book.getPublishers(), "Unknown");
+    }
+
+    @Test(groups = {"test setters"})
+    public void testSetPublishers02() throws IllegalPublishersException {
+        this.book.setPublishers("word");
+        Assert.assertEquals(this.book.getPublishers(), "word");
     }
 
     @DataProvider(name = "incorrect data in constructor")

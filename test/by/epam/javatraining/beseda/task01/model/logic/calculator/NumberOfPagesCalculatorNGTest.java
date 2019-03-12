@@ -1,6 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.logic.calculator;
 
-import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
+import by.epam.javatraining.beseda.task01.model.entity.container.BookShelf;
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;
@@ -44,25 +44,25 @@ public class NumberOfPagesCalculatorNGTest {
     @Test(dataProvider = "BookShelf with data")
     public void testCalculateMultivolume01(BookShelf books) {
         books = new BookShelf(10);
-        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books, null), 0);
+        assertEquals(PagesNumberCalculator.calculateMultivolume(books, null), 0);
     }
 
     @Test(dataProvider = "BookShelf with data")
     public void testCalculateMultivolume02(BookShelf books) {
         books = new BookShelf(10);
-        assertEquals(NumberOfPagesCalculator.calculateMultivolume(null,
+        assertEquals(PagesNumberCalculator.calculateMultivolume(null,
                 "The Dark Tower"), 0);
     }
 
     @Test(dataProvider = "BookShelf with data")
     public void testCalculateMultivolume03(BookShelf books) {
-        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
+        assertEquals(PagesNumberCalculator.calculateMultivolume(books,
                 "National Geographic"), 0);
     }
 
     @Test(dataProvider = "BookShelf with data")
     public void testCalculateMultivolume04(BookShelf books) {
-        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
+        assertEquals(PagesNumberCalculator.calculateMultivolume(books,
                 "The Dark Tower"), 1502);
     }
 
@@ -76,9 +76,9 @@ public class NumberOfPagesCalculatorNGTest {
         books.add(new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz",
                 "", "Mandarin Chinese", 2, 2, 2007, 671));
         
-        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
+        assertEquals(PagesNumberCalculator.calculateMultivolume(books,
                 "The Dark Tower"), 0);
-        assertEquals(NumberOfPagesCalculator.calculateMultivolume(books,
+        assertEquals(PagesNumberCalculator.calculateMultivolume(books,
                 "Mandarin Chinese"), 671+671);
     }
 

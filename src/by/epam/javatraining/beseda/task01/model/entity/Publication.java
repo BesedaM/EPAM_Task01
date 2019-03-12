@@ -2,7 +2,7 @@ package by.epam.javatraining.beseda.task01.model.entity;
 
 import by.epam.javatraining.beseda.task01.model.exception.IllegalIDException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNameException;
-import by.epam.javatraining.beseda.task01.model.exception.IllegalNumberOfPagesException;
+import by.epam.javatraining.beseda.task01.model.exception.IllegalPagesNumberException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalYearException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -15,14 +15,14 @@ import java.util.Objects;
  */
 public class Publication {
 
-    public static final int MINIMUM_YEAR_OF_PUBLICATION = 1900;
+    public static final int PUBLICATION_MINIMUM_YEAR = 1900;
     public static final int DAYS_IN_YEAR_PASSED_FROM_PUBLICATION = 0;
     public static final String DEFAULT_NAME = "Unknown";
 
     protected int ID;
     protected String name;
     protected int year;
-    protected int numberOfPages;
+    protected int pagesNumber;
 
     protected Publication() {
         this.name = DEFAULT_NAME;
@@ -34,13 +34,24 @@ public class Publication {
         } else {
             this.name = DEFAULT_NAME;
         }
-        if (year >= MINIMUM_YEAR_OF_PUBLICATION
+        if (year >= PUBLICATION_MINIMUM_YEAR
                 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         }
         if (numberOfPages > 0) {
-            this.numberOfPages = numberOfPages;
+            this.pagesNumber = numberOfPages;
         }
+    }
+
+    protected Publication(Publication obj) {    //copy constructor
+        this.name = obj.name;
+        this.year = obj.year;
+        this.pagesNumber = obj.pagesNumber;
+    }
+
+    @Override
+    public Publication clone() {
+        return new Publication(this);
     }
 
     public void setID(int ID) throws IllegalIDException {
@@ -60,7 +71,7 @@ public class Publication {
     }
 
     public void setYear(int year) throws IllegalYearException {
-        if (year >= MINIMUM_YEAR_OF_PUBLICATION
+        if (year >= PUBLICATION_MINIMUM_YEAR
                 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         } else {
@@ -68,11 +79,11 @@ public class Publication {
         }
     }
 
-    public void setNumberOfPages(int numberOfPages) throws IllegalNumberOfPagesException {
-        if (numberOfPages > 0) {
-            this.numberOfPages = numberOfPages;
+    public void setPagesNumber(int pagesNumber) throws IllegalPagesNumberException {
+        if (pagesNumber > 0) {
+            this.pagesNumber = pagesNumber;
         } else {
-            throw new IllegalNumberOfPagesException();
+            throw new IllegalPagesNumberException();
         }
     }
 
@@ -88,8 +99,8 @@ public class Publication {
         return year;
     }
 
-    public int getNumberOfPages() {
-        return numberOfPages;
+    public int getPagesNumber() {
+        return pagesNumber;
     }
 
     public double getDays() {
@@ -101,7 +112,7 @@ public class Publication {
         int hash = 7;
         hash = 19 * hash + Objects.hashCode(this.name);
         hash = 19 * hash + this.year;
-        hash = 19 * hash + this.numberOfPages;
+        hash = 19 * hash + this.pagesNumber;
         return hash;
     }
 
@@ -120,7 +131,7 @@ public class Publication {
         if (this.year != other.year) {
             return false;
         }
-        if (this.numberOfPages != other.numberOfPages) {
+        if (this.pagesNumber != other.pagesNumber) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {

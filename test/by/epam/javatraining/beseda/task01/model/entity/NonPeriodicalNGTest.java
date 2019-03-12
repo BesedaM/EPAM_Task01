@@ -2,7 +2,7 @@ package by.epam.javatraining.beseda.task01.model.entity;
 
 import by.epam.javatraining.beseda.task01.model.exception.IllegalAuthorException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNameException;
-import by.epam.javatraining.beseda.task01.model.exception.IllegalNumberOfVolumesException;
+import by.epam.javatraining.beseda.task01.model.exception.IllegalVolumesNumberException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalVolumeNumberException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeGroups;
@@ -23,15 +23,15 @@ public class NonPeriodicalNGTest {
         this.bookDefault = new NonPeriodical();
     }
 
-    @Test(groups = {"test setters"}, expectedExceptions = {IllegalNameException.class})
-    public void testSetName01()
-            throws IllegalNameException {
+    @Test(groups = {"test setters"},
+            expectedExceptions = {IllegalNameException.class})
+    public void testSetName01() throws IllegalNameException {
         this.bookDefault.setName(null);
     }
 
-    @Test(groups = {"test setters"}, expectedExceptions = {IllegalAuthorException.class})
-    public void testSetAuthor01()
-            throws IllegalAuthorException {
+    @Test(groups = {"test setters"},
+            expectedExceptions = {IllegalAuthorException.class})
+    public void testSetAuthor01() throws IllegalAuthorException {
         this.bookDefault.setAuthor(null);
     }
 
@@ -41,22 +41,22 @@ public class NonPeriodicalNGTest {
         Assert.assertEquals(this.bookDefault.getAuthor(), "ABC");
     }
 
-    @Test(groups = {"test setters"}, expectedExceptions = {IllegalVolumeNumberException.class})
-    public void testSetVolumeNumber01()
-            throws IllegalVolumeNumberException {
+    @Test(groups = {"test setters"},
+            expectedExceptions = {IllegalVolumeNumberException.class})
+    public void testSetVolumeNumber01() throws IllegalVolumeNumberException {
         this.bookDefault.setVolumeNumber(0);
     }
-    
-        @Test(groups = {"test setters"})
+
+    @Test(groups = {"test setters"})
     public void testSetVolumeNumber02() throws IllegalVolumeNumberException {
         this.bookDefault.setVolumeNumber(1);
-        Assert.assertEquals(this.bookDefault.getVolumeNumber(),1);
+        Assert.assertEquals(this.bookDefault.getVolumeNumber(), 1);
     }
 
-    @Test(groups = {"test setters"}, expectedExceptions = {IllegalNumberOfVolumesException.class})
-    public void testSetNumberOfVolumes01()
-            throws IllegalNumberOfVolumesException {
-        this.bookDefault.setNumberOfVolumes(0);
+    @Test(groups = {"test setters"},
+            expectedExceptions = {IllegalVolumesNumberException.class})
+    public void testSetVolumesNumber01() throws IllegalVolumesNumberException {
+        this.bookDefault.setVolumesNumber(0);
     }
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})
@@ -75,7 +75,14 @@ public class NonPeriodicalNGTest {
     }
 
     @Test(groups = {"incorrect data in Constructor"})
-    public void testGetNumberOfVolumes01() {
-        Assert.assertEquals(this.bookIncorrect.getNumberOfVolumes(), 0);
+    public void testGetVolumesNumber01() {
+        Assert.assertEquals(this.bookIncorrect.getVolumesNumber(), 0);
+    }
+
+    @Test
+    public void testClone() {
+        NonPeriodical newNonPeriodical = new NonPeriodical("Author", "Book", 2011, 300);
+        NonPeriodical clone = new NonPeriodical(newNonPeriodical);
+        Assert.assertTrue(clone.equals(newNonPeriodical));
     }
 }

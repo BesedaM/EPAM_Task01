@@ -1,6 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.logic.sorter;
 
-import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
+import by.epam.javatraining.beseda.task01.model.entity.container.BookShelf;
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;
@@ -166,13 +166,13 @@ public class SorterNGTest {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, Sorter.NUMBER_OF_PAGES_SORTER);
         
         assertTrue(books.get(0) instanceof NonPeriodical);
-        assertTrue(books.get(0).getNumberOfPages() < books.get(1).getNumberOfPages());
-        assertTrue(books.get(1).getNumberOfPages() < books.get(2).getNumberOfPages());
-        assertTrue(books.get(2).getNumberOfPages() < books.get(3).getNumberOfPages());
-        assertTrue(books.get(3).getNumberOfPages() < books.get(4).getNumberOfPages());
+        assertTrue(books.get(0).getPagesNumber() < books.get(1).getPagesNumber());
+        assertTrue(books.get(1).getPagesNumber() < books.get(2).getPagesNumber());
+        assertTrue(books.get(2).getPagesNumber() < books.get(3).getPagesNumber());
+        assertTrue(books.get(3).getPagesNumber() < books.get(4).getPagesNumber());
         
         assertTrue(books.get(5) instanceof Periodical);
-        assertTrue(books.get(5).getNumberOfPages() < books.get(6).getNumberOfPages());
+        assertTrue(books.get(5).getPagesNumber() < books.get(6).getPagesNumber());
     }
 
 }

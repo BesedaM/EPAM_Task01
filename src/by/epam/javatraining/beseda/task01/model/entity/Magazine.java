@@ -14,33 +14,45 @@ public class Magazine extends Periodical {
         ANNUAL(360), TWICE_A_YEAR(180), ONCE_A_QUATER(90),
         MONTHLY(30), TWICE_A_MONTH(15), WEEKLY(7);
 
-        private double numberOfDays;
+        private double daysNumber;
 
-        private Periodicity(double numberOfDays) {
-            this.numberOfDays = numberOfDays;
+        private Periodicity(double daysNumber) {
+            this.daysNumber = daysNumber;
         }
 
-        public double getNumberOfDays() {
-            return numberOfDays;
+        public double getDaysNumber() {
+            return daysNumber;
         }
 
     }
+
+    public static final Periodicity DEFAULT_PERIODICITY = Periodicity.WEEKLY;
 
     private Periodicity periodicity;
 
     public Magazine() {
         super();
-        this.periodicity = Periodicity.WEEKLY;
+        this.periodicity = DEFAULT_PERIODICITY;
     }
 
-    public Magazine(String name, int year, int number, int numberOfPages,
+    public Magazine(String name, int year, int number, int pagesNumber,
             Audience audience, Periodicity periodicity) {
-        super(name, year, number, numberOfPages, audience);
+        super(name, year, number, pagesNumber, audience);
         if (periodicity != null) {
             this.periodicity = periodicity;
         } else {
-            this.periodicity = Periodicity.WEEKLY;
+            this.periodicity = DEFAULT_PERIODICITY;
         }
+    }
+
+    public Magazine(Magazine obj) {
+        super(obj);
+        this.periodicity = obj.periodicity;
+    }
+
+    @Override
+    public Magazine clone() {
+        return new Magazine(this);
     }
 
     public void setPeriodicity(Periodicity periodicity) throws IllegalPeriodicityException {
@@ -57,7 +69,7 @@ public class Magazine extends Periodical {
 
     @Override
     public double getDays() {
-        return this.number * this.periodicity.getNumberOfDays();
+        return this.number * this.periodicity.getDaysNumber();
     }
 
     @Override

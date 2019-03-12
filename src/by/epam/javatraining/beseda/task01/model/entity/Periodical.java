@@ -23,17 +23,31 @@ public class Periodical extends Publication {
         this.audience = Audience.ANY;
     }
 
-    protected Periodical(String name, int year, int number, int numberOfPages,
+    public static final Audience DEFAULT_AUDIENCE = Audience.ANY;
+
+    protected Periodical(String name, int year, int number, int pagesNumber,
             Audience audience) {
-        super(name, year, numberOfPages);
+        super(name, year, pagesNumber);
         if (audience != null) {
             this.audience = audience;
         } else {
-            this.audience = Audience.ANY;
+            this.audience = DEFAULT_AUDIENCE;
         }
         if (number > 0) {
             this.number = number;
         }
+    }
+
+    protected Periodical(Periodical obj) {
+        super(obj);
+        this.audience = obj.audience;
+        this.number = obj.number;
+    }
+
+    
+    @Override
+    public Periodical clone() {
+        return new Periodical(this);
     }
 
     public void setAudience(Audience audience) throws IllegalAudienceException {
@@ -96,6 +110,6 @@ public class Periodical extends Publication {
 
     @Override
     public String toString() {
-        return name + ". " + year + ", " + number + ", " + numberOfPages + " pages";
+        return name + ". " + year + ", " + number + ", " + pagesNumber + " pages";
     }
 }

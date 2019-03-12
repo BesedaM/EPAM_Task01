@@ -4,7 +4,6 @@ import by.epam.javatraining.beseda.task01.model.exception.IllegalPeriodicityExce
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 /**
  *
  * @author Beseda
@@ -31,11 +30,19 @@ public class NewspaperNGTest {
         this.news = new Newspaper(null, -10, -10, -10, null, null);
         Assert.assertNotEquals(this.news.getPeriodicity(), Magazine.Periodicity.WEEKLY);
     }
-    
+
     @Test
     public void testSetPeriodicity03() throws IllegalPeriodicityException {
         this.news = new Newspaper();
         this.news.setPeriodicity(Newspaper.Periodicity.MONTHLY);
         Assert.assertEquals(this.news.getPeriodicity(), Newspaper.Periodicity.MONTHLY);
+    }
+
+    @Test
+    public void testClone() {
+        Newspaper newNews = new Newspaper("Periodical", 2018, 10, 150,
+                Periodical.Audience.ADULTS, Newspaper.Periodicity.TWICE_A_WEEK);
+        Newspaper clone = new Newspaper(newNews);
+        Assert.assertTrue(newNews.equals(clone));
     }
 }

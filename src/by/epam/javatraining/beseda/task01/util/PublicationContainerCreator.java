@@ -1,41 +1,61 @@
 package by.epam.javatraining.beseda.task01.util;
 
-import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
+import by.epam.javatraining.beseda.task01.model.entity.container.BookShelf;
+import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
+import by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;
 import by.epam.javatraining.beseda.task01.model.entity.Manuale;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
+import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 
 /**
- * Utility class for creating and filling the BookShelf object with some
- * Publications
+ * Utility class for creating and filling the PublicationContainer object with
+ * some Publications
  *
  * @author Beseda
  * @version 1.0 20/02/2019
  */
-public class BookShelfCreator {
+public class PublicationContainerCreator {
 
-    /**
-     * Method for creating a new BookShelf object of specific size
-     *
-     * @param size - maximum number of Publications you can put in BookShelf
-     * @return BookShelf object of specific size
-     */
-    public static BookShelf createBookShelf(int size) {
-        if (size > 0) {
-            return new BookShelf(size);
-        } else {
-            return null;
-        }
+    public enum Type {
+        BOOKSHELF, HOME_LIBRARY
     }
 
     /**
-     * Method for filling the container BookShelf object with some Publications
+     * Method for creating a new PublicationContainer object of specific size
      *
-     * @param books - Input BookShelf object
+     * @param size Maximum number of Publications you can put in
+     * PublicationContainer
+     * @param type Type of PublicationContainer, must be in:
+     * <ul>
+     * <li><code>BOOKSHELF</code></li>
+     * <li><code>HOME_LIBRARY</code></li>
+     * </ul>
+     * @return PublicationContainer object of specific size
      */
-    public static void fillBookShelf(BookShelf books) {
+    public static PublicationContainer createPublicationContainer(int size, Type type) {
+        PublicationContainer container = null;
+        if (size > 0 && type != null) {
+            if (type == Type.BOOKSHELF) {
+                container = new BookShelf(size);
+            } else if (type == Type.HOME_LIBRARY) {
+                container = new HomeLibrary(size);
+            }
+        }
+        return container;
+    }
+
+    /**
+     * Method for filling the container PublicationContainer object with some
+     * Publications
+     *
+     * @param books - Input PublicationContainer object
+     * @throws PublicationContainerException
+     */
+    public static void fillPublicationContainer(PublicationContainer books) 
+            throws PublicationContainerException {
         if (books != null) {
             books.add(new FictionLiterature("historical novel", "Victor Hugo",
                     "Les Miserables", 2013, 1221));

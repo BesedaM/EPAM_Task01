@@ -1,13 +1,15 @@
 package by.epam.javatraining.beseda.task01.model.logic.sorter;
 
-import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
+import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.entity.NonPeriodical;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
+import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.Sortable;
 
 /**
  * The aim of this class is to give the possibility to user to sort the
- * BookShelf object by different conditions
+ * PublicationContainer object by different conditions
  *
  * @author Beseda
  * @version 1.0 20/02/2019
@@ -15,53 +17,24 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
 public class Sorter {
 
     /**
-     * Inner functional interface containing method compare
-     */
-    public interface Sortable {
-
-        /**
-         * Abstract method for comparing two Publication objects
-         *
-         * @param books - Input BookShelf object
-         * @param index - index of the Publication object in the BookShelf
-         * container
-         * @return true or false
-         */
-        boolean compare(BookShelf books, int index);
-    }
-
-    //Interface Sortable implementations for use
-    public static final Sortable CLASS_NAME_SORTER = (books, j)
-            -> (books.get(j - 1).getClass().getSimpleName()
-                    .compareTo(books.get(j).getClass().getSimpleName()) > 0);
-
-    public static final Sortable NUMBER_OF_PAGES_SORTER = (books, j)
-            -> (books.get(j - 1).getNumberOfPages() > books.get(j).getNumberOfPages());
-
-    public static final Sortable DATE_SORTER = (books, j)
-            -> (books.get(j - 1).getYear() > books.get(j).getYear()
-            || books.get(j - 1).getYear() == books.get(j).getYear()
-            && books.get(j - 1).getDays() > books.get(j).getDays());
-
-    public static final Sortable NAME_SORTER = (books, j)
-            -> (books.get(j - 1).getName().compareTo(books.get(j).getName()) > 0);
-
-    /**
-     * Algorithm of sorting, using <code>Sorter</code> interface implementation
+     * Algorithm, applying <code>Sorter</code> interface implementation for
+     * sorting
      *
-     * @param books Input BookShelf object;
-     * @param sorter Parameter for sorting, must be in the next predefined
-     * values:
+     * @param books Input PublicationContainer object;
+     * @param sorter Object, implementing the Sorter interface, can be in the
+     * next predefined values:
      * <ul>
-     * <li><code>CLASS_NAME_SORTER</code></li>
-     * <li><code>NUMBER_OF_PAGES_SORTER</code></li>
-     * <li><code>DATE_SORTER</code></li>
-     * <li><code>NAME_SORTER</code></li>
+     * <li><code>ClassNameSorter</code></li>
+     * <li><code>PagesNumberSorter</code></li>
+     * <li><code>DateSorter</code></li>
+     * <li><code>NameSorter</code></li>
      * </ul>
+     * @throws WrongIndexException
      */
-    public static void sort(BookShelf books, Sortable sorter) {
-        if (books != null && sorter != null && books.getSize() > 1) {
-            int length = books.getSize();
+    public static void sort(PublicationContainer books, Sortable sorter)
+            throws WrongIndexException {
+        if (books != null && sorter != null && books.publicationsNumber() > 1) {
+            int length = books.publicationsNumber();
 
             sortPart(books, sorter, 0, length - 1);
         }
@@ -70,25 +43,26 @@ public class Sorter {
     /**
      * Method for sorting apart Periodical and NonPeriodical publications
      *
-     * @param books Input BookShelf object;
-     * @param sorter Parameter for sorting, must be in the next predefined
-     * values:
+     * @param books Input PublicationContainer object;
+     * @param sorter Object, implementing the Sorter interface, can be in the
+     * next predefined values:
      * <ul>
-     * <li><code>CLASS_NAME_SORTER</code></li>
-     * <li><code>NUMBER_OF_PAGES_SORTER</code></li>
-     * <li><code>DATE_SORTER</code></li>
-     * <li><code>NAME_SORTER</code></li>
+     * <li><code>ClassNameSorter</code></li>
+     * <li><code>PagesNumberSorter</code></li>
+     * <li><code>DateSorter</code></li>
+     * <li><code>NameSorter</code></li>
      * </ul>
      * When <code>sorter</code> is null the container will be divided into two
      * parts without any sorting
+     * @throws WrongIndexException
      */
-    public static void sortApartPeriodicalAndNonPeriodical(BookShelf books,
-            Sortable sorter) {
-        if (books != null && books.getSize() > 1) {
+    public static void sortApartPeriodicalAndNonPeriodical(PublicationContainer books,
+            Sortable sorter) throws WrongIndexException {
+        if (books != null && books.publicationsNumber() > 1) {
 
             dividePeriodicalFromNonPeriodical(books);
-            int length = books.getSize();
-            int nonPeriodicalPartLength = books.getNumberOfNonPeriodical();
+            int length = books.publicationsNumber();
+            int nonPeriodicalPartLength = books.nonPeriodicalNumber();
 
             sortPart(books, sorter, 0, nonPeriodicalPartLength - 1);
             sortPart(books, sorter, nonPeriodicalPartLength, length - 1);
@@ -96,13 +70,15 @@ public class Sorter {
     }
 
     /**
-     * Private method for dividing in BookShelf Periodical publications from
-     * NonPeriodical
+     * Private method for dividing PublicationContainer into two parts:
+     * Periodical and NonPeriodical
      *
-     * @param books Input BookShelf object
+     * @param books Input PublicationContainer object
+     * @throws WrongIndexException
      */
-    private static void dividePeriodicalFromNonPeriodical(BookShelf books) {
-        int length = books.getSize();
+    private static void dividePeriodicalFromNonPeriodical(PublicationContainer books)
+            throws WrongIndexException {
+        int length = books.publicationsNumber();
         Publication temp;
 
         for (int i = 0; i < length; i++) {
@@ -119,22 +95,23 @@ public class Sorter {
     }
 
     /**
-     * Method for sorting part of the BookShelf Publications
+     * Method for sorting part of the PublicationContainer object
      *
-     * @param books Input BookShelf object
-     * @param sorter Parameter for sorting, must be in the next predefined
-     * values:
+     * @param books Input PublicationContainer object
+     * @param sorter Object, implementing the Sorter interface, can be in the
+     * next predefined values:
      * <ul>
-     * <li><code>CLASS_NAME_SORTER</code></li>
-     * <li><code>NUMBER_OF_PAGES_SORTER</code></li>
-     * <li><code>DATE_SORTER</code></li>
-     * <li><code>NAME_SORTER</code></li>
+     * <li><code>ClassNameSorter</code></li>
+     * <li><code>PagesNumberSorter</code></li>
+     * <li><code>DateSorter</code></li>
+     * <li><code>NameSorter</code></li>
      * </ul>
      * @param start Index of first element to start sort with
      * @param end Index of the last element to sort
+     * @throws WrongIndexException
      */
-    private static void sortPart(BookShelf books, Sortable sorter,
-            int start, int end) {
+    private static void sortPart(PublicationContainer books, Sortable sorter,
+            int start, int end) throws WrongIndexException {
         if (sorter != null) {
             Publication temp;
             for (int i = start; i <= end; i++) {

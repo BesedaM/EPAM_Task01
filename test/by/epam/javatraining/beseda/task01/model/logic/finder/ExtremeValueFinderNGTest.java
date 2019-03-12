@@ -1,6 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.logic.finder;
 
-import by.epam.javatraining.beseda.task01.model.entity.BookShelf;
+import by.epam.javatraining.beseda.task01.model.entity.container.BookShelf;
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;

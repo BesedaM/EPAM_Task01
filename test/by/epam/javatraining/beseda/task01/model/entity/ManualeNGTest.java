@@ -48,4 +48,12 @@ public class ManualeNGTest {
     public void testGetAudience01(Manuale manuale) {
         Assert.assertEquals(manuale.getAudience(), Manuale.Audience.ANY);
     }
+
+    @Test
+    public void testClone() {
+        Manuale myBook = new Manuale("Author", "Book", 2011, 300,
+                "ElectricalEngineering", Manuale.Audience.BEGINNER);
+        Manuale clone = new Manuale(myBook);
+        Assert.assertTrue(clone.equals(myBook));
+    }
 }

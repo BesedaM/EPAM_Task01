@@ -1,6 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.entity;
 
-import by.epam.javatraining.beseda.task01.model.exception.IllegalNumberOfVolumesException;
+import by.epam.javatraining.beseda.task01.model.exception.IllegalVolumesNumberException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalAuthorException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalVolumeNumberException;
 import java.util.Objects;
@@ -12,13 +12,13 @@ import java.util.Objects;
  */
 public class NonPeriodical extends Publication {
 
-    public static final int MINIMUM_NUMBER_OF_VOLUMES = 2;
+    public static final int MINIMUM_VOLUMES_NUMBER = 2;
     public static final String DEFAULT_AUTHOR = "Unknown";
 
     protected String author;
     protected boolean multivolume;
     protected int volumeNumber;
-    protected int numberOfVolumes;
+    protected int volumesNumber;
 
     protected NonPeriodical() {
         super();
@@ -35,8 +35,8 @@ public class NonPeriodical extends Publication {
     }
 
     protected NonPeriodical(String author, String name,
-            int numberOfVolumes, int volumeNumber, int date, int numberOfPages) {
-        super(name, date, numberOfPages);
+            int volumesNumber, int volumeNumber, int date, int pagesNumber) {
+        super(name, date, pagesNumber);
         if (author != null) {
             this.author = author;
         } else {
@@ -46,9 +46,22 @@ public class NonPeriodical extends Publication {
         if (volumeNumber > 0) {
             this.volumeNumber = volumeNumber;
         }
-        if (numberOfVolumes >= MINIMUM_NUMBER_OF_VOLUMES) {
-            this.numberOfVolumes = numberOfVolumes;
+        if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
+            this.volumesNumber = volumesNumber;
         }
+    }
+
+    protected NonPeriodical(NonPeriodical obj) {
+        super(obj);
+        this.author = obj.author;
+        this.multivolume = obj.multivolume;
+        this.volumesNumber = obj.volumesNumber;
+        this.volumeNumber = obj.volumeNumber;
+    }
+
+    @Override
+    public NonPeriodical clone() {
+        return new NonPeriodical(this);
     }
 
     public void setAuthor(String author) throws IllegalAuthorException {
@@ -71,11 +84,11 @@ public class NonPeriodical extends Publication {
         }
     }
 
-    public void setNumberOfVolumes(int numberOfVolumes) throws IllegalNumberOfVolumesException {
-        if (numberOfVolumes >= MINIMUM_NUMBER_OF_VOLUMES) {
-            this.numberOfVolumes = numberOfVolumes;
+    public void setVolumesNumber(int volumesNumber) throws IllegalVolumesNumberException {
+        if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
+            this.volumesNumber = volumesNumber;
         } else {
-            throw new IllegalNumberOfVolumesException();
+            throw new IllegalVolumesNumberException();
         }
     }
 
@@ -91,8 +104,8 @@ public class NonPeriodical extends Publication {
         return volumeNumber;
     }
 
-    public int getNumberOfVolumes() {
-        return numberOfVolumes;
+    public int getVolumesNumber() {
+        return volumesNumber;
     }
 
     @Override
@@ -101,7 +114,7 @@ public class NonPeriodical extends Publication {
         hash = 19 * hash + Objects.hashCode(this.author);
         hash = 19 * hash + (this.multivolume ? 1 : 0);
         hash = 19 * hash + this.volumeNumber;
-        hash = 19 * hash + this.numberOfVolumes;
+        hash = 19 * hash + this.volumesNumber;
         hash = 19 * hash + super.hashCode() / 2;
         return hash;
     }
@@ -127,7 +140,7 @@ public class NonPeriodical extends Publication {
         if (this.volumeNumber != other.volumeNumber) {
             return false;
         }
-        if (this.numberOfVolumes != other.numberOfVolumes) {
+        if (this.volumesNumber != other.volumesNumber) {
             return false;
         }
         if (!Objects.equals(this.author, other.author)) {
@@ -140,11 +153,11 @@ public class NonPeriodical extends Publication {
     public String toString() {
         if (this.multivolume == false) {
             return author + ". " + name + ". " + year + ", "
-                    + numberOfPages + " pages";
+                    + pagesNumber + " pages";
         } else {
             return author + ". " + name + ". Volume " + volumeNumber
-                    + " of " + numberOfVolumes + ". " + year + ", "
-                    + numberOfPages + " pages";
+                    + " of " + volumesNumber + ". " + year + ", "
+                    + pagesNumber + " pages";
         }
     }
 

@@ -27,6 +27,7 @@ public class Manuale extends NonPeriodical {
     }
 
     public static final String DEFAULT_FIELD = "Unknown";
+    public static final Audience DEFAULT_AUDIENCE = Audience.ANY;
 
     private String field;
     private Audience audience;
@@ -34,12 +35,12 @@ public class Manuale extends NonPeriodical {
     public Manuale() {
         super();
         this.field = DEFAULT_FIELD;
-        this.audience = Audience.ANY;
+        this.audience = DEFAULT_AUDIENCE;
     }
 
-    public Manuale(String author, String name, int year, int numberOfPages,
+    public Manuale(String author, String name, int year, int pagesNumber,
             String field, Audience audience) {
-        super(author, name, year, numberOfPages);
+        super(author, name, year, pagesNumber);
         if (field != null) {
             this.field = field;
         } else {
@@ -48,14 +49,14 @@ public class Manuale extends NonPeriodical {
         if (audience != null) {
             this.audience = audience;
         } else {
-            this.audience = Audience.ANY;
+            this.audience = DEFAULT_AUDIENCE;
         }
     }
 
-    public Manuale(String author, String name, int numberOfVolumes,
-            int volumeNumber, int date, int numberOfPages,
+    public Manuale(String author, String name, int volumesNumber,
+            int volumeNumber, int date, int pagesNumber,
             String field, Audience audience) {
-        super(author, name, numberOfVolumes, volumeNumber, date, numberOfPages);
+        super(author, name, volumesNumber, volumeNumber, date, pagesNumber);
         if (field != null) {
             this.field = field;
         } else {
@@ -64,8 +65,19 @@ public class Manuale extends NonPeriodical {
         if (audience != null) {
             this.audience = audience;
         } else {
-            this.audience = Audience.ANY;
+            this.audience = DEFAULT_AUDIENCE;
         }
+    }
+
+    public Manuale(Manuale obj) {
+        super(obj);
+        this.audience = obj.audience;
+        this.field = obj.field;
+    }
+
+    @Override
+    public Manuale clone() {
+        return new Manuale(this);
     }
 
     public void setField(String field) throws IllegalScienceFieldException {

@@ -21,18 +21,20 @@ public class PeriodicalNGTest {
         this.periodicalDefault = new Periodical();
     }
 
-    @Test(groups = {"test setters"}, expectedExceptions = {IllegalNumberException.class})
-    public void testSetNumber01()  throws IllegalNumberException {
+    @Test(groups = {"test setters"},
+            expectedExceptions = {IllegalNumberException.class})
+    public void testSetNumber01() throws IllegalNumberException {
         this.periodicalDefault.setNumber(-1);
     }
 
     @Test(groups = {"test setters"})
-    public void testSetNumber02()  throws IllegalNumberException {
+    public void testSetNumber02() throws IllegalNumberException {
         this.periodicalDefault.setNumber(1);
         Assert.assertEquals(this.periodicalDefault.getNumber(), 1);
     }
 
-    @Test(groups = {"test setters"}, expectedExceptions = {IllegalAudienceException.class})
+    @Test(groups = {"test setters"},
+            expectedExceptions = {IllegalAudienceException.class})
     public void testSetAudience01() throws IllegalAudienceException {
         this.periodicalDefault.setAudience(null);
     }
@@ -40,7 +42,8 @@ public class PeriodicalNGTest {
     @Test(groups = {"test setters"})
     public void testSetAudience02() throws IllegalAudienceException {
         this.periodicalDefault.setAudience(Periodical.Audience.CHILDREN);
-        Assert.assertEquals(this.periodicalDefault.getAudience(), Periodical.Audience.CHILDREN);
+        Assert.assertEquals(this.periodicalDefault.getAudience(),
+                Periodical.Audience.CHILDREN);
     }
 
     @BeforeGroups(groups = {"incorrect data in Constructor"})
@@ -60,7 +63,7 @@ public class PeriodicalNGTest {
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetNumberOfPages01() {
-        Assert.assertEquals(this.incorrectData.getNumberOfPages(), 0);
+        Assert.assertEquals(this.incorrectData.getPagesNumber(), 0);
     }
 
     @Test(groups = {"incorrect data in Constructor"})
@@ -70,6 +73,15 @@ public class PeriodicalNGTest {
 
     @Test(groups = {"incorrect data in Constructor"})
     public void testGetAudience01() {
-        Assert.assertEquals(this.incorrectData.getAudience(), Periodical.Audience.ANY);
+        Assert.assertEquals(this.incorrectData.getAudience(),
+                Periodical.Audience.ANY);
+    }
+
+    @Test
+    public void testClone() {
+        Periodical newPeriodical = new Periodical("Periodical", 2018, 10, 150,
+                Periodical.Audience.ADULTS);
+        Periodical clone = new Periodical(newPeriodical);
+        Assert.assertTrue(newPeriodical.equals(clone));
     }
 }

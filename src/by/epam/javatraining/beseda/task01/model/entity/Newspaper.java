@@ -14,32 +14,44 @@ public class Newspaper extends Periodical {
         MONTHLY(30), TWICE_A_MONTH(15), WEEKLY(7),
         TWICE_A_WEEK(7.0 / 2), THREE_TIMES_A_WEEK(7.0 / 3), DAYLY(1);
 
-        private double numberOfDays;
+        private double daysNumber;
 
-        private Periodicity(double numberOfDays) {
-            this.numberOfDays = numberOfDays;
+        private Periodicity(double daysNumber) {
+            this.daysNumber = daysNumber;
         }
 
-        public double getNumberOfDays() {
-            return numberOfDays;
+        public double getDaysNumber() {
+            return daysNumber;
         }
     }
+
+    public static final Periodicity DEFAULT_PERIODICITY = Periodicity.WEEKLY;
 
     private Periodicity periodicity;
 
     public Newspaper() {
         super();
-        this.periodicity = Periodicity.WEEKLY;
+        this.periodicity = DEFAULT_PERIODICITY;
     }
 
-    public Newspaper(String name, int year, int number, int numberOfPages,
+    public Newspaper(String name, int year, int number, int pagesNumber,
             Audience audience, Periodicity periodicity) {
-        super(name, year, number, numberOfPages, audience);
+        super(name, year, number, pagesNumber, audience);
         if (periodicity != null) {
             this.periodicity = periodicity;
         } else {
-            this.periodicity = Periodicity.WEEKLY;
+            this.periodicity = DEFAULT_PERIODICITY;
         }
+    }
+
+    public Newspaper(Newspaper obj) {
+        super(obj);
+        this.periodicity = obj.periodicity;
+    }
+
+    @Override
+    public Newspaper clone() {
+        return new Newspaper(this);
     }
 
     public void setPeriodicity(Periodicity periodicity) throws IllegalPeriodicityException {
@@ -56,7 +68,7 @@ public class Newspaper extends Periodical {
 
     @Override
     public double getDays() {
-        return this.number * this.periodicity.getNumberOfDays();
+        return this.number * this.periodicity.getDaysNumber();
     }
 
     @Override
