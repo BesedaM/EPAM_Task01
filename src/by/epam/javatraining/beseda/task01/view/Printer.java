@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package by.epam.javatraining.beseda.task01.view;
 
 /**
- *
+ *  Functional interface containing the only method to print objects
+ * 
  * @author Beseda
- * @version 1.0 16/02/2019
+ * @version 1.1 13/03/2019
  */
 public interface Printer {
     
+    /**
+     * Prints a string representation of object
+     * 
+     * @param obj Object to print
+     */
     public void print(Object obj);
 }

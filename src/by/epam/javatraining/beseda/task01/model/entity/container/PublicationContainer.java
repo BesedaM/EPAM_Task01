@@ -1,6 +1,5 @@
 package by.epam.javatraining.beseda.task01.model.entity.container;
 
-import by.epam.javatraining.beseda.task01.model.entity.NonPeriodical;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
@@ -24,11 +23,20 @@ abstract public class PublicationContainer implements PublicationContainerInterf
     protected int periodicalNumber = 0;
     protected int nonPeriodicalNumber = 0;
 
+    /**
+     * Default constructor, creates a PublicationContainer of DEFAULT_SIZE
+     */
     public PublicationContainer() {
         this.MAX_SIZE = DEFAULT_SIZE;
         this.books = new Publication[MAX_SIZE];
     }
 
+    /**
+     * Constructor with parameter size, specifying the maximum capacity of
+     * container
+     *
+     * @param size Input size of PublicationContainer
+     */
     public PublicationContainer(int size) {
         if (size > 0) {
             this.MAX_SIZE = size;
@@ -38,6 +46,11 @@ abstract public class PublicationContainer implements PublicationContainerInterf
         this.books = new Publication[MAX_SIZE];
     }
 
+    /**
+     * Copy constructor
+     *
+     * @param books PublicationContainer to copy
+     */
     public PublicationContainer(PublicationContainer books) {
         this.MAX_SIZE = books.MAX_SIZE;
         this.books = new Publication[MAX_SIZE];
@@ -99,17 +112,15 @@ abstract public class PublicationContainer implements PublicationContainerInterf
     protected void addPublicationType(Publication publication) {
         if (publication instanceof Periodical) {
             this.periodicalNumber++;
-        } else if (publication instanceof NonPeriodical) {
-            this.nonPeriodicalNumber++;
         }
+        this.nonPeriodicalNumber++;
     }
 
     protected void deletePublicationType(Publication publication) {
         if (publication instanceof Periodical) {
             this.periodicalNumber--;
-        } else if (publication instanceof NonPeriodical) {
-            this.nonPeriodicalNumber--;
         }
+        this.nonPeriodicalNumber--;
     }
 
     @Override

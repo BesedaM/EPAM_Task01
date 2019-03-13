@@ -10,27 +10,24 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 09/03/2019
  */
-public class ClassName implements CertainValue {
+public class PagesNumberFinder implements CertainValue {
 
-    private String className;
+    private int pagesNumber;
 
     /**
      * Constructor receiving the certain parameter, which the user is going to
      * find
-     *
-     * @param className Short string representation of class name
+     * 
+     * @param pagesNumber Number of pages in the Publication
      */
-    public ClassName(String className) {
-        if (className != null) {
-            this.className = className;
-        } else {
-            this.className = "";
+    public PagesNumberFinder(int pagesNumber) {
+        if (pagesNumber > 0) {
+            this.pagesNumber = pagesNumber;
         }
     }
 
     /**
-     * Method for finding out whether the Publication object in
-     * PublicationContainer derived the certain class
+     * Method for finding the Publication object by it's number of pages
      *
      * @param books Input PublicationContainer object
      * @param index Index of the Publication object in the PublicationContainer
@@ -40,8 +37,7 @@ public class ClassName implements CertainValue {
     @Override
     public boolean match(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index).getClass().getSimpleName().toLowerCase()
-                .contains((this.className).toLowerCase());
+        return books.get(index).getPagesNumber() == this.pagesNumber;
     }
 
 }

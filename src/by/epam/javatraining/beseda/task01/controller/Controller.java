@@ -6,15 +6,16 @@ import by.epam.javatraining.beseda.task01.model.logic.calculator.PagesNumberCalc
 import by.epam.javatraining.beseda.task01.model.logic.finder.CertainValueFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.OldestNewestDateFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.MinMaxPagesNumberFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.ClassName;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.Name;
+import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.ClassNameFinder;
+import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.NameFinder;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.Sorter;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.ClassNameSorter;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.NameSorter;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.PagesNumberSorter;
 import by.epam.javatraining.beseda.task01.util.PublicationContainerCreator;
-import by.epam.javatraining.beseda.task01.view.Printer;
+import by.epam.javatraining.beseda.task01.view.PrinterCatalog;
 import by.epam.javatraining.beseda.task01.view.PrinterCreator;
+import by.epam.javatraining.beseda.task01.view.PrinterType;
 
 /**
  *
@@ -25,16 +26,19 @@ public class Controller {
 
     public static void main(String[] args) {
 
-        Printer printer = PrinterCreator.getPrinter(PrinterCreator.PrinterType.CONSOLE);
+        PrinterCatalog printer = PrinterCreator.getPrinters();
+        printer.addPrinter(PrinterType.CONSOLE);
+        printer.addPrinter(PrinterType.LOGGER);
 
+//        Printer printer = PrinterCatalog.getSinglePrinter(PrinterCatalog.PrinterType.CONSOLE);
         printer.print("First let's create a BookShelf of specific size "
                 + "and put some books and magazines in it");
         int size;
         size = 30;
- //       size = UserInput.inputInt("Enter number of books you can put on a BookShelf: ");
+        //       size = UserInput.inputInt("Enter number of books you can put on a BookShelf: ");
 
-        BookShelf books = (BookShelf)PublicationContainerCreator
-                .createPublicationContainer(size,PublicationContainerCreator.Type.BOOKSHELF);
+        BookShelf books = (BookShelf) PublicationContainerCreator
+                .createPublicationContainer(size, PublicationContainerCreator.Type.BOOKSHELF);
 
         try {
             PublicationContainerCreator.fillPublicationContainer(books);
@@ -52,10 +56,10 @@ public class Controller {
                     + MinMaxPagesNumberFinder.findMin(books));
             printer.print("");
             printer.print("Now we'll find all the publication by part of name"
-                    + "(The Tower) :" + CertainValueFinder.find(books, new Name("The Tower")));
+                    + "(The Tower) :" + CertainValueFinder.find(books, new NameFinder("The Tower")));
             printer.print("");
             printer.print("All the magazines in BookShelf: "
-                    + CertainValueFinder.find(books, new ClassName("Magazine")));
+                    + CertainValueFinder.find(books, new ClassNameFinder("Magazine")));
             printer.print("");
             printer.print("We have a multivolume publication on a BookShelf "
                     + "The Dark Tower" + ", the total number of pages in the BookShelf is "

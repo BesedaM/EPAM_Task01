@@ -5,6 +5,8 @@ import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
+import by.epam.javatraining.beseda.task01.model.exception.NotEnoughSpaceException;
+import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
 import static org.testng.Assert.*;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -14,13 +16,13 @@ import org.testng.annotations.Test;
  * @author Beseda
  * @version 1.0 27/02/2019
  */
-public class NumberOfPagesCalculatorNGTest {
+public class PagesNumberCalculatorNGTest {
 
-    public NumberOfPagesCalculatorNGTest() {
+    public PagesNumberCalculatorNGTest() {
     }
 
     @DataProvider(name = "BookShelf with data")
-    public static Object[][] provideData01() {
+    public static Object[][] provideData01() throws NotEnoughSpaceException {
         BookShelf books = new BookShelf(10);
         books.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));
@@ -42,32 +44,33 @@ public class NumberOfPagesCalculatorNGTest {
     }
 
     @Test(dataProvider = "BookShelf with data")
-    public void testCalculateMultivolume01(BookShelf books) {
+    public void testCalculateMultivolume01(BookShelf books) throws WrongIndexException {
         books = new BookShelf(10);
         assertEquals(PagesNumberCalculator.calculateMultivolume(books, null), 0);
     }
 
     @Test(dataProvider = "BookShelf with data")
-    public void testCalculateMultivolume02(BookShelf books) {
+    public void testCalculateMultivolume02(BookShelf books) throws WrongIndexException {
         books = new BookShelf(10);
         assertEquals(PagesNumberCalculator.calculateMultivolume(null,
                 "The Dark Tower"), 0);
     }
 
     @Test(dataProvider = "BookShelf with data")
-    public void testCalculateMultivolume03(BookShelf books) {
+    public void testCalculateMultivolume03(BookShelf books) throws WrongIndexException {
         assertEquals(PagesNumberCalculator.calculateMultivolume(books,
                 "National Geographic"), 0);
     }
 
     @Test(dataProvider = "BookShelf with data")
-    public void testCalculateMultivolume04(BookShelf books) {
+    public void testCalculateMultivolume04(BookShelf books) throws WrongIndexException {
         assertEquals(PagesNumberCalculator.calculateMultivolume(books,
                 "The Dark Tower"), 1502);
     }
 
     @Test
-    public void testCalculateMultivolume05() {
+    public void testCalculateMultivolume05() 
+            throws NotEnoughSpaceException, WrongIndexException {
         BookShelf books = new BookShelf(10);
         books.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));

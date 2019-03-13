@@ -10,24 +10,24 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 09/03/2019
  */
-public class Year implements CertainValue {
+public class NameFinder implements CertainValue {
 
-    private int year;
+    private String name;
 
     /**
      * Constructor receiving the certain parameter, which the user is going to
      * find
-     * 
-     * @param year Year of publication of Publication
+     *
+     * @param name Name of the Publication
      */
-    public Year(int year) {
-        if (year > 0) {
-            this.year = year;
+    public NameFinder(String name) {
+        if (name != null && name.length() > 2) {
+            this.name = name;
         }
     }
 
     /**
-     * Method for finding the Publication object by the year of it's publication
+     * Method for finding the Publication object by it's name
      *
      * @param books Input PublicationContainer object
      * @param index Index of the Publication object in the PublicationContainer
@@ -37,7 +37,8 @@ public class Year implements CertainValue {
     @Override
     public boolean match(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index).getYear() == this.year;
+        return this.name != null && 
+                books.get(index).getName().contains((this.name));
     }
 
 }

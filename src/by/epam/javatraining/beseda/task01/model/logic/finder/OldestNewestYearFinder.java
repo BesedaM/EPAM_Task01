@@ -3,7 +3,7 @@ package by.epam.javatraining.beseda.task01.model.logic.finder;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.Year;
+import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.YearFinder;
 import java.util.List;
 
 /**
@@ -23,7 +23,7 @@ public class OldestNewestYearFinder {
      * @return List<> object, satisfying the specific condition
      * @throws WrongIndexException
      */
-    public static List<Publication> findMin(PublicationContainer books)
+    public static List<Publication> findOldest(PublicationContainer books)
             throws WrongIndexException {
         int minYear = 0;
         if (books != null && books.publicationsNumber() != 0) {
@@ -34,7 +34,7 @@ public class OldestNewestYearFinder {
                 }
             }
         }
-        return CertainValueFinder.find(books, new Year(minYear));
+        return CertainValueFinder.find(books, new YearFinder(minYear));
     }
 
     /**
@@ -44,7 +44,7 @@ public class OldestNewestYearFinder {
      * @return List<> object, satisfying the specific condition
      * @throws WrongIndexException
      */
-    public static List<Publication> findMax(PublicationContainer books)
+    public static List<Publication> findNewest(PublicationContainer books)
             throws WrongIndexException {
         int maxYear = 0;
         if (books != null && books.publicationsNumber() != 0) {
@@ -55,6 +55,6 @@ public class OldestNewestYearFinder {
                 }
             }
         }
-        return CertainValueFinder.find(books, new Year(maxYear));
+        return CertainValueFinder.find(books, new YearFinder(maxYear));
     }
 }

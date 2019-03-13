@@ -10,26 +10,27 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 09/03/2019
  */
-public class Name implements CertainValue {
+public class ClassNameFinder implements CertainValue {
 
-    private String name;
+    private String className;
 
     /**
      * Constructor receiving the certain parameter, which the user is going to
      * find
-     * 
-     * @param name Name of the Publication
+     *
+     * @param className Short string representation of class name
      */
-    public Name(String name) {
-        if (name != null) {
-            this.name = name;
+    public ClassNameFinder(String className) {
+        if (className != null) {
+            this.className = className;
         } else {
-            this.name = "";
+            this.className = "";
         }
     }
 
     /**
-     * Method for finding the Publication object by it's name
+     * Method for finding out whether the Publication object in
+     * PublicationContainer derived the certain class
      *
      * @param books Input PublicationContainer object
      * @param index Index of the Publication object in the PublicationContainer
@@ -39,7 +40,8 @@ public class Name implements CertainValue {
     @Override
     public boolean match(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index).getName().equals(this.name);
+        return books.get(index).getClass().getSimpleName().toLowerCase()
+                .contains((this.className).toLowerCase());
     }
 
 }

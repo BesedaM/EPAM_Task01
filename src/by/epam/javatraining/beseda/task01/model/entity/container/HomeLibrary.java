@@ -36,7 +36,7 @@ public class HomeLibrary extends PublicationContainer{
     }
 
     private void extendLibrary() {
-        this.MAX_SIZE = this.MAX_SIZE * (3 / 2);
+        this.MAX_SIZE = (int) (this.MAX_SIZE * (3.0 / 2));
         Publication[] newBooks = new Publication[this.MAX_SIZE];
         System.arraycopy(books, 0, newBooks, 0, this.publicationsNumber);
         this.books = newBooks;

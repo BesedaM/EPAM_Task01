@@ -22,12 +22,12 @@ public class PagesNumberCalculator {
      * @return the total number of pages
      * @throws WrongIndexException
      */
-    public static int calculateMultivolume(PublicationContainer books, String name) 
+    public static int calculateMultivolume(PublicationContainer books, String name)
             throws WrongIndexException {
         int pages = 0;
         if (books != null && name != null) {
             for (int i = 0; i < books.publicationsNumber(); i++) {
-                if (books.get(i).getName().contains(name)
+                if (books.get(i) != null && books.get(i).getName().contains(name)
                         && (books.get(i) instanceof NonPeriodical)
                         && ((NonPeriodical) books.get(i)).isMultivolume()) {
                     NonPeriodical temp = (NonPeriodical) books.get(i);

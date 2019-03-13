@@ -25,13 +25,13 @@ public class MinMaxPagesNumberFinder {
             throws WrongIndexException {
         Publication foundPublication = null;
         if (books != null && books.publicationsNumber() != 0) {
-            int min;
-            min = books.get(0).getPagesNumber();
             foundPublication = books.get(0);
+            int min = foundPublication.getPagesNumber();
             for (int i = 1; i < books.publicationsNumber(); i++) {
                 if (books.get(i).getPagesNumber() < min) {
-                    min = books.get(i).getPagesNumber();
                     foundPublication = books.get(i);
+                    min = foundPublication.getPagesNumber();
+
                 }
             }
         }
@@ -51,13 +51,12 @@ public class MinMaxPagesNumberFinder {
             throws WrongIndexException {
         Publication foundPublication = null;
         if (books != null && books.publicationsNumber() != 0) {
-            int max;
-            max = books.get(0).getPagesNumber();
             foundPublication = books.get(0);
+            int max = foundPublication.getPagesNumber();
             for (int i = 1; i < books.publicationsNumber(); i++) {
                 if (books.get(i).getPagesNumber() > max) {
-                    max = books.get(i).getPagesNumber();
                     foundPublication = books.get(i);
+                    max = foundPublication.getPagesNumber();
                 }
             }
         }

@@ -10,24 +10,24 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 09/03/2019
  */
-public class PagesNumber implements CertainValue {
+public class YearFinder implements CertainValue {
 
-    private int pagesNumber;
+    private int year;
 
     /**
      * Constructor receiving the certain parameter, which the user is going to
      * find
      * 
-     * @param pagesNumber Number of pages in the Publication
+     * @param year Year of publication of Publication
      */
-    public PagesNumber(int pagesNumber) {
-        if (pagesNumber > 0) {
-            this.pagesNumber = pagesNumber;
+    public YearFinder(int year) {
+        if (year > 0) {
+            this.year = year;
         }
     }
 
     /**
-     * Method for finding the Publication object by it's number of pages
+     * Method for finding the Publication object by the year of it's publication
      *
      * @param books Input PublicationContainer object
      * @param index Index of the Publication object in the PublicationContainer
@@ -37,7 +37,7 @@ public class PagesNumber implements CertainValue {
     @Override
     public boolean match(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index).getPagesNumber() == this.pagesNumber;
+        return books.get(index).getYear() == this.year;
     }
 
 }

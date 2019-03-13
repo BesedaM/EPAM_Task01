@@ -1,40 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package by.epam.javatraining.beseda.task01.view;
 
-import java.io.PrintWriter;
-import org.apache.log4j.Logger;
-
 /**
+ * Class for creating printers
  *
  * @author Beseda
- * @version 1.0 16/02/2019
+ * @version 1.0 14/03/2019
  */
 public class PrinterCreator {
 
-    public enum PrinterType {
-        CONSOLE, LOGGER
-    }
+    private static PrinterCatalog catalog = null;
 
-    private static Printer printer = null;      //Singleton pattern
-
-    private PrinterCreator() {
-    }
-
-    public static Printer getPrinter(PrinterType type) {
-        if (printer == null) {
-            switch (type) {
-                case CONSOLE:
-                    printer = new ConsolePrinter(new PrintWriter(System.out, true));
-                    break;
-                case LOGGER:
-                    printer = new LogPrinter(Logger.getRootLogger());
-                    break;
-            }
+    /**
+     * Creates a PrinterCatalog instance, allowing to add different printers
+     *
+     * @return PrinterCatalog instance
+     */
+    public static PrinterCatalog getPrinters() {
+        if (catalog == null) {
+            catalog = new PrinterCatalog();
         }
-        return printer;
+        return catalog;
     }
+
+    /**
+     * Creates a single printer
+     * 
+     * @param type Printer type
+     * @return a printer single instance
+     */
+    public static Printer getSinglePrinter(PrinterType type) {
+        return type.getPrinter();
+    }
+
 }

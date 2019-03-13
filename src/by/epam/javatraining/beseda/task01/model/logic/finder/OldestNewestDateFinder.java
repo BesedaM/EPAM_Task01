@@ -30,7 +30,7 @@ public class OldestNewestDateFinder {
             double days;
             double tempDays;
             foundPublication = books.get(0);
-            tempYear = books.get(0).getYear();
+            tempYear = foundPublication.getYear();
             days = foundPublication.getDays();
 
             for (int i = 1; i < books.publicationsNumber(); i++) {
@@ -66,8 +66,8 @@ public class OldestNewestDateFinder {
             int year;
             double days;
             double tempDays;
-            year = books.get(0).getYear();
             foundPublication = books.get(0);
+            year = foundPublication.getYear();
             days = foundPublication.getDays();
             for (int i = 1; i < books.publicationsNumber(); i++) {
                 if (books.get(i).getYear() > year) {
