@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter;
+package by.epam.javatraining.beseda.task01.model.logic.finder.parameter;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
@@ -10,24 +10,24 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 09/03/2019
  */
-public class YearFinder implements CertainValue {
+public class CertainPagesNumber implements CertainValue {
 
-    private int year;
+    private int pagesNumber;
 
     /**
      * Constructor receiving the certain parameter, which the user is going to
      * find
      * 
-     * @param year Year of publication of Publication
+     * @param pagesNumber Number of pages in the Publication
      */
-    public YearFinder(int year) {
-        if (year > 0) {
-            this.year = year;
+    public CertainPagesNumber(int pagesNumber) {
+        if (pagesNumber > 0) {
+            this.pagesNumber = pagesNumber;
         }
     }
 
     /**
-     * Method for finding the Publication object by the year of it's publication
+     * Method for finding the Publication object by it's number of pages
      *
      * @param books Input PublicationContainer object
      * @param index Index of the Publication object in the PublicationContainer
@@ -37,7 +37,7 @@ public class YearFinder implements CertainValue {
     @Override
     public boolean match(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index).getYear() == this.year;
+        return books.get(index).getPagesNumber() == this.pagesNumber;
     }
 
 }

@@ -6,12 +6,12 @@ import by.epam.javatraining.beseda.task01.model.logic.calculator.PagesNumberCalc
 import by.epam.javatraining.beseda.task01.model.logic.finder.CertainValueFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.OldestNewestDateFinder;
 import by.epam.javatraining.beseda.task01.model.logic.finder.MinMaxPagesNumberFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.ClassNameFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.NameFinder;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainClassName;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainName;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.Sorter;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.ClassNameSorter;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.NameSorter;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.PagesNumberSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.ClassNameSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.NameSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.PagesNumberSorter;
 import by.epam.javatraining.beseda.task01.util.PublicationContainerCreator;
 import by.epam.javatraining.beseda.task01.view.PrinterCatalog;
 import by.epam.javatraining.beseda.task01.view.PrinterCreator;
@@ -56,10 +56,10 @@ public class Controller {
                     + MinMaxPagesNumberFinder.findMin(books));
             printer.print("");
             printer.print("Now we'll find all the publication by part of name"
-                    + "(The Tower) :" + CertainValueFinder.find(books, new NameFinder("The Tower")));
+                    + "(The Tower) :" + CertainValueFinder.find(books, new CertainName("The Tower")));
             printer.print("");
             printer.print("All the magazines in BookShelf: "
-                    + CertainValueFinder.find(books, new ClassNameFinder("Magazine")));
+                    + CertainValueFinder.find(books, new CertainClassName("Magazine")));
             printer.print("");
             printer.print("We have a multivolume publication on a BookShelf "
                     + "The Dark Tower" + ", the total number of pages in the BookShelf is "

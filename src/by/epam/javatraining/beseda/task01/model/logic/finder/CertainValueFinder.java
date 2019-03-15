@@ -3,7 +3,7 @@ package by.epam.javatraining.beseda.task01.model.logic.finder;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.CertainValue;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainValue;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,10 +24,10 @@ public class CertainValueFinder {
      * @param value Object, encapsulating the certain value, implementing the
      * CertainValue interface, can be in the next predefined classes:
      * <ul>
-     * <li><code>ClassName(value)</code></li>
-     * <li><code>Name(value)</code></li>
-     * <li><code>Year(value)</code></li>
-     * <li><code>NumberOfPages(value)</code></li>
+     * <li><code>CertainClassName(value)</code></li>
+     * <li><code>CertainName(value)</code></li>
+     * <li><code>CertainYear(value)</code></li>
+     * <li><code>CertainNumberOfPages(value)</code></li>
      * </ul>
      * @return list of Publications satisfying the given condition
      * @throws WrongIndexException

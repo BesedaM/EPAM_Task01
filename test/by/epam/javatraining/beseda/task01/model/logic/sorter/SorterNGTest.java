@@ -10,10 +10,10 @@ import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.exception.NotEnoughSpaceException;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
 import by.epam.javatraining.beseda.task01.model.logic.data.TestingData;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.ClassNameSorter;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.DateSorter;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.NameSorter;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.PagesNumberSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.ClassNameSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.DateSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.NameSorter;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.PagesNumberSorter;
 import static org.testng.Assert.*;
 import org.testng.annotations.Test;
 

@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter;
+package by.epam.javatraining.beseda.task01.model.logic.finder.parameter;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;

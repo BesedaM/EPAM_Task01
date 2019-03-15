@@ -7,9 +7,9 @@ import by.epam.javatraining.beseda.task01.model.entity.Manuale;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
 import by.epam.javatraining.beseda.task01.model.logic.data.TestingData;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.ClassNameFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.NameFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.PagesNumberFinder;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainClassName;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainName;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainPagesNumber;
 import java.util.ArrayList;
 import java.util.List;
 import static org.testng.Assert.*;
@@ -29,21 +29,21 @@ public class CertainValueFinderNGTest {
     @Test(dataProvider = "Empty BookShelf", dataProviderClass = TestingData.class)
     public void testFinder01(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new ClassNameFinder("Dictionary"));
+                = CertainValueFinder.find(books, new CertainClassName("Dictionary"));
         assertEquals(list.toString(), "[]");
     }
 
     @Test(dataProvider = "Empty BookShelf", dataProviderClass = TestingData.class)
     public void testFinder02(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new NameFinder("How to"));
+                = CertainValueFinder.find(books, new CertainName("How to"));
         assertEquals(list.toString(), "[]");
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
     public void testFinder03(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new ClassNameFinder("FictionLiterature"));
+                = CertainValueFinder.find(books, new CertainClassName("FictionLiterature"));
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));
@@ -55,7 +55,7 @@ public class CertainValueFinderNGTest {
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
     public void testFinder04(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new ClassNameFinder("Dictionary"));
+                = CertainValueFinder.find(books, new CertainClassName("Dictionary"));
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz",
                 "", "Mandarin Chinese", 2007, 671));
@@ -65,7 +65,7 @@ public class CertainValueFinderNGTest {
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
     public void testFinder05(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new PagesNumberFinder(1221));
+                = CertainValueFinder.find(books, new CertainPagesNumber(1221));
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new FictionLiterature("historical novel", "Victor Hugo",
                 "Les Miserables", 2013, 1221));
@@ -75,7 +75,7 @@ public class CertainValueFinderNGTest {
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
     public void testFinder06(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new PagesNumberFinder(350));
+                = CertainValueFinder.find(books, new CertainPagesNumber(350));
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new Manuale("Mark Frary, Stephen Pincock",
                 "The Origins of the Universe for Dummies", 2012, 350,
@@ -86,7 +86,7 @@ public class CertainValueFinderNGTest {
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
     public void testFinder07(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new NameFinder("How"));
+                = CertainValueFinder.find(books, new CertainName("How"));
         ArrayList<Publication> expected = new ArrayList<>();
         expected.add(new Manuale("Ron White", "How Computers Work", 2007, 464,
                 "information technology", Manuale.Audience.BEGINNER));
@@ -96,7 +96,7 @@ public class CertainValueFinderNGTest {
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
     public void testFinder08(BookShelf books) throws WrongIndexException {
         List<Publication> list
-                = CertainValueFinder.find(books, new NameFinder("to"));
+                = CertainValueFinder.find(books, new CertainName("to"));
         ArrayList<Publication> expected = new ArrayList<>();
         assertEquals(list, expected);
     }

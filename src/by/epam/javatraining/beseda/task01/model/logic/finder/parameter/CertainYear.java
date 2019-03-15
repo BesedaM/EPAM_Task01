@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter;
+package by.epam.javatraining.beseda.task01.model.logic.finder.parameter;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
@@ -10,27 +10,24 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 09/03/2019
  */
-public class ClassNameFinder implements CertainValue {
+public class CertainYear implements CertainValue {
 
-    private String className;
+    private int year;
 
     /**
      * Constructor receiving the certain parameter, which the user is going to
      * find
-     *
-     * @param className Short string representation of class name
+     * 
+     * @param year Year of publication of Publication
      */
-    public ClassNameFinder(String className) {
-        if (className != null) {
-            this.className = className;
-        } else {
-            this.className = "";
+    public CertainYear(int year) {
+        if (year > 0) {
+            this.year = year;
         }
     }
 
     /**
-     * Method for finding out whether the Publication object in
-     * PublicationContainer derived the certain class
+     * Method for finding the Publication object by the year of it's publication
      *
      * @param books Input PublicationContainer object
      * @param index Index of the Publication object in the PublicationContainer
@@ -40,8 +37,7 @@ public class ClassNameFinder implements CertainValue {
     @Override
     public boolean match(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index).getClass().getSimpleName().toLowerCase()
-                .contains((this.className).toLowerCase());
+        return books.get(index).getYear() == this.year;
     }
 
 }

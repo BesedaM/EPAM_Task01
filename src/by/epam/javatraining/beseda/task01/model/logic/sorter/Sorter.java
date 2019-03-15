@@ -5,7 +5,7 @@ import by.epam.javatraining.beseda.task01.model.entity.NonPeriodical;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
-import by.epam.javatraining.beseda.task01.model.logic.sorter.sortable.Sortable;
+import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.Sortable;
 
 /**
  * The aim of this class is to give the possibility to user to sort the

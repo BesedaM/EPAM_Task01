@@ -3,7 +3,7 @@ package by.epam.javatraining.beseda.task01.model.logic.finder;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
-import by.epam.javatraining.beseda.task01.model.logic.finder.certainparameter.YearFinder;
+import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainYear;
 import java.util.List;
 
 /**
@@ -34,7 +34,7 @@ public class OldestNewestYearFinder {
                 }
             }
         }
-        return CertainValueFinder.find(books, new YearFinder(minYear));
+        return CertainValueFinder.find(books, new CertainYear(minYear));
     }
 
     /**
@@ -55,6 +55,6 @@ public class OldestNewestYearFinder {
                 }
             }
         }
-        return CertainValueFinder.find(books, new YearFinder(maxYear));
+        return CertainValueFinder.find(books, new CertainYear(maxYear));
     }
 }

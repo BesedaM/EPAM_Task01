@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task01.model.logic.sorter.sortable;
+package by.epam.javatraining.beseda.task01.model.logic.sorter.parameter;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
@@ -11,11 +11,11 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @author Beseda
  * @version 1.0 08/03/2019
  */
-public class NameSorter implements Sortable {
+public class ClassNameSorter implements Sortable {
 
     /**
-     * Comparing two Publication objects in PublicationContainer object by their
-     * Names
+     * Method comparing two Publication objects in PublicationContainer object by their
+     * class names
      *
      * @param books PublicationContainer object
      * @param index Index of current Publication
@@ -25,7 +25,8 @@ public class NameSorter implements Sortable {
     @Override
     public boolean compare(PublicationContainer books, int index)
             throws WrongIndexException {
-        return books.get(index - 1).getName().compareTo(books.get(index).getName()) > 0;
+        return books.get(index - 1).getClass().getSimpleName()
+                .compareTo(books.get(index).getClass().getSimpleName()) > 0;
     }
 
 }
