@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="by.epam.javatraining.beseda.task01.model.entity">
+  <ClassDiagramComponents>
+    <Class name="Dictionary" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="236.0" yPosition="311.0">
+      <Fields>
+        <Field name="DEFAULT_PUBLISHERS" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DEFAULT_TYPE" type="Type" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="type" type="Type" visibility="private"/>
+        <Field name="publishers" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Dictionary" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FictionLiterature" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="384.0" yPosition="114.0">
+      <Fields>
+        <Field name="genre" type="String" visibility="private"/>
+        <Field name="DEFAULT_GENRE" type="String" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FictionLiterature" name="obj"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="clone" returnType="FictionLiterature" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Magazine" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="931.0" yPosition="147.0">
+      <Fields>
+        <Field name="DEFAULT_PERIODICITY" type="Periodicity" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="periodicity" type="Periodicity" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Magazine" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Manuale" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="657.0" yPosition="67.0">
+      <Fields>
+        <Field name="DEFAULT_FIELD" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DEFAULT_AUDIENCE" type="Audience" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="field" type="String" visibility="private"/>
+        <Field name="audience" type="Audience" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Manuale" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Newspaper" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="1212.0" yPosition="147.0">
+      <Fields>
+        <Field name="DEFAULT_PERIODICITY" type="Periodicity" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="periodicity" type="Periodicity" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Newspaper" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="NonPeriodical" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="592.0" yPosition="353.0">
+      <Fields>
+        <Field name="MINIMUM_VOLUMES_NUMBER" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DEFAULT_AUTHOR" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="author" type="String" visibility="protected"/>
+        <Field name="multivolume" type="boolean" visibility="protected"/>
+        <Field name="volumeNumber" type="int" visibility="protected"/>
+        <Field name="volumesNumber" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="NonPeriodical" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Periodical" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="1088.0" yPosition="382.0">
+      <Fields>
+        <Field name="audience" type="Audience" visibility="protected"/>
+        <Field name="number" type="int" visibility="protected"/>
+        <Field name="DEFAULT_AUDIENCE" type="Audience" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Periodical" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Publication" package="by.epam.javatraining.beseda.task01.model.entity" visibility="public" xPosition="774.0" yPosition="638.0">
+      <Fields>
+        <Field name="PUBLICATION_MINIMUM_YEAR" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DAYS_IN_YEAR_PASSED_FROM_PUBLICATION" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DEFAULT_NAME" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="name" type="String" visibility="protected"/>
+        <Field name="year" type="int" visibility="protected"/>
+        <Field name="pagesNumber" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="clone" returnType="Publication" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BookShelf" package="by.epam.javatraining.beseda.task01.model.entity.container" visibility="public" xPosition="147.0" yPosition="1207.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="size"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="BookShelf" name="books"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="HomeLibrary" package="by.epam.javatraining.beseda.task01.model.entity.container" visibility="public" xPosition="147.0" yPosition="1039.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="size"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="HomeLibrary" name="books"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PublicationContainer" package="by.epam.javatraining.beseda.task01.model.entity.container" visibility="public" isAbstract="true" xPosition="563.0" yPosition="983.0">
+      <Fields>
+        <Field name="DEFAULT_SIZE" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="MAX_SIZE" type="int" visibility="protected"/>
+        <Field name="books" type="Publication[]" visibility="protected"/>
+        <Field name="publicationsNumber" type="int" visibility="protected"/>
+        <Field name="periodicalNumber" type="int" visibility="protected"/>
+        <Field name="nonPeriodicalNumber" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="size"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="PublicationContainer" name="books"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="PagesNumberCalculator" package="" visibility="public" xPosition="500.0" yPosition="752.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="calculateMultivolume" returnType="int" visibility="public" isStatic="true">
+          <Argument type="PublicationContainer" name="books"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PublicationFinder" package="" visibility="public" xPosition="37.0" yPosition="613.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="find" returnType="Publication" visibility="public" isStatic="true">
+          <Argument type="PublicationContainer" name="books"/>
+          <Argument type="Publication" name="publication"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Interface name="PublicationContainerInterface" package="by.epam.javatraining.beseda.task01.model.entity.container" visibility="public" xPosition="1045.0" yPosition="983.0">
+      <Methods>
+        <Method name="publicationsNumber" returnType="int" visibility="package"/>
+        <Method name="maximumCapacity" returnType="int" visibility="package"/>
+        <Method name="add" returnType="Publication" visibility="package">
+          <Argument type="Publication" name="p"/>
+        </Method>
+        <Method name="set" returnType="Publication" visibility="package">
+          <Argument type="int" name="index"/>
+          <Argument type="Publication" name="p"/>
+        </Method>
+        <Method name="get" returnType="int" visibility="package">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="remove" returnType="Publication" visibility="package">
+          <Argument type="Publication" name="publication"/>
+        </Method>
+        <Method name="contains" returnType="Publication" visibility="package">
+          <Argument type="Publication" name="publication"/>
+        </Method>
+        <Method name="periodicalNumber" returnType="int" visibility="package"/>
+        <Method name="nonPeriodicalNumber" returnType="int" visibility="package"/>
+        <Method name="allPublicationsToString" returnType="String" visibility="package"/>
+      </Methods>
+    </Interface>
+    <Class name="Sorter" package="" visibility="public" isStatic="true" xPosition="110.0" yPosition="901.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="sort" returnType="void" visibility="public">
+          <Argument type="PublicationContainer" name="books"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.Periodical" target="by.epam.javatraining.beseda.task01.model.entity.Publication"/>
+    <UseRelation name="search" source="PublicationFinder" target="by.epam.javatraining.beseda.task01.model.entity.Publication" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.Newspaper" target="by.epam.javatraining.beseda.task01.model.entity.Periodical"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.FictionLiterature" target="by.epam.javatraining.beseda.task01.model.entity.NonPeriodical"/>
+    <UseRelation name="" source="Sorter" target="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer" target="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainerInterface"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.container.BookShelf" target="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer"/>
+    <UseRelation name="finds in" source="PublicationFinder" target="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.NonPeriodical" target="by.epam.javatraining.beseda.task01.model.entity.Publication"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary" target="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.Dictionary" target="by.epam.javatraining.beseda.task01.model.entity.NonPeriodical"/>
+    <UseRelation source="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer" target="by.epam.javatraining.beseda.task01.model.entity.Publication" sourceCardinality="1..1" targetCardinality="1..*"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.Manuale" target="by.epam.javatraining.beseda.task01.model.entity.NonPeriodical"/>
+    <IsRelation name="is" source="by.epam.javatraining.beseda.task01.model.entity.Magazine" target="by.epam.javatraining.beseda.task01.model.entity.Periodical"/>
+    <UseRelation source="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainerInterface" target="by.epam.javatraining.beseda.task01.model.entity.Publication" sourceCardinality="1..1" targetCardinality="1..*"/>
+    <UseRelation name="" source="PagesNumberCalculator" target="by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
