@@ -10,7 +10,7 @@ import by.epam.javatraining.beseda.task01.model.exception.NotEnoughSpaceExceptio
  * @author Beseda
  * @version 1.1 08/03/2019
  */
-public class BookShelf extends PublicationContainer{
+public class BookShelf extends AbstractPublicationContainer{
 
     public BookShelf() {
         super();

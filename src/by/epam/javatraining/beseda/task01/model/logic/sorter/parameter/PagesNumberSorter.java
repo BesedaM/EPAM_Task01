@@ -1,7 +1,7 @@
 package by.epam.javatraining.beseda.task01.model.logic.sorter.parameter;
 
+import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
-import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
 
 /**
  * Class, implementing Sortable interface
@@ -17,14 +17,14 @@ public class PagesNumberSorter implements Sortable {
      * Comparing two Publication objects in PublicationContainer object by
      * number of pages
      *
-     * @param books PublicationContainer object
+     * @param books Input object, implementing PublicationContainerInterface 
      * @param index Index of current Publication
      * @return true or false
-     * @throws WrongIndexException
+     * @throws PublicationContainerException
      */
     @Override
     public boolean compare(PublicationContainer books, int index)
-            throws WrongIndexException {
+            throws PublicationContainerException {
         return books.get(index - 1).getPagesNumber() > books.get(index).getPagesNumber();
     }
 

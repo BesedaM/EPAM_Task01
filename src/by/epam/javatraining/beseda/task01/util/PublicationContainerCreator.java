@@ -1,7 +1,7 @@
 package by.epam.javatraining.beseda.task01.util;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.BookShelf;
-import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
+import by.epam.javatraining.beseda.task01.model.entity.container.AbstractPublicationContainer;
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
 import by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary;
@@ -35,8 +35,9 @@ public class PublicationContainerCreator {
      * </ul>
      * @return PublicationContainer object of specific size
      */
-    public static PublicationContainer createPublicationContainer(int size, Type type) {
-        PublicationContainer container = null;
+    public static AbstractPublicationContainer 
+        createPublicationContainer(int size, Type type) {
+        AbstractPublicationContainer container = null;
         if (size > 0 && type != null) {
             if (type == Type.BOOKSHELF) {
                 container = new BookShelf(size);
@@ -54,7 +55,7 @@ public class PublicationContainerCreator {
      * @param books - Input PublicationContainer object
      * @throws PublicationContainerException
      */
-    public static void fillPublicationContainer(PublicationContainer books) 
+    public static void fillPublicationContainer(AbstractPublicationContainer books) 
             throws PublicationContainerException {
         if (books != null) {
             books.add(new FictionLiterature("historical novel", "Victor Hugo",

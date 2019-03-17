@@ -12,18 +12,7 @@ import java.util.Objects;
 public class Manuale extends NonPeriodical {
 
     public enum Audience {
-        BEGINNER("beginners"), AMATEUR("amauters"),
-        PROFESSIONAL("professionals"), ANY("any");
-
-        private String name;
-
-        Audience(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
+        BEGINNER, AMATEUR, PROFESSIONAL, ANY;
     }
 
     public static final String DEFAULT_FIELD = "Unknown";
@@ -139,7 +128,7 @@ public class Manuale extends NonPeriodical {
 
     @Override
     public String toString() {
-        return super.toString() + " for " + audience.getName();
+        return super.toString() + " for " + audience.name().toLowerCase();
     }
 
 }

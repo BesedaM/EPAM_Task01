@@ -7,7 +7,7 @@ import by.epam.javatraining.beseda.task01.model.entity.Publication;
  * @author Beseda
  * @version 1.0 07/03/2019
  */
-public class HomeLibrary extends PublicationContainer{
+public class HomeLibrary extends AbstractPublicationContainer{
 
     public HomeLibrary() {
         super();

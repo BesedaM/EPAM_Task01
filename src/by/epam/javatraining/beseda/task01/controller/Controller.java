@@ -3,11 +3,12 @@ package by.epam.javatraining.beseda.task01.controller;
 import by.epam.javatraining.beseda.task01.model.entity.container.BookShelf;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.model.logic.calculator.PagesNumberCalculator;
-import by.epam.javatraining.beseda.task01.model.logic.finder.CertainValueFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.OldestNewestDateFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.MinMaxPagesNumberFinder;
-import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainClassName;
-import by.epam.javatraining.beseda.task01.model.logic.finder.parameter.CertainName;
+import by.epam.javatraining.beseda.task01.model.logic.finder.ConcreteValuePublicationFinder;
+import by.epam.javatraining.beseda.task01.model.logic.finder.ExtremeValuePublicationFinder;
+import by.epam.javatraining.beseda.task01.model.logic.finder.concreteparameter.ConcreteClassName;
+import by.epam.javatraining.beseda.task01.model.logic.finder.concreteparameter.ConcreteName;
+import by.epam.javatraining.beseda.task01.model.logic.finder.extremeparameter.PagesNumberField;
+import by.epam.javatraining.beseda.task01.model.logic.finder.extremeparameter.YearField;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.Sorter;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.ClassNameSorter;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.NameSorter;
@@ -46,20 +47,20 @@ public class Controller {
             printer.print(books.allPublicationsToString());
 
             printer.print("Let's find the oldest publication: "
-                    + OldestNewestDateFinder.findOldest(books));
+                    + ExtremeValuePublicationFinder.findMin(books, new YearField()));
             printer.print("The newest one: "
-                    + OldestNewestDateFinder.findNewest(books));
+                    + ExtremeValuePublicationFinder.findMax(books, new YearField()));
 
             printer.print("Let's find the publication with maximum number of pages: "
-                    + MinMaxPagesNumberFinder.findMax(books));
+                    + ExtremeValuePublicationFinder.findMax(books, new PagesNumberField()));
             printer.print("The publication with minimum number of pages: "
-                    + MinMaxPagesNumberFinder.findMin(books));
+                    + ExtremeValuePublicationFinder.findMin(books, new PagesNumberField()));
             printer.print("");
             printer.print("Now we'll find all the publication by part of name"
-                    + "(The Tower) :" + CertainValueFinder.find(books, new CertainName("The Tower")));
+                    + "(The Tower) :" + ConcreteValuePublicationFinder.find(books, new ConcreteName("The Tower")));
             printer.print("");
             printer.print("All the magazines in BookShelf: "
-                    + CertainValueFinder.find(books, new CertainClassName("Magazine")));
+                    + ConcreteValuePublicationFinder.find(books, new ConcreteClassName("Magazine")));
             printer.print("");
             printer.print("We have a multivolume publication on a BookShelf "
                     + "The Dark Tower" + ", the total number of pages in the BookShelf is "

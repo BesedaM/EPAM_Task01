@@ -1,11 +1,11 @@
 package by.epam.javatraining.beseda.task01.model.logic.sorter;
 
-import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.entity.NonPeriodical;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
-import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
+import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.Sortable;
+import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 
 /**
  * The aim of this class is to give the possibility to user to sort the
@@ -20,7 +20,7 @@ public class Sorter {
      * Algorithm, applying <code>Sorter</code> interface implementation for
      * sorting
      *
-     * @param books Input PublicationContainer object;
+     * @param books Input object, implementing PublicationContainerInterface 
      * @param sorter Object, implementing the Sorter interface, can be in the
      * next predefined values:
      * <ul>
@@ -29,10 +29,10 @@ public class Sorter {
      * <li><code>DateSorter</code></li>
      * <li><code>NameSorter</code></li>
      * </ul>
-     * @throws WrongIndexException
+     * @throws PublicationContainerException
      */
     public static void sort(PublicationContainer books, Sortable sorter)
-            throws WrongIndexException {
+            throws PublicationContainerException {
         if (books != null && sorter != null && books.publicationsNumber() > 1) {
             int length = books.publicationsNumber();
 
@@ -43,7 +43,7 @@ public class Sorter {
     /**
      * Method for sorting apart Periodical and NonPeriodical publications
      *
-     * @param books Input PublicationContainer object;
+     * @param books Input object, implementing PublicationContainerInterface 
      * @param sorter Object, implementing the Sorter interface, can be in the
      * next predefined values:
      * <ul>
@@ -54,10 +54,10 @@ public class Sorter {
      * </ul>
      * When <code>sorter</code> is null the container will be divided into two
      * parts without any sorting
-     * @throws WrongIndexException
+     * @throws PublicationContainerException
      */
     public static void sortApartPeriodicalAndNonPeriodical(PublicationContainer books,
-            Sortable sorter) throws WrongIndexException {
+            Sortable sorter) throws PublicationContainerException {
         if (books != null && books.publicationsNumber() > 1) {
 
             dividePeriodicalFromNonPeriodical(books);
@@ -73,11 +73,11 @@ public class Sorter {
      * Private method for dividing PublicationContainer into two parts:
      * Periodical and NonPeriodical
      *
-     * @param books Input PublicationContainer object
-     * @throws WrongIndexException
+     * @param books Input object, implementing PublicationContainerInterface 
+     * @throws PublicationContainerException
      */
     private static void dividePeriodicalFromNonPeriodical(PublicationContainer books)
-            throws WrongIndexException {
+            throws PublicationContainerException {
         int length = books.publicationsNumber();
         Publication temp;
 
@@ -97,7 +97,7 @@ public class Sorter {
     /**
      * Method for sorting part of the PublicationContainer object
      *
-     * @param books Input PublicationContainer object
+     * @param books Input object, implementing PublicationContainerInterface 
      * @param sorter Object, implementing the Sorter interface, can be in the
      * next predefined values:
      * <ul>
@@ -108,10 +108,10 @@ public class Sorter {
      * </ul>
      * @param start Index of first element to start sort with
      * @param end Index of the last element to sort
-     * @throws WrongIndexException
+     * @throws PublicationContainerException
      */
     private static void sortPart(PublicationContainer books, Sortable sorter,
-            int start, int end) throws WrongIndexException {
+            int start, int end) throws PublicationContainerException {
         if (sorter != null) {
             Publication temp;
             for (int i = start; i <= end; i++) {

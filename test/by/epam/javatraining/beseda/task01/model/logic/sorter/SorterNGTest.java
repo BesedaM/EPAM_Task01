@@ -7,8 +7,7 @@ import by.epam.javatraining.beseda.task01.model.entity.Magazine;
 import by.epam.javatraining.beseda.task01.model.entity.Manuale;
 import by.epam.javatraining.beseda.task01.model.entity.NonPeriodical;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
-import by.epam.javatraining.beseda.task01.model.exception.NotEnoughSpaceException;
-import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
+import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.model.logic.data.TestingData;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.ClassNameSorter;
 import by.epam.javatraining.beseda.task01.model.logic.sorter.parameter.DateSorter;
@@ -28,17 +27,17 @@ public class SorterNGTest {
     }
 
     @Test
-    public void testSort01() throws WrongIndexException {
+    public void testSort01() throws PublicationContainerException {
         Sorter.sort(null, new ClassNameSorter());
     }
 
     @Test
-    public void testSort02() throws WrongIndexException {
+    public void testSort02() throws PublicationContainerException {
         Sorter.sort(new BookShelf(5), null);
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSort03(BookShelf books) throws WrongIndexException {
+    public void testSort03(BookShelf books) throws PublicationContainerException {
         Sorter.sort(books, new ClassNameSorter());
         assertEquals(books.get(0).getClass(), Dictionary.class);
         assertEquals(books.get(1).getClass(), FictionLiterature.class);
@@ -50,7 +49,7 @@ public class SorterNGTest {
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSort04(BookShelf books) throws WrongIndexException {
+    public void testSort04(BookShelf books) throws PublicationContainerException {
         Sorter.sort(books, new NameSorter());
         assertTrue(books.get(0).getName().compareTo(books.get(1).getName()) <= 0);
         assertTrue(books.get(1).getName().compareTo(books.get(2).getName()) <= 0);
@@ -61,7 +60,7 @@ public class SorterNGTest {
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSort05(BookShelf books) throws WrongIndexException {
+    public void testSort05(BookShelf books) throws PublicationContainerException {
         Sorter.sort(books, new PagesNumberSorter());
         assertTrue(books.get(0).getPagesNumber() <= books.get(1).getPagesNumber());
         assertTrue(books.get(1).getPagesNumber() <= books.get(2).getPagesNumber());
@@ -72,7 +71,7 @@ public class SorterNGTest {
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSort06(BookShelf books) throws WrongIndexException {
+    public void testSort06(BookShelf books) throws PublicationContainerException {
         Sorter.sort(books, new DateSorter());
         assertEquals(books.get(0).getYear() <= books.get(1).getYear(), true);
         assertEquals(books.get(1).getYear() <= books.get(2).getYear(), true);
@@ -82,7 +81,7 @@ public class SorterNGTest {
         assertEquals(books.get(5).getYear() <= books.get(6).getYear(), true);
     }
 
-    public void testSort07() throws NotEnoughSpaceException, WrongIndexException {
+    public void testSort07() throws PublicationContainerException {
         BookShelf booksLocal = new BookShelf(5);
         booksLocal.add(new Manuale("Ron White", "How Computers Work", 2007, 464,
                 "information technology", Manuale.Audience.BEGINNER));
@@ -105,17 +104,18 @@ public class SorterNGTest {
     }
 
     @Test
-    public void testSortApartPerAndNonPer01() throws WrongIndexException {
+    public void testSortApartPerAndNonPer01() throws PublicationContainerException {
         Sorter.sortApartPeriodicalAndNonPeriodical(null, new NameSorter());
     }
 
     @Test
-    public void testSortApartPerAndNonPer02() throws WrongIndexException {
+    public void testSortApartPerAndNonPer02() throws PublicationContainerException {
         Sorter.sortApartPeriodicalAndNonPeriodical(new BookShelf(5), null);
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSortApartPerAndNonPer03(BookShelf books) throws WrongIndexException {
+    public void testSortApartPerAndNonPer03(BookShelf books) 
+            throws PublicationContainerException {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, new ClassNameSorter());
         assertTrue(books.get(0) instanceof NonPeriodical);
         assertEquals(books.get(0).getClass(), Dictionary.class);
@@ -130,7 +130,8 @@ public class SorterNGTest {
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSortApartPerAndNonPer04(BookShelf books) throws WrongIndexException {
+    public void testSortApartPerAndNonPer04(BookShelf books) 
+            throws PublicationContainerException {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, new NameSorter());
         assertTrue(books.get(0) instanceof NonPeriodical);
 
@@ -144,7 +145,8 @@ public class SorterNGTest {
     }
 
     @Test(dataProvider = "BookShelf with data01", dataProviderClass = TestingData.class)
-    public void testSortApartPerAndNonPer05(BookShelf books) throws WrongIndexException {
+    public void testSortApartPerAndNonPer05(BookShelf books) 
+            throws PublicationContainerException {
         Sorter.sortApartPeriodicalAndNonPeriodical(books, new PagesNumberSorter());
 
         assertTrue(books.get(0) instanceof NonPeriodical);

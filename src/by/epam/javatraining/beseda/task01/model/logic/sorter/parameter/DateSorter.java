@@ -1,7 +1,7 @@
 package by.epam.javatraining.beseda.task01.model.logic.sorter.parameter;
 
+import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
-import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
 
 /**
  * Class, implementing Sortable interface
@@ -9,7 +9,7 @@ import by.epam.javatraining.beseda.task01.model.exception.WrongIndexException;
  * @see Sorter.class
  * @see Sortable interface
  * @author Beseda
- * @version 1.0 08/03/2019
+ * @version 1.1 17/03/2019
  */
 public class DateSorter implements Sortable {
 
@@ -17,17 +17,16 @@ public class DateSorter implements Sortable {
      * Comparing two Publication objects in PublicationContainer object by the
      * dates of the publication
      *
-     * @param books PublicationContainer object
+     * @param books Input object, implementing PublicationContainerInterface
      * @param index Index of current Publication
      * @return true or false
-     * @throws WrongIndexException
+     * @throws PublicationContainerException
      */
     @Override
     public boolean compare(PublicationContainer books, int index)
-            throws WrongIndexException {
-        return books.get(index - 1).getYear() > books.get(index).getYear()
-                || books.get(index - 1).getYear() == books.get(index).getYear()
-                && books.get(index - 1).getDays() > books.get(index).getDays();
+            throws PublicationContainerException {
+        return books.get(index - 1).getYear() * 1000 + books.get(index - 1).getDays()
+                > books.get(index).getYear() * 1000 + books.get(index).getDays();
     }
 
 }

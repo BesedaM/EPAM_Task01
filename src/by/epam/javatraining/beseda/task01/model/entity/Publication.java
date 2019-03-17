@@ -19,7 +19,7 @@ public class Publication {
     public static final int DAYS_IN_YEAR_PASSED_FROM_PUBLICATION = 0;
     public static final String DEFAULT_NAME = "Unknown";
 
-    protected int ID;
+    protected int id;
     protected String name;
     protected int year;
     protected int pagesNumber;
@@ -54,9 +54,9 @@ public class Publication {
         return new Publication(this);
     }
 
-    public void setID(int ID) throws IllegalIDException {
-        if (ID > 0) {
-            this.ID = ID;
+    public void setID(int id) throws IllegalIDException {
+        if (id > 0) {
+            this.id = id;
         } else {
             throw new IllegalIDException();
         }
@@ -87,8 +87,8 @@ public class Publication {
         }
     }
 
-    public int getID() {
-        return ID;
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -142,7 +142,7 @@ public class Publication {
 
     @Override
     public String toString() {
-        return "ID " + ID + ". " + name;
+        return "ID " + id + ". " + name;
     }
 
 }
