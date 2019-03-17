@@ -28,7 +28,7 @@ public class Controller {
     public static void main(String[] args) {
 
         PrinterCatalog printer = PrinterCreator.getPrinters();
-        printer.addPrinter(PrinterType.CONSOLE);
+ //       printer.addPrinter(PrinterType.CONSOLE);
         printer.addPrinter(PrinterType.LOGGER);
 
 //        Printer printer = PrinterCatalog.getSinglePrinter(PrinterCatalog.PrinterType.CONSOLE);
@@ -47,24 +47,32 @@ public class Controller {
             printer.print(books.allPublicationsToString());
 
             printer.print("Let's find the oldest publication: "
-                    + ExtremeValuePublicationFinder.findMin(books, new YearField()));
+                    + ExtremeValuePublicationFinder.findMin(books,
+                            new YearField()));
             printer.print("The newest one: "
-                    + ExtremeValuePublicationFinder.findMax(books, new YearField()));
+                    + ExtremeValuePublicationFinder.findMax(books,
+                            new YearField()));
 
             printer.print("Let's find the publication with maximum number of pages: "
-                    + ExtremeValuePublicationFinder.findMax(books, new PagesNumberField()));
+                    + ExtremeValuePublicationFinder.findMax(books,
+                            new PagesNumberField()));
             printer.print("The publication with minimum number of pages: "
-                    + ExtremeValuePublicationFinder.findMin(books, new PagesNumberField()));
+                    + ExtremeValuePublicationFinder.findMin(books,
+                            new PagesNumberField()));
             printer.print("");
             printer.print("Now we'll find all the publication by part of name"
-                    + "(The Tower) :" + ConcreteValuePublicationFinder.find(books, new ConcreteName("The Tower")));
+                    + "(Dark Tower) :" 
+                    + ConcreteValuePublicationFinder.find(books, 
+                            new ConcreteName("Dark Tower")));
             printer.print("");
             printer.print("All the magazines in BookShelf: "
-                    + ConcreteValuePublicationFinder.find(books, new ConcreteClassName("Magazine")));
+                    + ConcreteValuePublicationFinder.find(books, 
+                            new ConcreteClassName("Magazine")));
             printer.print("");
             printer.print("We have a multivolume publication on a BookShelf "
                     + "The Dark Tower" + ", the total number of pages in the BookShelf is "
-                    + PagesNumberCalculator.calculateMultivolume(books, "The Dark Tower"));
+                    + PagesNumberCalculator.calculateMultivolume(books, 
+                            "The Dark Tower"));
             printer.print("");
 
             printer.print("Now we'll try to sort publications in the BookShelf"
@@ -85,7 +93,8 @@ public class Controller {
             printer.print(books.allPublicationsToString());
             printer.print("Sort by number of pages dividing the data into "
                     + "two parts (Periodical and NonPeriodical): ");
-            Sorter.sortApartPeriodicalAndNonPeriodical(books, new PagesNumberSorter());
+            Sorter.sortApartPeriodicalAndNonPeriodical(books, 
+                    new PagesNumberSorter());
             printer.print(books.allPublicationsToString());
         } catch (PublicationContainerException e) {
             printer.print(e);
