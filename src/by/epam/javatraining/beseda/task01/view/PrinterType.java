@@ -12,7 +12,8 @@ import org.apache.log4j.Logger;
 public enum PrinterType {
 
     CONSOLE(new ConsolePrinter(new PrintWriter(System.out, true))),
-    LOGGER(new LogPrinter(Logger.getRootLogger()));
+    LOGGER(new LogPrinter(Logger.getRootLogger())),
+    FILE(new FilePrinter());
 
     private Printer printer;
 

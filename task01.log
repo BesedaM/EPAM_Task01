@@ -226,3 +226,924 @@ Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
 Berlitz. Mandarin Chinese . 2007
 Victor Hugo. Les Miserables. 2013, 1221 pages
 
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+FATAL --  HELLO_HELLO_HELLO
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+FATAL --  HELLO_HELLO_HELLO
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+FATAL --  HELLO_HELLO_HELLO
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+FATAL --  HELLO_HELLO_HELLO
+FATAL --  FILE_LOGGING
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+FATAL --  FILE_LOGGING
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+FATAL --  Controller error
+FATAL --  FILE_LOGGING
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+FATAL --  Controller error
+ INFO --  First let's create a BookShelf of specific size and put some books and magazines in it
+ INFO --  Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+
+ INFO --  Let's find the oldest publication: Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+ INFO --  The newest one: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  Let's find the publication with maximum number of pages: Victor Hugo. Les Miserables. 2013, 1221 pages
+ INFO --  The publication with minimum number of pages: Magazine Psychologies. 2019, 3, 132 pages
+ INFO --  
+ INFO --  Now we'll find all the publication by part of name(Dark Tower) :[Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages, Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages, Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages]
+ INFO --  
+ INFO --  All the magazines in BookShelf: [Magazine National Geographic. 2018, 2, 158 pages, Magazine National Geographic. 2018, 12, 165 pages, Magazine Psychologies. 2019, 3, 132 pages, Magazine National Geographic. 2019, 3, 170 pages, Magazine Digital Photography. 2019, 1, 153 pages]
+ INFO --  
+ INFO --  We have a multivolume publication on a BookShelf The Dark Tower, the total number of pages in the BookShelf is 1502
+ INFO --  
+ INFO --  Now we'll try to sort publications in the BookShelf by different conditions...
+ INFO --  Sort by class name: 
+ INFO --  Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Ron White. How Computers Work. 2007, 464 pages for beginner
+
+ INFO --  Sort by name: 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages: 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+
+ INFO --  Sort by publications name dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Digital Photography. 2019, 1, 153 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Victor Hugo. Les Miserables. 2013, 1221 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2019, 3, 170 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine Psychologies. 2019, 3, 132 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+
+ INFO --  Sort by number of pages dividing the data into two parts (Periodical and NonPeriodical): 
+ INFO --  Magazine Psychologies. 2019, 3, 132 pages
+Magazine Digital Photography. 2019, 1, 153 pages
+Magazine National Geographic. 2018, 2, 158 pages
+Magazine National Geographic. 2018, 12, 165 pages
+Magazine National Geographic. 2019, 3, 170 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Mark Frary, Stephen Pincock. The Origins of the Universe for Dummies. 2012, 350 pages for any
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+Ron White. How Computers Work. 2007, 464 pages for beginner
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Victor Hugo. Les Miserables. 2013, 1221 pages
+

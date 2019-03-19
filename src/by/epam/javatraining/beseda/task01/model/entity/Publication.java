@@ -54,7 +54,7 @@ public class Publication {
         return new Publication(this);
     }
 
-    public void setID(int id) throws IllegalIDException {
+    public void setId(int id) throws IllegalIDException {
         if (id > 0) {
             this.id = id;
         } else {
@@ -105,6 +105,10 @@ public class Publication {
 
     public double getDays() {
         return DAYS_IN_YEAR_PASSED_FROM_PUBLICATION;
+    }
+
+    public boolean isNull() {
+        return false;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task01.model.logic.finder;
 
+import by.epam.javatraining.beseda.task01.model.entity.NullPublication;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
@@ -33,7 +34,7 @@ public class ExtremeValuePublicationFinder {
      */
     public static Publication findMin(PublicationContainer books, FieldValue field)
             throws PublicationContainerException {
-        Publication foundPublication = null;
+        Publication foundPublication = new NullPublication();
         if (books != null && field != null && books.publicationsNumber() > 0) {
             foundPublication = books.get(0);
             int min = field.getValue(foundPublication);
@@ -65,7 +66,7 @@ public class ExtremeValuePublicationFinder {
      */
     public static Publication findMax(PublicationContainer books, FieldValue field)
             throws PublicationContainerException {
-        Publication foundPublication = null;
+        Publication foundPublication = new NullPublication();
         if (books != null && field != null && books.publicationsNumber() > 0) {
             foundPublication = books.get(0);
             int max = field.getValue(foundPublication);

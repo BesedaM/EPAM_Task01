@@ -28,7 +28,7 @@ public class PrinterCreator {
      * @param type Printer type
      * @return a printer single instance
      */
-    public static Printer getSinglePrinter(PrinterType type) {
+    public static Printer getPrinter(PrinterType type) {
         return type.getPrinter();
     }
 
