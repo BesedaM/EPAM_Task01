@@ -38,13 +38,24 @@ public class Periodical extends Publication {
         }
     }
 
+    protected Periodical(Publication p, int number, Audience audience) {
+        super(p);
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            this.audience = DEFAULT_AUDIENCE;
+        }
+        if (number > 0) {
+            this.number = number;
+        }
+    }
+
     protected Periodical(Periodical obj) {
         super(obj);
         this.audience = obj.audience;
         this.number = obj.number;
     }
 
-    
     @Override
     public Periodical clone() {
         return new Periodical(this);
@@ -111,5 +122,10 @@ public class Periodical extends Publication {
     @Override
     public String toString() {
         return name + ". " + year + ", " + number + ", " + pagesNumber + " pages";
+    }
+
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + number + ", " + audience + ", ";
     }
 }

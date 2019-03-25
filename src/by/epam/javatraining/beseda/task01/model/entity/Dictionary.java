@@ -58,6 +58,21 @@ public class Dictionary extends NonPeriodical {
         }
     }
 
+    public Dictionary(Publication p, String author, int volumesNumber, 
+            int volumeNumber, Type type, String publishers) {
+        super(p, author, volumesNumber, volumeNumber);
+        if (type != null) {
+            this.type = type;
+        } else {
+            this.type = DEFAULT_TYPE;
+        }
+        if (publishers != null) {
+            this.publishers = publishers;
+        } else {
+            this.publishers = DEFAULT_PUBLISHERS;
+        }
+    }
+
     public Dictionary(Dictionary obj) {
         super(obj);
         this.publishers = obj.publishers;
@@ -134,6 +149,11 @@ public class Dictionary extends NonPeriodical {
             return publishers + ". " + name + ". Volume " + volumeNumber
                     + " of " + volumesNumber + ". " + year;
         }
+    }
+
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + type + ", " + publishers + "; ";
     }
 
 }

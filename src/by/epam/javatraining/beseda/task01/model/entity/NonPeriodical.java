@@ -34,8 +34,8 @@ public class NonPeriodical extends Publication {
         }
     }
 
-    protected NonPeriodical(String author, String name,
-            int volumesNumber, int volumeNumber, int date, int pagesNumber) {
+    protected NonPeriodical(String author, String name, int volumesNumber,
+            int volumeNumber, int date, int pagesNumber) {
         super(name, date, pagesNumber);
         if (author != null) {
             this.author = author;
@@ -47,6 +47,23 @@ public class NonPeriodical extends Publication {
             this.volumeNumber = volumeNumber;
         }
         if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
+            this.volumesNumber = volumesNumber;
+        }
+    }
+
+    protected NonPeriodical(Publication p, String author, int volumesNumber,
+            int volumeNumber) {
+        super(p);
+        if (author != null) {
+            this.author = author;
+        } else {
+            this.author = DEFAULT_AUTHOR;
+        }
+        if (volumeNumber > 0) {
+            this.volumeNumber = volumeNumber;
+        }
+        if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
+            this.multivolume = true;
             this.volumesNumber = volumesNumber;
         }
     }
@@ -161,4 +178,9 @@ public class NonPeriodical extends Publication {
         }
     }
 
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + author + ", " + volumesNumber + ", "
+                + volumeNumber + ", ";
+    }
 }

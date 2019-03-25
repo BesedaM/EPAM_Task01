@@ -28,7 +28,7 @@ public class BookShelf extends AbstractPublicationContainer{
     @Override
     public boolean add(Publication publication) throws NotEnoughSpaceException {
         if (publication != null) {
-            if (this.publicationsNumber < this.MAX_SIZE) {
+            if (this.publicationsNumber < this.maxSize) {
                 this.addPublicationType(publication);
                 this.books[this.publicationsNumber] = publication;
                 this.publicationsNumber++;
@@ -43,7 +43,7 @@ public class BookShelf extends AbstractPublicationContainer{
 
     @Override
     public String toString() {
-        return "Bookshelf for " + MAX_SIZE
+        return "Bookshelf for " + maxSize
                 + " publications, current number of publications - " + publicationsNumber;
     }
 

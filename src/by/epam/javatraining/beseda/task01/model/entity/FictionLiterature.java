@@ -39,6 +39,16 @@ public class FictionLiterature extends NonPeriodical {
         }
     }
 
+    public FictionLiterature(Publication p, String author, int numberOfVolumes, 
+            int volumeNumber, String genre) {
+        super(p, author, numberOfVolumes, volumeNumber);
+        if (genre != null) {
+            this.genre = genre;
+        } else {
+            this.genre = DEFAULT_GENRE;
+        }
+    }
+
     public FictionLiterature(FictionLiterature obj) {
         super(obj);
         this.genre = obj.genre;
@@ -95,4 +105,8 @@ public class FictionLiterature extends NonPeriodical {
         return super.toString();
     }
 
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + genre + "; ";
+    }
 }

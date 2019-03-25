@@ -58,6 +58,21 @@ public class Manuale extends NonPeriodical {
         }
     }
 
+    public Manuale(Publication p, String author, int volumesNumber,
+            int volumeNumber, String field, Audience audience) {
+        super(p, author, volumesNumber, volumeNumber);
+        if (field != null) {
+            this.field = field;
+        } else {
+            this.field = DEFAULT_FIELD;
+        }
+        if (audience != null) {
+            this.audience = audience;
+        } else {
+            this.audience = DEFAULT_AUDIENCE;
+        }
+    }
+
     public Manuale(Manuale obj) {
         super(obj);
         this.audience = obj.audience;
@@ -131,4 +146,8 @@ public class Manuale extends NonPeriodical {
         return super.toString() + " for " + audience.name().toLowerCase();
     }
 
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + field + ", " + audience + "; ";
+    }
 }

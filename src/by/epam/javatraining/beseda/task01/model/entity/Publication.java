@@ -4,6 +4,7 @@ import by.epam.javatraining.beseda.task01.model.exception.IllegalIDException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalNameException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalPagesNumberException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalYearException;
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import java.util.Objects;
  * @author Beseda
  * @version 1.0 19/02/2019
  */
-public class Publication {
+public class Publication implements Serializable {
 
     public static final int PUBLICATION_MINIMUM_YEAR = 1900;
     public static final int DAYS_IN_YEAR_PASSED_FROM_PUBLICATION = 0;
@@ -28,7 +29,7 @@ public class Publication {
         this.name = DEFAULT_NAME;
     }
 
-    protected Publication(String name, int year, int numberOfPages) {
+    public Publication(String name, int year, int pagesNumber) {
         if (name != null) {
             this.name = name;
         } else {
@@ -38,8 +39,8 @@ public class Publication {
                 && year <= (new GregorianCalendar().get(Calendar.YEAR))) {
             this.year = year;
         }
-        if (numberOfPages > 0) {
-            this.pagesNumber = numberOfPages;
+        if (pagesNumber > 0) {
+            this.pagesNumber = pagesNumber;
         }
     }
 
@@ -147,6 +148,11 @@ public class Publication {
     @Override
     public String toString() {
         return "ID " + id + ". " + name;
+    }
+
+    public String writeAllData() {
+        return this.getClass().getSimpleName() + ": " + name + ", " 
+                + year + ", " + pagesNumber + ", ";
     }
 
 }

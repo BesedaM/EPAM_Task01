@@ -12,11 +12,11 @@ import java.util.Arrays;
  * @author Beseda
  * @version 1.0 07/03/2019
  */
-abstract public class AbstractPublicationContainer implements PublicationContainer {
+abstract public class AbstractPublicationContainer implements PublicationContainer{
 
     public static final int DEFAULT_SIZE = 16;
 
-    protected int MAX_SIZE;
+    protected int maxSize;
     protected Publication[] books;
     protected int publicationsNumber = 0;
 
@@ -27,8 +27,8 @@ abstract public class AbstractPublicationContainer implements PublicationContain
      * Default constructor, creates a PublicationContainer of DEFAULT_SIZE
      */
     public AbstractPublicationContainer() {
-        this.MAX_SIZE = DEFAULT_SIZE;
-        this.books = new Publication[MAX_SIZE];
+        this.maxSize = DEFAULT_SIZE;
+        this.books = new Publication[maxSize];
     }
 
     /**
@@ -39,11 +39,11 @@ abstract public class AbstractPublicationContainer implements PublicationContain
      */
     public AbstractPublicationContainer(int size) {
         if (size > 0) {
-            this.MAX_SIZE = size;
+            this.maxSize = size;
         } else {
-            this.MAX_SIZE = DEFAULT_SIZE;
+            this.maxSize = DEFAULT_SIZE;
         }
-        this.books = new Publication[MAX_SIZE];
+        this.books = new Publication[maxSize];
     }
 
     /**
@@ -52,8 +52,8 @@ abstract public class AbstractPublicationContainer implements PublicationContain
      * @param books PublicationContainer to copy
      */
     public AbstractPublicationContainer(AbstractPublicationContainer books) {
-        this.MAX_SIZE = books.MAX_SIZE;
-        this.books = new Publication[MAX_SIZE];
+        this.maxSize = books.maxSize;
+        this.books = new Publication[maxSize];
         this.publicationsNumber = books.publicationsNumber;
         this.nonPeriodicalNumber = books.nonPeriodicalNumber;
         this.periodicalNumber = books.periodicalNumber;
@@ -69,7 +69,7 @@ abstract public class AbstractPublicationContainer implements PublicationContain
 
     @Override
     public int maximumCapacity() {
-        return MAX_SIZE;
+        return maxSize;
     }
 
     @Override
@@ -161,7 +161,7 @@ abstract public class AbstractPublicationContainer implements PublicationContain
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 17 * hash + this.MAX_SIZE;
+        hash = 17 * hash + this.maxSize;
         hash = 17 * hash + Arrays.deepHashCode(this.books);
         hash = 17 * hash + this.publicationsNumber;
         hash = 17 * hash + this.periodicalNumber;
@@ -181,7 +181,7 @@ abstract public class AbstractPublicationContainer implements PublicationContain
             return false;
         }
         final AbstractPublicationContainer other = (AbstractPublicationContainer) obj;
-        if (this.MAX_SIZE != other.MAX_SIZE) {
+        if (this.maxSize != other.maxSize) {
             return false;
         }
         if (this.publicationsNumber != other.publicationsNumber) {

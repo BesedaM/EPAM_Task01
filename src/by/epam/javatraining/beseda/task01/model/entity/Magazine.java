@@ -45,6 +45,16 @@ public class Magazine extends Periodical {
         }
     }
 
+    public Magazine(Publication p, int number, Audience audience,
+            Periodicity periodicity) {
+        super(p, number, audience);
+        if (periodicity != null) {
+            this.periodicity = periodicity;
+        } else {
+            this.periodicity = DEFAULT_PERIODICITY;
+        }
+    }
+
     public Magazine(Magazine obj) {
         super(obj);
         this.periodicity = obj.periodicity;
@@ -105,6 +115,11 @@ public class Magazine extends Periodical {
     @Override
     public String toString() {
         return "Magazine " + super.toString();
+    }
+
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + periodicity + "; ";
     }
 
 }

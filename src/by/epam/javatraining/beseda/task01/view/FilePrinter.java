@@ -5,6 +5,7 @@
  */
 package by.epam.javatraining.beseda.task01.view;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import org.apache.log4j.Logger;
@@ -16,13 +17,14 @@ import org.apache.log4j.Logger;
  */
 public class FilePrinter implements Printer {
 
-    FileWriter writer = null;
-    String fileName = null;
+    public static String FILE_NAME 
+            = "C:\\Users\\User\\Documents\\NetBeansProjects\\EPAM_01\\SimpleText.txt";
+    
+    BufferedWriter writer = null;
 
     public FilePrinter() {
         try {
-            fileName = "C:\\Users\\User\\Documents\\NetBeansProjects\\EPAM_01\\Text.txt";
-            writer = new FileWriter(fileName, true);
+            writer = new BufferedWriter(new FileWriter(FILE_NAME, true));
         } catch (IOException ex) {
             Logger.getLogger(FilePrinter.class).fatal(ex);
         }

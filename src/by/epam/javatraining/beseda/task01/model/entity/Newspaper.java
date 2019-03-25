@@ -44,6 +44,16 @@ public class Newspaper extends Periodical {
         }
     }
 
+        public Newspaper(Publication p, int number, Audience audience, 
+                Periodicity periodicity) {
+        super(p, number, audience);
+        if (periodicity != null) {
+            this.periodicity = periodicity;
+        } else {
+            this.periodicity = DEFAULT_PERIODICITY;
+        }
+    }
+    
     public Newspaper(Newspaper obj) {
         super(obj);
         this.periodicity = obj.periodicity;
@@ -104,6 +114,11 @@ public class Newspaper extends Periodical {
     @Override
     public String toString() {
         return "Newspaper " + super.toString();
+    }
+
+    @Override
+    public String writeAllData() {
+        return super.writeAllData() + periodicity + "; ";
     }
 
 }

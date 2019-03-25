@@ -8,6 +8,8 @@ import by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary;
 import by.epam.javatraining.beseda.task01.model.entity.Magazine;
 import by.epam.javatraining.beseda.task01.model.entity.Manuale;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
+import by.epam.javatraining.beseda.task01.model.entity.Publication;
+import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 
 /**
@@ -35,8 +37,8 @@ public class PublicationContainerCreator {
      * </ul>
      * @return PublicationContainer object of specific size
      */
-    public static AbstractPublicationContainer 
-        createPublicationContainer(int size, Type type) {
+    public static AbstractPublicationContainer
+            createPublicationContainer(int size, Type type) {
         AbstractPublicationContainer container = null;
         if (size > 0 && type != null) {
             if (type == Type.BOOKSHELF) {
@@ -55,41 +57,46 @@ public class PublicationContainerCreator {
      * @param books - Input PublicationContainer object
      * @throws PublicationContainerException
      */
-    public static void fillPublicationContainer(AbstractPublicationContainer books) 
+    public static void fillPublicationContainer(PublicationContainer books)
             throws PublicationContainerException {
-        if (books != null) {
-            books.add(new FictionLiterature("historical novel", "Victor Hugo",
-                    "Les Miserables", 2013, 1221));
-            books.add(new FictionLiterature("historical fiction",
-                    "F.Scott Fitzgerald", "The Great Gatsby", 2016, 198));
-            books.add(new FictionLiterature("science fiction", "Ray Bradbury",
-                    "Fahrenheit 451", 2004, 208));
-            books.add(new Magazine("National Geographic", 2018, 2, 158,
-                    Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
-            books.add(new FictionLiterature("dark fantasy", "Stephen King",
-                    "The Dark Tower", 5, 1, 2003, 336));
-            books.add(new FictionLiterature("dark fantasy", "Stephen King",
-                    "The Dark Tower", 5, 2, 2006, 496));
-            books.add(new FictionLiterature("dark fantasy", "Stephen King",
-                    "The Dark Tower", 5, 3, 2012, 670));
-            books.add(new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz",
-                    "", "Mandarin Chinese ", 2007, 671));
-            books.add(new Magazine("National Geographic", 2018, 12, 165,
-                    Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
-            books.add(new Magazine("Psychologies", 2019, 3, 132,
-                    Periodical.Audience.ADULTS, Magazine.Periodicity.MONTHLY));
-            books.add(new Manuale("Paulina Christensen, Wendy Foster, Anne Fox",
-                    "German for dummies", 2000, 384, "linguistics",
-                    Manuale.Audience.BEGINNER));
-            books.add(new Manuale("Mark Frary, Stephen Pincock",
-                    "The Origins of the Universe for Dummies", 2012, 350,
-                    "astronomy", Manuale.Audience.ANY));
-            books.add(new Manuale("Ron White", "How Computers Work", 2007, 464,
-                    "information technology", Manuale.Audience.BEGINNER));
-            books.add(new Magazine("National Geographic", 2019, 3, 170,
-                    Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
-            books.add(new Magazine("Digital Photography", 2019, 1, 153,
-                    Periodical.Audience.ANY, Magazine.Periodicity.MONTHLY));
+
+        Publication[] arr = new Publication[]{
+            new FictionLiterature("historical novel", "Victor Hugo", "Les Miserables",
+            2013, 1221),
+            new FictionLiterature("historical fiction", "F.Scott Fitzgerald",
+            "The Great Gatsby", 2016, 198),
+            new FictionLiterature("science fiction", "Ray Bradbury", "Fahrenheit 451",
+            2004, 208),
+            new Magazine("National Geographic", 2018, 2, 158, Periodical.Audience.ANY,
+            Magazine.Periodicity.MONTHLY),
+            new FictionLiterature("dark fantasy", "Stephen King", "The Dark Tower",
+            5, 1, 2003, 336),
+            new FictionLiterature("dark fantasy", "Stephen King", "The Dark Tower",
+            5, 2, 2006, 496),
+            new FictionLiterature("dark fantasy", "Stephen King", "The Dark Tower",
+            5, 3, 2012, 670),
+            new Dictionary(Dictionary.Type.BILINGUAL, "Berlitz", "", "Mandarin Chinese ",
+            2007, 671),
+            new Magazine("National Geographic", 2018, 12, 165, Periodical.Audience.ANY,
+            Magazine.Periodicity.MONTHLY),
+            new Manuale("Paulina Christensen, Wendy Foster, Anne Fox",
+            "German for dummies", 2000, 384, "linguistics", Manuale.Audience.BEGINNER),
+            new Manuale("Mark Frary, Stephen Pincock",
+            "The Origins of the Universe for Dummies", 2012, 350, "astronomy",
+            Manuale.Audience.ANY),
+            new Manuale("Ron White", "How Computers Work", 2007, 464,
+            "information technology", Manuale.Audience.BEGINNER),
+            new Magazine("National Geographic", 2019, 3, 170, Periodical.Audience.ANY,
+            Magazine.Periodicity.MONTHLY),
+            new Magazine("Digital Photography", 2019, 1, 153, Periodical.Audience.ANY,
+            Magazine.Periodicity.MONTHLY)};
+
+        if (books != null && books.maximumCapacity() > 0) {
+            int index = 0;
+            while (books.maximumCapacity() - books.publicationsNumber() > 0) {
+                books.add(arr[index]);
+                index++;
+            }
         }
     }
 
