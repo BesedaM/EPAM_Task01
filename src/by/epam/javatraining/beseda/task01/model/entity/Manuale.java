@@ -2,7 +2,12 @@ package by.epam.javatraining.beseda.task01.model.entity;
 
 import by.epam.javatraining.beseda.task01.model.exception.IllegalAudienceException;
 import by.epam.javatraining.beseda.task01.model.exception.IllegalScienceFieldException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -43,9 +48,9 @@ public class Manuale extends NonPeriodical {
     }
 
     public Manuale(String author, String name, int volumesNumber,
-            int volumeNumber, int date, int pagesNumber,
+            int volumeNumber, int year, int pagesNumber,
             String field, Audience audience) {
-        super(author, name, volumesNumber, volumeNumber, date, pagesNumber);
+        super(author, name, volumesNumber, volumeNumber, year, pagesNumber);
         if (field != null) {
             this.field = field;
         } else {
@@ -149,5 +154,23 @@ public class Manuale extends NonPeriodical {
     @Override
     public String writeAllData() {
         return super.writeAllData() + field + ", " + audience + "; ";
+    }
+
+    private void writeObject(ObjectOutputStream out)
+            throws IOException {
+        out.defaultWriteObject();
+        out.writeUTF("Valid data");
+    }
+
+    private void readObject(ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        in.readUTF();
+        try {
+            setField(" ");
+            setAudience(DEFAULT_AUDIENCE);
+        } catch (IllegalScienceFieldException | IllegalAudienceException ex) {
+            //this case no exception should be thrown
+        }
     }
 }

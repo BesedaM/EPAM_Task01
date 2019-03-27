@@ -5,6 +5,7 @@ import by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task03.exception.ReaderCreatorTechnicalException;
+import java.io.BufferedInputStream;
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
@@ -18,20 +19,23 @@ import java.io.ObjectInputStream;
  */
 public class ObjectsReader {
 
-    public static final String FILE_NAME
-            = "C:\\Users\\User\\Documents\\NetBeansProjects\\EPAM_01\\SerializedData.dat";
+    public static final String FILE_PATH
+            = "C:\\Users\\User\\Documents\\NetBeansProjects\\EPAM_01";
+    public static final String FILE_NAME = "SerializedData.dat";
 
-    public static PublicationContainer readData(String fileName) throws ReaderCreatorTechnicalException {
+    public static PublicationContainer readData(String fileName) 
+            throws ReaderCreatorTechnicalException {
         File file;
         if (fileName != null) {
-            file = new File(fileName);
+            file = new File(FILE_PATH, fileName);
         } else {
-            file = new File(FILE_NAME);
+            file = new File(FILE_PATH, FILE_NAME);
         }
         PublicationContainer container = new HomeLibrary();
         Publication obj;
 
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file))) {
+        try (ObjectInputStream ois = new ObjectInputStream(
+                new BufferedInputStream(new FileInputStream(file)))) {
             while (ois != null) {
                 obj = (Publication) ois.readObject();
                 if (obj != null) {
