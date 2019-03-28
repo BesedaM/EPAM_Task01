@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task03.validator;
+package by.epam.javatraining.beseda.task03.model.validator;
 
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;

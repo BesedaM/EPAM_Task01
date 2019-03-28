@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task03.reader;
+package by.epam.javatraining.beseda.task03.model.reader;
 
 /**
  *

@@ -1,7 +1,6 @@
-package by.epam.javatraining.beseda.task03.serializator;
+package by.epam.javatraining.beseda.task03.model.serializator;
 
 import by.epam.javatraining.beseda.task01.model.entity.Manuale;
-import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationLogicException;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;

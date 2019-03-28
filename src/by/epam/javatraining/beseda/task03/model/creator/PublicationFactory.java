@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task03.creator;
+package by.epam.javatraining.beseda.task03.model.creator;
 
 import by.epam.javatraining.beseda.task01.model.entity.Dictionary;
 import by.epam.javatraining.beseda.task01.model.entity.FictionLiterature;
@@ -8,8 +8,8 @@ import by.epam.javatraining.beseda.task01.model.entity.Newspaper;
 import by.epam.javatraining.beseda.task01.model.entity.NullPublication;
 import by.epam.javatraining.beseda.task01.model.entity.Periodical;
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
-import by.epam.javatraining.beseda.task03.parser.PublicationParser;
-import by.epam.javatraining.beseda.task03.validator.PublicationTypeWithRegularExpression;
+import by.epam.javatraining.beseda.task03.model.parser.PublicationParser;
+import by.epam.javatraining.beseda.task03.model.validator.PublicationTypeWithRegularExpression;
 
 /**
  *

@@ -1,11 +1,11 @@
-package by.epam.javatraining.beseda.task03.validator;
+package by.epam.javatraining.beseda.task03.model.validator;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
-import by.epam.javatraining.beseda.task03.creator.PublicationFactory;
-import by.epam.javatraining.beseda.task03.exception.ReaderCreatorTechnicalException;
-import by.epam.javatraining.beseda.task03.parser.StringToArrayParser;
+import by.epam.javatraining.beseda.task03.model.creator.PublicationFactory;
+import by.epam.javatraining.beseda.task03.model.exception.ReaderCreatorTechnicalException;
+import by.epam.javatraining.beseda.task03.model.parser.StringToArrayParser;
 
 /**
  *

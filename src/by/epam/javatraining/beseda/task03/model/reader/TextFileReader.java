@@ -1,6 +1,6 @@
-package by.epam.javatraining.beseda.task03.reader;
+package by.epam.javatraining.beseda.task03.model.reader;
 
-import by.epam.javatraining.beseda.task03.exception.ReaderCreatorTechnicalException;
+import by.epam.javatraining.beseda.task03.model.exception.ReaderCreatorTechnicalException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

@@ -2,10 +2,10 @@ package by.epam.javatraining.beseda.task03.processor;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
-import by.epam.javatraining.beseda.task03.exception.ReaderCreatorException;
-import by.epam.javatraining.beseda.task03.reader.BinaryFileReader;
+import by.epam.javatraining.beseda.task03.model.exception.ReaderCreatorException;
+import by.epam.javatraining.beseda.task03.model.reader.BinaryFileReader;
 import by.epam.javatraining.beseda.task03.util.FilesCreator;
-import by.epam.javatraining.beseda.task03.validator.ValidatorCreator;
+import by.epam.javatraining.beseda.task03.model.validator.ValidatorCreator;
 import org.apache.log4j.Logger;
 
 /**

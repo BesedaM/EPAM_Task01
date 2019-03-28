@@ -1,10 +1,10 @@
-package by.epam.javatraining.beseda.task03.reader;
+package by.epam.javatraining.beseda.task03.model.reader;
 
 import by.epam.javatraining.beseda.task01.model.entity.Publication;
 import by.epam.javatraining.beseda.task01.model.entity.container.HomeLibrary;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
-import by.epam.javatraining.beseda.task03.exception.ReaderCreatorTechnicalException;
+import by.epam.javatraining.beseda.task03.model.exception.ReaderCreatorTechnicalException;
 import java.io.BufferedInputStream;
 import java.io.EOFException;
 import java.io.File;
@@ -17,7 +17,7 @@ import java.io.ObjectInputStream;
  * @author Beseda
  * @version 1.0 25/03/2019
  */
-public class ObjectsReader {
+public class SerializableReader {
 
     public static final String FILE_PATH
             = "C:\\Users\\User\\Documents\\NetBeansProjects\\EPAM_01";

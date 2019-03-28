@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task03.exception;
+package by.epam.javatraining.beseda.task03.model.exception;
 
 /**
  *

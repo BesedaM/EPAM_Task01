@@ -1,8 +1,8 @@
-package by.epam.javatraining.beseda.task03.serializator;
+package by.epam.javatraining.beseda.task03.model.serializator;
 
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
-import by.epam.javatraining.beseda.task03.exception.ReaderCreatorTechnicalException;
+import by.epam.javatraining.beseda.task03.model.exception.ReaderCreatorTechnicalException;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;

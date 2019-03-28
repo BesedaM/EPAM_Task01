@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task03.parser;
+package by.epam.javatraining.beseda.task03.model.parser;
 
 /**
  *
