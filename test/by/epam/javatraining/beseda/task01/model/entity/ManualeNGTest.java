@@ -35,7 +35,7 @@ public class ManualeNGTest {
 
     @DataProvider(name = "incorrect data in constructor")
     public Object[][] createManualeIncorrect() {
-        return new Object[][]{{new Manuale(null, null, -1, -1, null, null)}};
+        return new Object[][]{{new Manuale("", null, -1, -1, null, null)}};
 
     }
 
