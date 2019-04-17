@@ -1,5 +1,6 @@
 package by.epam.javatraining.beseda.task06.controller;
 
+import by.epam.javatraining.beseda.task06.controller.systemconfig.ProjectProperties;
 import by.epam.javatraining.beseda.task01.model.entity.container.PublicationContainer;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.model.logic.calculator.PagesNumberCalculator;

@@ -1,14 +1,15 @@
-package by.epam.javatraining.beseda.task06.controller;
+package by.epam.javatraining.beseda.task06.controller.systemconfig;
 
-import by.epam.javatraining.beseda.task06.model.factory.PublicationBuilderFactory;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 import org.apache.log4j.Logger;
 
 /**
+ * Class, referencing default system configurating properties
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 17/04/2019
  */
 public class ProjectProperties {
 
