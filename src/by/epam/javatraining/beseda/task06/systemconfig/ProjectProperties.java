@@ -1,4 +1,4 @@
-package by.epam.javatraining.beseda.task06.controller.systemconfig;
+package by.epam.javatraining.beseda.task06.systemconfig;
 
 import java.io.FileInputStream;
 import java.io.IOException;

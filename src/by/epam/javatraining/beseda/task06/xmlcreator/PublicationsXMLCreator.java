@@ -12,7 +12,7 @@ import by.epam.javatraining.beseda.task01.model.entity.container.PublicationCont
 import by.epam.javatraining.beseda.task01.model.exception.IllegalIDException;
 import by.epam.javatraining.beseda.task01.model.exception.PublicationContainerException;
 import by.epam.javatraining.beseda.task01.util.PublicationContainerCreator;
-import by.epam.javatraining.beseda.task06.controller.systemconfig.ProjectProperties;
+import by.epam.javatraining.beseda.task06.systemconfig.ProjectProperties;
 import by.epam.javatraining.beseda.task06.model.builder.util.PublicationFieldEnum;
 import by.epam.javatraining.beseda.task06.model.builder.util.PublicationType;
 import java.io.FileWriter;

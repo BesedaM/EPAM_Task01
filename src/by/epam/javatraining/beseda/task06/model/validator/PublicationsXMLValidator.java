@@ -1,6 +1,6 @@
 package by.epam.javatraining.beseda.task06.model.validator;
 
-import by.epam.javatraining.beseda.task06.controller.systemconfig.ProjectProperties;
+import by.epam.javatraining.beseda.task06.systemconfig.ProjectProperties;
 import java.io.File;
 import java.io.IOException;
 import javax.xml.XMLConstants;
