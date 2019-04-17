@@ -17,9 +17,9 @@ import org.apache.log4j.Logger;
  */
 public class FilePrinter implements Printer {
 
-    public static String FILE_NAME 
+    public static String FILE_NAME
             = "C:\\Users\\User\\Documents\\NetBeansProjects\\EPAM_01\\SimpleText.txt";
-    
+
     BufferedWriter writer = null;
 
     public FilePrinter() {
@@ -28,6 +28,15 @@ public class FilePrinter implements Printer {
         } catch (IOException ex) {
             Logger.getLogger(FilePrinter.class).fatal(ex);
         }
+    }
+
+    public FilePrinter(String wholeFileName) {
+        try {
+            writer = new BufferedWriter(new FileWriter(wholeFileName, true));
+        } catch (IOException ex) {
+            Logger.getLogger(FilePrinter.class).fatal(ex);
+        }
+
     }
 
     @Override

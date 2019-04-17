@@ -17,8 +17,8 @@ public class NonPeriodical extends Publication {
 
     protected String author;
     protected boolean multivolume;
-    protected int volumeNumber;
-    protected int volumesNumber;
+    protected int volumeNumber = 1;
+    protected int volumesNumber = 1;
 
     protected NonPeriodical() {
         super();
@@ -35,20 +35,21 @@ public class NonPeriodical extends Publication {
     }
 
     protected NonPeriodical(String author, String name, int volumesNumber,
-            int volumeNumber, int date, int pagesNumber) {
-        super(name, date, pagesNumber);
+            int volumeNumber, int year, int pagesNumber) {
+        super(name, year, pagesNumber);
         if (author != null) {
             this.author = author;
         } else {
             this.author = DEFAULT_AUTHOR;
         }
-        this.multivolume = true;
+        if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
+            this.volumesNumber = volumesNumber;
+            this.multivolume = true;
+        }
         if (volumeNumber > 0) {
             this.volumeNumber = volumeNumber;
         }
-        if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
-            this.volumesNumber = volumesNumber;
-        }
+
     }
 
     protected NonPeriodical(Publication p, String author, int volumesNumber,
@@ -104,6 +105,7 @@ public class NonPeriodical extends Publication {
     public void setVolumesNumber(int volumesNumber) throws IllegalVolumesNumberException {
         if (volumesNumber >= MINIMUM_VOLUMES_NUMBER) {
             this.volumesNumber = volumesNumber;
+            this.multivolume = true;
         } else {
             throw new IllegalVolumesNumberException();
         }

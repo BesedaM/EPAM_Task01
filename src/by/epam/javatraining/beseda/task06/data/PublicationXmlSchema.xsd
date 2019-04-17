@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+
+<xs:schema version="1.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://www.example.com/publications"
+           xmlns:pns="http://www.example.com/publications"
+           elementFormDefault="qualified">
+    
+    <xs:element name="Publication" type="pns:Publication" abstract="true"/>
+    <xs:element name="Periodical" type="pns:Periodical" abstract="true" substitutionGroup="pns:Publication"/>
+    <xs:element name="NonPeriodical" type="pns:NonPeriodical" abstract="true" substitutionGroup="pns:Publication"/>
+    <xs:element name="Magazine" type="pns:Magazine" substitutionGroup="pns:Periodical"/>
+    <xs:element name="Newspaper" type="pns:Newspaper" substitutionGroup="pns:Periodical"/>
+    <xs:element name="Dictionary" type="pns:Dictionary" substitutionGroup="pns:NonPeriodical"/>
+    <xs:element name="Manuale" type="pns:Manuale" substitutionGroup="pns:NonPeriodical"/>
+    <xs:element name="FictionLiterature" type="pns:FictionLiterature" substitutionGroup="pns:NonPeriodical"/>        
+    <xs:element name="publications">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="pns:Publication" minOccurs="2" maxOccurs="unbounded"/>   
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="Publication">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="year" type="xs:positiveInteger"/>
+            <xs:element name="pagesNumber" type="xs:positiveInteger"/>
+        </xs:sequence>
+        <xs:attribute name="id" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="Periodical">
+        <xs:complexContent>
+            <xs:extension base="pns:Publication">
+                <xs:sequence>
+                    <xs:element name="audience" default="ANY">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="CHILDREN"/>
+                                <xs:enumeration value="TEENAGERS"/>
+                                <xs:enumeration value="ADULTS"/>
+                                <xs:enumeration value="ANY"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>
+                    <xs:element name="number" type="xs:positiveInteger"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="NonPeriodical">
+        <xs:complexContent>
+            <xs:extension base="pns:Publication">
+                <xs:sequence>
+                    <xs:element name="author" type="xs:string"/>
+                    <xs:element name="volumesNumber" type="xs:nonNegativeInteger" minOccurs="0"/>
+                    <xs:element name="volumeNumber" type="xs:nonNegativeInteger" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Magazine">
+        <xs:complexContent>
+            <xs:extension base="pns:Periodical">
+                <xs:sequence>
+                    <xs:element name="periodicity" default="WEEKLY">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="ANNUAL"/>   
+                                <xs:enumeration value="TWICE_A_YEAR"/>
+                                <xs:enumeration value="ONCE_A_QUATER"/>
+                                <xs:enumeration value="MONTHLY"/>
+                                <xs:enumeration value="TWICE_A_MONTH"/>
+                                <xs:enumeration value="WEEKLY"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>                    
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Newspaper">
+        <xs:complexContent>
+            <xs:extension base="pns:Periodical">
+                <xs:sequence>
+                    <xs:element name="periodicity" default="WEEKLY">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="MONTHLY"/>
+                                <xs:enumeration value="TWICE_A_MONTH"/>
+                                <xs:enumeration value="WEEKLY"/>
+                                <xs:enumeration value="TWICE_A_WEEK"/>
+                                <xs:enumeration value="THREE_TIMES_A_WEEK"/>
+                                <xs:enumeration value="DAYLY"/>
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element>                    
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Dictionary">
+        <xs:complexContent>
+            <xs:extension base="pns:NonPeriodical">
+                <xs:sequence>
+                    <xs:element name="type" default="BILINGUAL">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="BILINGUAL"/> 
+                                <xs:enumeration value="MONOLINGUAL"/> 
+                                <xs:enumeration value="ENCYCLOPEDIA"/> 
+                                <xs:enumeration value="THESAURUS"/> 
+                                <xs:enumeration value="GLOSSARY"/> 
+                                <xs:enumeration value="ILLUSTRATED"/> 
+                                <xs:enumeration value="POCKET"/> 
+                            </xs:restriction>
+                        </xs:simpleType>
+                    </xs:element> 
+                    <xs:element name="publishers" type="xs:string"/>
+                </xs:sequence>
+            </xs:extension> 
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="Manuale">
+        <xs:complexContent>
+            <xs:extension base="pns:NonPeriodical">
+                <xs:sequence>
+                    <xs:element name="field" type="xs:string"/>
+                    <xs:element name="audience" default="ANY">
+                        <xs:simpleType>
+                            <xs:restriction base="xs:string">
+                                <xs:enumeration value="BEGINNER"/>
+                                <xs:enumeration value="AMATEUR"/>
+                                <xs:enumeration value="PROFESSIONAL"/>
+                                <xs:enumeration value="ANY"/>
+                            </xs:restriction>  
+                        </xs:simpleType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension> 
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="FictionLiterature">
+        <xs:complexContent>
+            <xs:extension base="pns:NonPeriodical">
+                <xs:sequence>
+                    <xs:element name="genre" type="xs:string"/>
+                </xs:sequence> 
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+</xs:schema>

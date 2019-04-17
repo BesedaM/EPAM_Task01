@@ -1,0 +1,25 @@
+First we'll create the XML file
+Next we'll check whether it is valid. If it is valid, we'll continue working...
+
+Input file is valid
+The XML file is valid
+Creating a StAXparser...
+Creating a publication container...
+Print out the result of parsing ...
+
+Victor Hugo. Les Miserables. 2013, 1221 pages
+F.Scott Fitzgerald. The Great Gatsby. 2016, 198 pages
+Ray Bradbury. Fahrenheit 451. 2004, 208 pages
+Magazine National Geographic. 2018, №2, 158 pages
+Stephen King. The Dark Tower. Volume 1 of 5. 2003, 336 pages
+Stephen King. The Dark Tower. Volume 2 of 5. 2006, 496 pages
+Stephen King. The Dark Tower. Volume 3 of 5. 2012, 670 pages
+Berlitz. Mandarin Chinese . 2007
+Magazine National Geographic. 2018, №12, 165 pages
+Paulina Christensen, Wendy Foster, Anne Fox. German for dummies. 2000, 384 pages for beginner
+
+The parser is Ok, let's check whether we can process the result...
+
+Calculate the number of pages of multivolume publication: 1502
+Find all the National Geographic magazines: 
+[Magazine National Geographic. 2018, №2, 158 pages, Magazine National Geographic. 2018, №12, 165 pages]
