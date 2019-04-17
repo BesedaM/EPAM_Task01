@@ -13,13 +13,14 @@ import org.apache.log4j.Logger;
 
 /**
  *
- * @author User
+ * @author Beseda
+ * @version 1.0 17/04/2019
  */
-public class Test {
+public class Controller {
 
     public static void main(String[] args) {
 
-        Logger log = Logger.getLogger(Test.class.getSimpleName());
+        Logger log = Logger.getLogger(Controller.class.getSimpleName());
 
         log.info("First we'll create the XML file");
         PublicationsXMLCreator.createXML(null);
